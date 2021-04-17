@@ -13,4 +13,278 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextAppearance" parent="android:TextAppearance"></style>
+
+
+    <style name="TextAppearance.HeaderOne">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_size_header_one</item>
+    </style>
+
+    <style name="TextAppearance.LargeHeader">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_size_large_header</item>
+    </style>
+
+    <style name="TextAppearance.HeaderTwo">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_size_header_two</item>
+    </style>
+
+    <style name="TextAppearance.HeaderTwoMedium">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/text_size_header_two</item>
+    </style>
+
+    <style name="TextAppearance.LargeText">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_header_three</item>
+    </style>
+
+    <style name="TextAppearance.LargeTextBold">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_size_header_three</item>
+    </style>
+
+    <style name="TextAppearance.RegularTextBold">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_size_regular</item>
+    </style>
+
+    <style name="TextAppearance.LargeTextMedium">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/text_size_header_three</item>
+    </style>
+
+    <style name="TextAppearance.BodyText">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_regular</item>
+    </style>
+
+    <style name="TextAppearance.BodyTextMedium">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/text_size_regular</item>
+    </style>
+
+    <style name="TextAppearance.Small">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="TextAppearance.SmallMedium">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+
+    <!-- Text View Styles -->
+    <style name="TextViewLargeHeader">
+        <item name="android:textAppearance">@style/TextAppearance.LargeHeader</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextViewHeaderOne">
+        <item name="android:textAppearance">@style/TextAppearance.HeaderOne</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextViewHeaderOneMuted">
+        <item name="android:textAppearance">@style/TextAppearance.HeaderOne</item>
+        <item name="android:textColor">@color/text_muted</item>
+    </style>
+
+    <style name="TextViewHeaderOneLight">
+        <item name="android:textAppearance">@style/TextAppearance.HeaderOne</item>
+        <item name="android:textColor">@color/text_light</item>
+    </style>
+
+    <style name="TextViewHeaderOnePrimary">
+        <item name="android:textAppearance">@style/TextAppearance.HeaderOne</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextViewHeaderTwo">
+        <item name="android:textAppearance">@style/TextAppearance.HeaderTwo</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="TextViewHeaderTwoLight">
+        <item name="android:textAppearance">@style/TextAppearance.HeaderTwo</item>
+        <item name="android:textColor">@color/text_muted</item>
+    </style>
+
+    <style name="TextViewHeaderTwoPrimary">
+        <item name="android:textAppearance">@style/TextAppearance.HeaderTwo</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextViewHeaderTwoMediumPrimary">
+        <item name="android:textAppearance">@style/TextAppearance.HeaderTwoMedium</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextViewHeaderTwoMedium">
+        <item name="android:textAppearance">@style/TextAppearance.HeaderTwoMedium</item>
+        <item name="android:textColor">@color/text_regular</item>
+    </style>
+
+    <style name="TextViewHeaderTwoMediumDark">
+        <item name="android:textAppearance">@style/TextAppearance.HeaderTwoMedium</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextViewLargeText">
+        <item name="android:textAppearance">@style/TextAppearance.LargeText</item>
+        <item name="android:textColor">@color/text_regular</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextViewLargeTextMediumDark">
+        <item name="android:textAppearance">@style/TextAppearance.LargeTextMedium</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextViewLargeTextMedium">
+        <item name="android:textAppearance">@style/TextAppearance.LargeTextMedium</item>
+        <item name="android:textColor">@color/text_regular</item>
+    </style>
+
+    <style name="TextViewLargeTextMediumPrimary">
+        <item name="android:textAppearance">@style/TextAppearance.LargeTextMedium</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextViewBodyTextMediumPrimary">
+        <item name="android:textAppearance">@style/TextAppearance.LargeTextMedium</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextViewWarning">
+        <item name="android:textAppearance">@style/TextAppearance.BodyTextMedium</item>
+        <item name="android:textColor">@color/text_warning</item>
+    </style>
+
+    <style name="TextViewMediumTextDark">
+        <item name="android:textAppearance">@style/TextAppearance.BodyTextMedium</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextViewLargeTextDark">
+        <item name="android:textAppearance">@style/TextAppearance.LargeText</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextViewLargeBold">
+        <item name="android:textAppearance">@style/TextAppearance.LargeTextBold</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextViewRegularBold">
+        <item name="android:textAppearance">@style/TextAppearance.RegularTextBold</item>
+        <item name="android:textColor">@color/text_regular</item>
+    </style>
+
+    <style name="TextViewLargeTextPrimary">
+        <item name="android:textAppearance">@style/TextAppearance.LargeText</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextViewLargeTextMuted">
+        <item name="android:textAppearance">@style/TextAppearance.LargeText</item>
+        <item name="android:textColor">@color/text_muted</item>
+    </style>
+
+    <style name="TextViewBodyText">
+        <item name="android:textAppearance">@style/TextAppearance.BodyText</item>
+        <item name="android:textColor">@color/text_regular</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="TextViewBodyTextDark">
+        <item name="android:textAppearance">@style/TextAppearance.BodyText</item>
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextViewBodyTextMuted">
+        <item name="android:textAppearance">@style/TextAppearance.BodyText</item>
+        <item name="android:textColor">@color/text_muted</item>
+    </style>
+
+    <style name="TextViewBodyTextLight">
+        <item name="android:textAppearance">@style/TextAppearance.BodyText</item>
+        <item name="android:textColor">@color/text_light</item>
+    </style>
+
+        <style name="TextViewBodyTextPrimary">
+        <item name="android:textAppearance">@style/TextAppearance.BodyText</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextViewBodyTextMediumDark">
+        <item name="android:textAppearance">@style/TextAppearance.BodyTextMedium</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextViewBodyTextMedium">
+        <item name="android:textAppearance">@style/TextAppearance.BodyTextMedium</item>
+        <item name="android:textColor">@color/text_regular</item>
+    </style>
+
+    <style name="TextViewBodyTextDanger">
+        <item name="android:textAppearance">@style/TextAppearance.BodyText</item>
+        <item name="android:textColor">@color/text_danger</item>
+    </style>
+
+    <style name="TextViewBodyTextMediumDanger">
+        <item name="android:textAppearance">@style/TextAppearance.BodyTextMedium</item>
+        <item name="android:textColor">@color/text_danger</item>
+    </style>
+
+    <style name="TextViewSmallMediumDark">
+        <item name="android:textAppearance">@style/TextAppearance.SmallMedium</item>
+        <item name="android:textColor">@color/text_regular</item>
+    </style>
+
+    <style name="TextViewSmallMediumLight">
+        <item name="android:textAppearance">@style/TextAppearance.SmallMedium</item>
+        <item name="android:textColor">@color/text_light</item>
+    </style>
+
+    <style name="TextViewSmall">
+        <item name="android:textAppearance">@style/TextAppearance.Small</item>
+        <item name="android:textColor">@color/text_regular</item>
+    </style>
+
+    <style name="TextViewSmallDark">
+        <item name="android:textAppearance">@style/TextAppearance.Small</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextViewSmallLight">
+        <item name="android:textAppearance">@style/TextAppearance.Small</item>
+        <item name="android:textColor">@color/text_light</item>
+    </style>
+
+    <style name="TextViewSmallMuted">
+        <item name="android:textAppearance">@style/TextAppearance.Small</item>
+        <item name="android:textColor">@color/text_muted</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextViewSmallPrimary">
+        <item name="android:textAppearance">@style/TextAppearance.Small</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
 </resources>

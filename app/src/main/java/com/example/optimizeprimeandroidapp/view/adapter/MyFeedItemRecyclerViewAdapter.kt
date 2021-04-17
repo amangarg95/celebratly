@@ -1,9 +1,10 @@
-package com.example.optimizeprimeandroidapp
+package com.example.optimizeprimeandroidapp.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.optimizeprimeandroidapp.R
 import com.example.optimizeprimeandroidapp.dummy.DummyContent.DummyItem
 
 class MyFeedItemRecyclerViewAdapter(

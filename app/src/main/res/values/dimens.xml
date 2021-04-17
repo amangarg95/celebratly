@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="text_margin">16dp</dimen>
+    <dimen name="screen_margin_start_end">24dp</dimen>
+    <dimen name="screen_margin_start_end_medium">16dp</dimen>
+    <dimen name="screen_margin_start_end_low">8dp</dimen>
+    <dimen name="screen_margin_top_bottom">32dp</dimen>
+    <dimen name="screen_margin_top_bottom_medium">16dp</dimen>
+    <dimen name="screen_margin_top_bottom_high">28dp</dimen>
+    <dimen name="screen_margin_top_bottom_low">8dp</dimen>
+    <dimen name="screen_margin_top_bottom_extra_low">4dp</dimen>
+    <dimen name="screen_padding_start_end">24dp</dimen>
+    <dimen name="screen_padding_start_end_medium">16dp</dimen>
+    <dimen name="screen_padding_start_end_low">8dp</dimen>
+    <dimen name="screen_padding_top_bottom_low">8dp</dimen>
+    <dimen name="screen_padding_top_bottom_medium">16dp</dimen>
+    <dimen name="screen_padding_very_low">2dp</dimen>
+    <dimen name="screen_margin_top_between_two_items">24dp</dimen>
+    <dimen name="screen_margin_top_between_two_item_low">12dp</dimen>
+    <dimen name="screen_margin_top_between_similar_item">20dp</dimen>
+    <dimen name="screen_margin_top_between_two_segments">40dp</dimen>
+    <dimen name="screen_margin_between_label_value">4dp</dimen>
+    <dimen name="screen_margin_between_title_image">8dp</dimen>
+    <dimen name="screen_margin_between_value_image">12dp</dimen>
+    <dimen name="screen_margin_between_input_fields">16dp</dimen>
+    <dimen name="screen_padding_between_two_item">10dp</dimen>
+    <dimen name="screen_padding_all_side">24dp</dimen>
+    <dimen name="screen_padding_all_side_low">4dp</dimen>
+    <dimen name="screen_no_elevation">0dp</dimen>
+    <dimen name="screen_padding_all_side_medium">16dp</dimen>
+    <dimen name="screen_margin_between_two_item_small">2dp</dimen>
+    <dimen name="screen_bottom_clip_to_padding">60dp</dimen>
+    <dimen name="margin_start_bullet_and_text">8dp</dimen>
+
+    <dimen name="player_timeline_height">26dp</dimen>
+
+
+    <dimen name="size_icon">24dp</dimen>
+    <dimen name="size_image_large">32dp</dimen>
+    <dimen name="size_image_medium">24dp</dimen>
+    <dimen name="size_image_small">16dp</dimen>
+    <dimen name="size_image_tiny">14dp</dimen>
+
+    <dimen name="text_size_large_header">32sp</dimen>
+    <dimen name="text_size_header_one">22sp</dimen>
+    <dimen name="text_size_header_two">18sp</dimen>
+    <dimen name="text_size_header_three">16sp</dimen>
+    <dimen name="text_size_regular">14sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_tiny">10sp</dimen>
 </resources>

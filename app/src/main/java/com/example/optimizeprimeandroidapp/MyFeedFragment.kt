@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.optimizeprimeandroidapp.databinding.FragmentMyFeedBinding
 import com.example.optimizeprimeandroidapp.dummy.DummyContent
+import com.example.optimizeprimeandroidapp.view.adapter.MyFeedItemRecyclerViewAdapter
 
 class MyFeedFragment : Fragment() {
     private lateinit var myFeedFragmentBinding: FragmentMyFeedBinding
