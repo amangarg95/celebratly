@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         mainActivityMainBinding.bnvMenu.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_my_feed -> setCurrentFragment(MyFeedFragment())
-                R.id.item_my_events -> setCurrentFragment(MyEventsFragment())
                 R.id.item_upcoming_events -> setCurrentFragment(UpcomingEventsFragment())
                 R.id.item_my_profile -> setCurrentFragment(MyProfileFragment())
             }

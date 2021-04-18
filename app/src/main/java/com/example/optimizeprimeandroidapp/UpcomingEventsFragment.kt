@@ -1,5 +1,7 @@
 package com.example.optimizeprimeandroidapp
 
+
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.optimizeprimeandroidapp.databinding.FragmentUpcomingEventsBinding
 import com.example.optimizeprimeandroidapp.dummy.DummyContent
-import com.example.optimizeprimeandroidapp.view.adapter.MyFeedItemRecyclerViewAdapter
+import com.example.optimizeprimeandroidapp.view.adapter.UpcomingEventsAdapter
 
-class UpcomingEventsFragment : Fragment() {
+class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener {
     private lateinit var fragmentUpcomingEventsBinding: FragmentUpcomingEventsBinding
 
     override fun onCreateView(
@@ -24,7 +26,13 @@ class UpcomingEventsFragment : Fragment() {
         fragmentUpcomingEventsBinding.lifecycleOwner = this
 
         fragmentUpcomingEventsBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
-        fragmentUpcomingEventsBinding.rvMyFeed.adapter = MyFeedItemRecyclerViewAdapter(DummyContent.ITEMS)
+        fragmentUpcomingEventsBinding.rvMyFeed.adapter =
+            UpcomingEventsAdapter(DummyContent.ITEMS, this)
         return fragmentUpcomingEventsBinding.root
+    }
+
+    override fun onItemClick() {
+        val intent = Intent(this.context, UploadDataActivity::class.java)
+        startActivity(intent)
     }
 }

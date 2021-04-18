@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.optimizeprimeandroidapp.databinding.FragmentMyFeedBinding
 import com.example.optimizeprimeandroidapp.dummy.DummyContent
-import com.example.optimizeprimeandroidapp.view.adapter.MyFeedItemRecyclerViewAdapter
+import com.example.optimizeprimeandroidapp.view.adapter.MyProfileAdapter
 
 class MyFeedFragment : Fragment() {
     private lateinit var myFeedFragmentBinding: FragmentMyFeedBinding
@@ -24,7 +24,7 @@ class MyFeedFragment : Fragment() {
         myFeedFragmentBinding.lifecycleOwner = this
 
         myFeedFragmentBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
-        myFeedFragmentBinding.rvMyFeed.adapter = MyFeedItemRecyclerViewAdapter(DummyContent.ITEMS)
+        myFeedFragmentBinding.rvMyFeed.adapter = MyProfileAdapter(DummyContent.ITEMS, true)
         return myFeedFragmentBinding.root
     }
 }

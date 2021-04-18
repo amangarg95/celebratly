@@ -44,7 +44,7 @@ class MyProfileFragment : Fragment() {
         fragmentMyProfileBinding.lifecycleOwner = this
 
         fragmentMyProfileBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
-        fragmentMyProfileBinding.rvMyFeed.adapter = MyProfileAdapter(DummyContent.ITEMS)
+        fragmentMyProfileBinding.rvMyFeed.adapter = MyProfileAdapter(DummyContent.ITEMS, false)
 
         CommonCode(context!!).loadUserProfileImage(fragmentMyProfileBinding.ivUserProfile, "")
         /*exoFullScreenToggle = fragmentMyProfileBinding.exoPlayerView.exo_full_screen_toggle

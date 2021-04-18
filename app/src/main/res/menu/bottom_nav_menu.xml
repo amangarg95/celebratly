@@ -5,10 +5,6 @@
         android:icon="@drawable/ic_upcoming_events"
         android:title="My Feed" />
     <item
-        android:id="@+id/item_my_events"
-        android:icon="@drawable/ic_upcoming_events"
-        android:title="My Events" />
-    <item
         android:id="@+id/item_upcoming_events"
         android:icon="@drawable/ic_upcoming_events"
         android:title="Upcoming Events" />
