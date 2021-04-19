@@ -44,7 +44,7 @@
                     style="@style/TextViewMediumTextDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Happy Birthday Kavita!"
+                    android:text="It's Aman's Birthday!"
                     android:layout_marginStart="@dimen/screen_margin_start_end_medium"
                     app:layout_constraintStart_toEndOf="@+id/iv_user_profile"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +56,7 @@
                     app:layout_constraintStart_toEndOf="@+id/iv_user_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Blah blah blah...\nBlah blah blah..."
+                    android:text="Wish him before it's too late!"
                     android:textAppearance="?attr/textAppearanceListItem"
                     app:layout_constraintTop_toBottomOf="@+id/tv_card_name" />
             </androidx.constraintlayout.widget.ConstraintLayout>

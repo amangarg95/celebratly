@@ -6,60 +6,85 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Base64
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
-import com.example.optimizeprimeandroidapp.databinding.ActivityUploadDataBinding
+import com.example.optimizeprimeandroidapp.databinding.ActivityUploadData2Binding
+import com.example.optimizeprimeandroidapp.helper.CommonCode
 import java.io.ByteArrayOutputStream
 
 class UploadDataActivity : AppCompatActivity() {
-    lateinit var uploadDataActivityBinding: ActivityUploadDataBinding
+    lateinit var uploadDataActivityBinding: ActivityUploadData2Binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uploadDataActivityBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_upload_data)
+            DataBindingUtil.setContentView(this, R.layout.activity_upload_data_2)
         uploadDataActivityBinding.lifecycleOwner = this
-        uploadDataActivityBinding.tvOpenCamera.setOnClickListener { takePhoto() }
-        uploadDataActivityBinding.tvOpenGallery.setOnClickListener { selectImageInAlbum() }
+        uploadDataActivityBinding.llOpenCamera.setOnClickListener { takePhoto() }
+        uploadDataActivityBinding.llOpenGallery.setOnClickListener { selectImageInAlbum() }
+        CommonCode(this).loadUserProfileImage(uploadDataActivityBinding.civOpenCamera, "")
+        CommonCode(this).loadUserProfileImage(uploadDataActivityBinding.civOpenGallery, "")
+        CommonCode(this).loadUserProfileImage(uploadDataActivityBinding.civCustomBackground, "")
 
-        uploadDataActivityBinding.llSummer.setOnClickListener {
-            changeBackground(0)
-        }
+        uploadDataActivityBinding.etGreeting.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                //Do nothing
+            }
 
-        uploadDataActivityBinding.llCool.setOnClickListener {
-            changeBackground(1)
-        }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s!!.isNotEmpty()) {
+                    uploadDataActivityBinding.tvPreviewText.visibility = VISIBLE
+                    uploadDataActivityBinding.tvPreviewText.text = s.toString()
+                } else {
+                    uploadDataActivityBinding.tvPreviewText.visibility = GONE
+                }
+            }
 
-        uploadDataActivityBinding.llNight.setOnClickListener {
-            changeBackground(2)
-        }
+            override fun afterTextChanged(s: Editable?) {
 
-        uploadDataActivityBinding.llDesert.setOnClickListener {
-            changeBackground(3)
-        }
+            }
+        })
+//        uploadDataActivityBinding.llSummer.setOnClickListener {
+//            changeBackground(0)
+//        }
+//
+//        uploadDataActivityBinding.llCool.setOnClickListener {
+//            changeBackground(1)
+//        }
+//
+//        uploadDataActivityBinding.llNight.setOnClickListener {
+//            changeBackground(2)
+//        }
+//
+//        uploadDataActivityBinding.llDesert.setOnClickListener {
+//            changeBackground(3)
+//        }
     }
 
-    private fun changeBackground(position: Int) {
-        when (position) {
-            0 -> {
-                uploadDataActivityBinding.ivPreview.background =
-                    ContextCompat.getDrawable(this, R.drawable.ic_summer)
-            }
-            1 -> {
-                uploadDataActivityBinding.ivPreview.background =
-                    ContextCompat.getDrawable(this, R.drawable.ic_cool)
-            }
-            2 -> {
-                uploadDataActivityBinding.ivPreview.background =
-                    ContextCompat.getDrawable(this, R.drawable.ic_night)
-            }
-            3 -> {
-                uploadDataActivityBinding.ivPreview.background =
-                    ContextCompat.getDrawable(this, R.drawable.ic_desert)
-            }
-        }
-    }
+//    private fun changeBackground(position: Int) {
+//        when (position) {
+//            0 -> {
+//                uploadDataActivityBinding.ivPreview.background =
+//                    ContextCompat.getDrawable(this, R.drawable.ic_summer)
+//            }
+//            1 -> {
+//                uploadDataActivityBinding.ivPreview.background =
+//                    ContextCompat.getDrawable(this, R.drawable.ic_cool)
+//            }
+//            2 -> {
+//                uploadDataActivityBinding.ivPreview.background =
+//                    ContextCompat.getDrawable(this, R.drawable.ic_night)
+//            }
+//            3 -> {
+//                uploadDataActivityBinding.ivPreview.background =
+//                    ContextCompat.getDrawable(this, R.drawable.ic_desert)
+//            }
+//        }
+//    }
 
     private fun selectImageInAlbum() {
         val intent = Intent(Intent.ACTION_PICK)

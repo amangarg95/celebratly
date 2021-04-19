@@ -53,7 +53,6 @@ class MyProfileFragment : Fragment() {
         return fragmentMyProfileBinding.root
     }
 
-
     private fun configureMediaPlayer(videoUrl: String) {
         //exoFullScreenToggle.setOnClickListener(this)
         player = ExoPlayerFactory.newSimpleInstance(context, DefaultTrackSelector())

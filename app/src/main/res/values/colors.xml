@@ -11,7 +11,9 @@
     <color name="text_warning">@color/red</color>
     <color name="text_danger">@color/dark_red</color>
     <color name="text_success">@color/green</color>
-
+    <color name="intro_slide_1">#F9E1E0</color>
+    <color name="intro_slide_2">#FEADB9</color>
+    <color name="intro_slide_3">#BC85A3</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
@@ -27,4 +29,9 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="transparent">#00000000</color>
+
+    <color name="color_primary">#212121</color>
+    <color name="color_primary_dark">@android:color/black</color>
+    <color name="color_accent">#4285F4</color>
+    <color name="semi_transparent">#66000000</color>
 </resources>
