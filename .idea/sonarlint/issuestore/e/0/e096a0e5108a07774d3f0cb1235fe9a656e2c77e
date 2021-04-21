@@ -1,0 +1,7 @@
+
+m
+java:S1301,"KReplace this "switch" statement by "if" statements to increase readability.(ÈšÇ¼þÿÿÿÿ8¼Ÿ»¤Ž/
+b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(¯ÙÒÁ8¼Ÿ»¤Ž/
+b	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(±ÔÝ˜8¼Ÿ»¤Ž/
+?
+java:S1659"#Declare "mPage" on a separate line.(£¬’}8¼Ÿ»¤Ž/

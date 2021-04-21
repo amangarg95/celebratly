@@ -23,6 +23,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/Controller.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/GerritAPI.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/IntroActivity.java">
           <value>
             <set />
@@ -68,6 +78,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/RetroPhoto.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/SplashScreenActivity.java">
           <value>
             <set />
@@ -88,6 +103,31 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/User.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/UserProfile.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/dummy/Change.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/dummy/RetroPhoto.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/view/adapter/GetDataService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/view/adapter/IntroAdapter.java">
           <value>
             <set />
@@ -99,6 +139,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/view/adapter/MyProfileAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/view/adapter/RetrofitClientInstance.java">
           <value>
             <set />
           </value>
@@ -219,6 +264,11 @@
           </value>
         </entry>
         <entry key="$USER_HOME$/Desktop/AppIntro/example/src/main/java/com/github/appintro/example/ui/default/DefaultIntro2.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/build.gradle">
           <value>
             <set />
           </value>
