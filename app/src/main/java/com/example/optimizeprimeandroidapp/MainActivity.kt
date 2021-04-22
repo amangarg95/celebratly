@@ -1,6 +1,8 @@
 package com.example.optimizeprimeandroidapp
 
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -11,13 +13,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mainActivityMainBinding: ActivityMainBinding
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         mainActivityMainBinding.lifecycleOwner = this
         setCurrentFragment(MyFeedFragment())
-        mainActivityMainBinding.bnvMenu.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
+        mainActivityMainBinding.bnvMenu.addBubbleListener {
+            when (it) {
                 R.id.item_my_feed -> setCurrentFragment(MyFeedFragment())
                 R.id.item_upcoming_events -> setCurrentFragment(UpcomingEventsFragment())
                 R.id.item_my_profile -> setCurrentFragment(MyProfileFragment())
