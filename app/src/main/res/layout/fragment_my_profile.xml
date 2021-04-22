@@ -5,8 +5,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@drawable/ic_cool"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_cool">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -17,16 +17,29 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_my_profile"
+            style="@style/TextViewLargeBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="My Profile"
+            android:textColor="@color/white"
+            android:textSize="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_user_profile"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_gravity="center"
             app:civ_border_width="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/gd_card_start"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_my_profile"
             app:srcCompat="@drawable/no_profile" />
 
 
@@ -35,14 +48,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".4" />
+            app:layout_constraintGuide_percent=".45" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gd_card_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".25" />
+            app:layout_constraintGuide_percent=".30" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_my_feed"
