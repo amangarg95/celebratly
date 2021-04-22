@@ -106,7 +106,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="@drawable/bg_round"
                 android:padding="@dimen/screen_padding_start_end_medium"
                 android:orientation="vertical">
 
