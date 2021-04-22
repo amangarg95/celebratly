@@ -36,7 +36,7 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
         fragmentUpcomingEventsBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
         fragmentUpcomingEventsBinding.rvMyFeed.adapter =
             UpcomingEventsAdapter(DummyContent.ITEMS, this)
-        callSampleAPI()
+        //callSampleAPI()
         return fragmentUpcomingEventsBinding.root
     }
 
