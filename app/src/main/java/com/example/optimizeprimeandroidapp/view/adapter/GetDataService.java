@@ -18,11 +18,8 @@ public interface GetDataService {
     @GET("/photos")
     Call<List<RetroPhoto>> getAllPhotos();
 
-    @GET("/users")
+    @GET("/users.json")
     Call<List<User>> getUserList();
-
-//    @POST("/users")
-//    Call<List<User>> getUser();
 
     @FormUrlEncoded
     @POST()

@@ -50,7 +50,7 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
             GetDataService::class.java
         )
 
-        val call: Call<UserProfile> = service.getUser("login", "karan.valecha@kiprosh.com")
+        val call: Call<UserProfile> = service.getUser("login.json", "karan.valecha@kiprosh.com")
         call.enqueue(object : Callback<UserProfile> {
             override fun onResponse(
                 call: Call<UserProfile>,

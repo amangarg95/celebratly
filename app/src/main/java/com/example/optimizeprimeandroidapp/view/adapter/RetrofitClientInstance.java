@@ -10,8 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
-    //private static final String BASE_URL = "https://kiprosh-optimize-prime.herokuapp.com";
+    //private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+    private static final String BASE_URL = "https://kiprosh-optimize-prime.herokuapp.com";
 
 
     public static Retrofit getRetrofitInstance() {
