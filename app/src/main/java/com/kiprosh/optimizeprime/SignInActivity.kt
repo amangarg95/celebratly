@@ -13,6 +13,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.ktx.messaging
 import com.kiprosh.optimizeprime.databinding.ActivitySingInBinding
 
 class SignInActivity : AppCompatActivity(), View.OnClickListener {
@@ -27,14 +28,16 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sing_in)
         binding.btnGoogleSignIn.setOnClickListener(this)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .setHostedDomain(getString(R.string.sign_in_domain))
-            .requestIdToken(getString(R.string.auth_api_key))
-            .requestEmail()
-            .build()
+                .setHostedDomain(getString(R.string.sign_in_domain))
+                .requestIdToken(getString(R.string.auth_api_key))
+                .requestEmail()
+                .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         googleSignInClient.signOut()
         auth = Firebase.auth
+        Firebase.messaging.isAutoInitEnabled = true
+
     }
 
     override fun onClick(v: View?) {
