@@ -21,21 +21,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OptimizePrimeAndroidApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UploadDataActivity" />
-        <activity android:name=".IntroActivity" />
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".UploadDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".IntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashScreenActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     </application>
 
 </manifest>

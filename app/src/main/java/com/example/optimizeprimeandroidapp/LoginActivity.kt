@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.optimizeprimeandroidapp.databinding.ActivityLoginBinding
+import com.example.optimizeprimeandroidapp.helper.ProgressDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient

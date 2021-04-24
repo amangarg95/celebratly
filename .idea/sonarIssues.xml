@@ -128,6 +128,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/helper/ProgressDialog.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/example/optimizeprimeandroidapp/view/adapter/GetDataService.java">
           <value>
             <set />
@@ -194,6 +199,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_upload_data_2.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/dialog_progress.xml">
           <value>
             <set />
           </value>
