@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_upload_data"
-        tools:context=".UploadDataActivity">
+        tools:context=".view.activity.UploadDataActivity">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_preview"

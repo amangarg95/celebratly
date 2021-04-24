@@ -1,23 +1,19 @@
-package com.example.optimizeprimeandroidapp
+package com.example.optimizeprimeandroidapp.view.fragment
 
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.optimizeprimeandroidapp.R
+import com.example.optimizeprimeandroidapp.view.activity.UploadDataActivity
 import com.example.optimizeprimeandroidapp.databinding.FragmentUpcomingEventsBinding
 import com.example.optimizeprimeandroidapp.dummy.DummyContent
-import com.example.optimizeprimeandroidapp.view.adapter.GetDataService
-import com.example.optimizeprimeandroidapp.view.adapter.RetrofitClientInstance
 import com.example.optimizeprimeandroidapp.view.adapter.UpcomingEventsAdapter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener {

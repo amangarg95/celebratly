@@ -1,9 +1,10 @@
-package com.example.optimizeprimeandroidapp
+package com.example.optimizeprimeandroidapp.view.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.example.optimizeprimeandroidapp.R
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

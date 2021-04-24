@@ -1,8 +1,9 @@
-package com.example.optimizeprimeandroidapp
+package com.example.optimizeprimeandroidapp.view.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.optimizeprimeandroidapp.R
 import com.github.appintro.AppIntro
 import com.github.appintro.AppIntroFragment
 import com.github.appintro.AppIntroPageTransformerType

@@ -1,16 +1,14 @@
-package com.example.optimizeprimeandroidapp
+package com.example.optimizeprimeandroidapp.view.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.example.optimizeprimeandroidapp.R
 import com.example.optimizeprimeandroidapp.databinding.ActivityLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 
 class LoginActivity : AppCompatActivity() {
     private val RC_SIGN_IN = 1

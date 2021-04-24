@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_my_feed"
             android:layout_height="0dp"
-            tools:context=".MyFeedFragment"
+            tools:context=".view.fragment.MyFeedFragment"
             tools:listitem="@layout/fragment_my_feed_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

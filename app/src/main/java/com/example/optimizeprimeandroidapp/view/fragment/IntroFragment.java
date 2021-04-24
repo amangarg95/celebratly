@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp;
+package com.example.optimizeprimeandroidapp.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.optimizeprimeandroidapp.R;
 
 public class IntroFragment extends Fragment {
 

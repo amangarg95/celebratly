@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp
+package com.example.optimizeprimeandroidapp.view.fragment
 
 import android.net.Uri
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.optimizeprimeandroidapp.R
 import com.example.optimizeprimeandroidapp.databinding.FragmentMyProfileBinding
 import com.example.optimizeprimeandroidapp.dummy.DummyContent
 import com.example.optimizeprimeandroidapp.helper.CommonCode
@@ -25,7 +26,6 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
-import kotlinx.android.synthetic.main.home_player_control.view.*
 
 class MyProfileFragment : Fragment() {
     private lateinit var fragmentMyProfileBinding: FragmentMyProfileBinding

@@ -21,18 +21,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OptimizePrimeAndroidApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".view.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UploadDataActivity" />
-        <activity android:name=".IntroActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".view.activity.UploadDataActivity" />
+        <activity android:name=".view.activity.IntroActivity" />
+        <activity android:name=".view.activity.MainActivity" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".view.activity.SplashScreenActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
         </activity>
