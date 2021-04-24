@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "647031865202",
+    "project_id": "optimize-prime-kiprosh",
+    "storage_bucket": "optimize-prime-kiprosh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647031865202:android:863363262d6ee9e650e7eb",
+        "android_client_info": {
+          "package_name": "com.kiprosh.optimizeprime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "647031865202-ng5pulb0mfi1cmtkf3qiaaifvt40d5dr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kiprosh.optimizeprime",
+            "certificate_hash": "bf19a423fe9f5cf22107678ca557a97bbf9dd2ee"
+          }
+        },
+        {
+          "client_id": "647031865202-i5j5m6cf950pb8kn2n2t6dedqi0hta8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFfwqxE7ZuLzXE8V0LC8Cb6qBXSpoIYSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "647031865202-i5j5m6cf950pb8kn2n2t6dedqi0hta8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
