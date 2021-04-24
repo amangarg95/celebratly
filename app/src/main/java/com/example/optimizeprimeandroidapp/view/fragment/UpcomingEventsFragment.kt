@@ -3,6 +3,7 @@ package com.example.optimizeprimeandroidapp.view.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +14,19 @@ import com.example.optimizeprimeandroidapp.R
 import com.example.optimizeprimeandroidapp.view.activity.UploadDataActivity
 import com.example.optimizeprimeandroidapp.databinding.FragmentUpcomingEventsBinding
 import com.example.optimizeprimeandroidapp.dummy.DummyContent
+import com.example.optimizeprimeandroidapp.model.UpcomingEventsResponse
+import com.example.optimizeprimeandroidapp.services.APIInterface
+import com.example.optimizeprimeandroidapp.view.adapter.RetrofitClientInstance
 import com.example.optimizeprimeandroidapp.view.adapter.UpcomingEventsAdapter
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.util.ArrayList
 
 
 class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener {
     private lateinit var fragmentUpcomingEventsBinding: FragmentUpcomingEventsBinding
+    lateinit var apiInterface: APIInterface
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +40,8 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
         fragmentUpcomingEventsBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
         fragmentUpcomingEventsBinding.rvMyFeed.adapter =
             UpcomingEventsAdapter(DummyContent.ITEMS, this)
-        //callSampleAPI()
+        apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface::class.java)
+
         return fragmentUpcomingEventsBinding.root
     }
 
@@ -40,43 +50,29 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
         startActivity(intent)
     }
 
-//    fun callSampleAPI() {
-//        val service = RetrofitClientInstance.getRetrofitInstance().create(
-//            GetDataService::class.java
-//        )
-//
-//        val call: Call<UserProfile> = service.getUser("login.json", "karan.valecha@kiprosh.com")
-//        call.enqueue(object : Callback<UserProfile> {
-//            override fun onResponse(
-//                call: Call<UserProfile>,
-//                response: Response<UserProfile>
-//            ) {
-//                Log.v("Hello", response.body()!!.url)
-//            }
-//
-//            override fun onFailure(call: Call<UserProfile>, t: Throwable) {
-//            }
-//        })
-//    }
+    private fun getUpcomingEvents(){
+        var recyclerDataArrayList: ArrayList<UpcomingEventsResponse>
 
-//    fun callAPIForUserList() {
-//        val service = RetrofitClientInstance.getRetrofitInstance().create(
-//            GetDataService::class.java
-//        )
-//
-//        val call: Call<List<User>> = service.userList
-//        call.enqueue(object : Callback<List<User>> {
-//            override fun onResponse(
-//                call: Call<List<User>>,
-//                response: Response<List<User>>
-//            ) {
-//                response.body()?.forEach {
-//                    Log.v("Hello", it.fullName)
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<List<User>>, t: Throwable) {
-//            }
-//        })
-//    }
+        apiInterface.getUpcomingEvents().enqueue(object :
+            Callback<ArrayList<UpcomingEventsResponse>> {
+            override fun onResponse(
+                call: Call<ArrayList<UpcomingEventsResponse>>,
+                response: Response<ArrayList<UpcomingEventsResponse>>
+            ) {
+                recyclerDataArrayList = response.body()!!
+                Log.d(
+                    "upcoming_test",
+                    "recyclerDataArrayList-->" + recyclerDataArrayList.toString()
+                )
+            }
+
+            override fun onFailure(
+                call: Call<ArrayList<UpcomingEventsResponse>>,
+                throwable: Throwable
+            ) {
+                Log.d("upcoming_test", "throwable-->" + throwable.message)
+
+            }
+        })
+    }
 }

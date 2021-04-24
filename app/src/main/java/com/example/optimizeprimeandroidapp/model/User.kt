@@ -3,6 +3,10 @@ package com.example.optimizeprimeandroidapp.model
 import com.google.gson.annotations.SerializedName
 
 data class User(
+    @SerializedName("profile_url")
+    val profileUrl: String,
+    @SerializedName("token")
+    val token: String,
     @SerializedName("dob")
     val dob: String,
     @SerializedName("doj")

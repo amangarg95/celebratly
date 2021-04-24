@@ -1,9 +1,29 @@
 package com.example.optimizeprimeandroidapp;
 
+import com.example.optimizeprimeandroidapp.model.User;
 import com.google.gson.annotations.SerializedName;
 
 public class UserProfile {
 
+    @SerializedName("user")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "UserProfile{" +
+                "user=" + user +
+                '}';
+    }
+
+    /*
     @SerializedName("dob")
     private String albumId;
     @SerializedName("doj")
@@ -61,5 +81,5 @@ public class UserProfile {
 
     public void setThumbnailUrl(Integer thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
-    }
+    }*/
 }
