@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp
+package com.example.optimizeprimeandroidapp.model
 
 import com.google.gson.annotations.SerializedName
 
