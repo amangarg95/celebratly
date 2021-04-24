@@ -36,11 +36,7 @@ P
 Mapp/src/main/java/com/example/optimizeprimeandroidapp/SplashScreenActivity.kt,c/a/ca3dfc96d3d3a0a8017895f7a74af125edd58a96
 v
 Fapp/src/main/java/com/example/optimizeprimeandroidapp/IntroActivity.kt,d/8/d8b358319058f0b5a75b9d947f128125592fa4ef
-t
-Dapp/src/main/java/com/example/optimizeprimeandroidapp/GerritAPI.java,8/b/8bf0892138e6a58e218f82b01307bf9dd4ad1359
-u
-Eapp/src/main/java/com/example/optimizeprimeandroidapp/Controller.java,f/a/fa07f8493971a7495f3d26da73928d4acba2216f
-o
-?app/src/main/java/com/example/optimizeprimeandroidapp/Main.java,6/5/65cff702ee9f17d9d962807ca6c3f59644d2fc89
-w
-Gapp/src/main/java/com/example/optimizeprimeandroidapp/dummy/Change.java,b/5/b5ef92ab916a9bd8175d76ff2bd4dae6f90e4204
+v
+Fapp/src/main/java/com/example/optimizeprimeandroidapp/UserProfile.java,3/3/33411f7c360baca76f0b3beb944b31200ca5cba8
+v
+Fapp/src/main/java/com/example/optimizeprimeandroidapp/LoginActivity.kt,b/8/b8f1e5bf3d6dd263141ba9351cb881a515dc6d01

@@ -2,7 +2,6 @@ package com.example.optimizeprimeandroidapp.view.adapter;
 
 import com.example.optimizeprimeandroidapp.User;
 import com.example.optimizeprimeandroidapp.UserProfile;
-import com.example.optimizeprimeandroidapp.dummy.RetroPhoto;
 
 import java.util.List;
 
@@ -14,9 +13,6 @@ import retrofit2.http.POST;
 import retrofit2.http.Url;
 
 public interface GetDataService {
-
-    @GET("/photos")
-    Call<List<RetroPhoto>> getAllPhotos();
 
     @GET("/users.json")
     Call<List<User>> getUserList();
