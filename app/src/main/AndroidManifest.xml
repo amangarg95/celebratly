@@ -29,18 +29,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UploadDataActivity"
+            android:name=".view.activity.UploadDataActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".IntroActivity"
+            android:name=".view.activity.IntroActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".view.activity.SplashScreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     </application>
-
 </manifest>
