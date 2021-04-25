@@ -13,4 +13,6 @@ class CommonCode(val context: Context) {
             .apply(RequestOptions().placeholder(R.drawable.no_profile).error(R.drawable.no_profile))
             .into(civUserProfile)
     }
+
+
 }
