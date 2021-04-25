@@ -33,7 +33,8 @@ class MyFeedFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_my_feed, container, false)
         myFeedFragmentBinding.lifecycleOwner = this
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface::class.java)
-
+        Log.d("occurrence_test", "MyFeedFragment")
+        getOccurrences()
         myFeedFragmentBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
         myFeedFragmentBinding.rvMyFeed.adapter = MyProfileAdapter(null, DummyContent.ITEMS, true)
         return myFeedFragmentBinding.root

@@ -13,10 +13,16 @@ data class OccurrencesResponse(
     val note: String,
     @SerializedName("title")
     val title: String,
-    @SerializedName("created_at")
-    val createdAt: String,
-    @SerializedName("updated_at")
-    val updatedAt: String,
+    @SerializedName("start_at")
+    val startAt: String,
+    @SerializedName("end_at")
+    val endAt: String,
+    @SerializedName("caption")
+    val caption: String,
     @SerializedName("url")
-    val url: String
+    val url: String,
+    @SerializedName("event_type")
+    val eventTyoe: String,
+    @SerializedName("color")
+    val color: String
 )
