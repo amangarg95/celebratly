@@ -3,4 +3,6 @@
     <string name="text_login_instruction">Please sign in with your Kiprosh Google account</string>
     <string name="auth_api_key">647031865202-1q9k8103d0cbsq88qcki4e6sb9pq6d6q.apps.googleusercontent.com</string>
     <string name="sign_in_domain">kiprosh.com</string>
+    <string name="title_date_of_joining">Date Of Joining</string>
+    <string name="title_my_profile">My Profile</string>
 </resources>

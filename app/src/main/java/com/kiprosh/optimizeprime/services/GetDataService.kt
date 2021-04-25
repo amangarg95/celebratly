@@ -1,12 +1,8 @@
-/*
-package com.example.optimizeprimeandroidapp.services
+package com.kiprosh.optimizeprime.services
 
-import com.example.optimizeprimeandroidapp.UserProfile
-import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
-import com.example.optimizeprimeandroidapp.model.UpcomingEventsResponse
+import com.kiprosh.optimizeprime.UserProfile
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.*
 
 interface GetDataService {
 
@@ -15,4 +11,4 @@ interface GetDataService {
     fun getUpcomingEvents(): Call<ResponseBody>
 
     fun getOccurrences(): Call<ResponseBody>
-}*/
+}

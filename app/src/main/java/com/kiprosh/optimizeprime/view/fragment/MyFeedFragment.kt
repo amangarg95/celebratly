@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.view.fragment
+package com.kiprosh.optimizeprime.view.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -8,17 +8,17 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.optimizeprimeandroidapp.R
-import com.example.optimizeprimeandroidapp.databinding.FragmentMyFeedBinding
-import com.example.optimizeprimeandroidapp.dummy.DummyContent
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
-import com.example.optimizeprimeandroidapp.services.APIInterface
-import com.example.optimizeprimeandroidapp.view.adapter.MyProfileAdapter
-import com.example.optimizeprimeandroidapp.view.adapter.RetrofitClientInstance
+import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.databinding.FragmentMyFeedBinding
+import com.kiprosh.optimizeprime.dummy.DummyContent
+import com.kiprosh.optimizeprime.services.APIInterface
+import com.kiprosh.optimizeprime.view.adapter.MyProfileAdapter
+import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
+import java.util.*
 
 class MyFeedFragment : Fragment() {
     private lateinit var myFeedFragmentBinding: FragmentMyFeedBinding
@@ -35,7 +35,7 @@ class MyFeedFragment : Fragment() {
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface::class.java)
 
         myFeedFragmentBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
-        myFeedFragmentBinding.rvMyFeed.adapter = MyProfileAdapter(DummyContent.ITEMS, true)
+        myFeedFragmentBinding.rvMyFeed.adapter = MyProfileAdapter(null, DummyContent.ITEMS, true)
         return myFeedFragmentBinding.root
     }
 

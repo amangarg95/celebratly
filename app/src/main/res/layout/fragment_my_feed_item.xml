@@ -32,7 +32,6 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_name"
-                    android:text="Kavita Patil"
                     style="@style/TextViewMediumTextDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -48,7 +47,6 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
                     android:id="@+id/tv_email"
-                    android:text="kavita@kiprosh.com"
                     style="@style/TextViewMediumTextDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -60,12 +58,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
                     android:id="@+id/tv_dob"
                     style="@style/TextViewMediumTextDark"
-                    android:text="19 December, 1994"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -81,13 +77,12 @@
                     android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
                     android:id="@+id/tv_doj"
                     style="@style/TextViewMediumTextDark"
-                    android:text="19 September, 2018"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_doj_title"
-                    android:text="Date Of Joining"
+                    android:text="@string/title_date_of_joining"
                     style="@style/TextViewBodyTextMuted"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />

@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.view.fragment
+package com.kiprosh.optimizeprime.view.fragment
 
 
 import android.content.Intent
@@ -10,18 +10,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.optimizeprimeandroidapp.R
-import com.example.optimizeprimeandroidapp.view.activity.UploadDataActivity
-import com.example.optimizeprimeandroidapp.databinding.FragmentUpcomingEventsBinding
-import com.example.optimizeprimeandroidapp.dummy.DummyContent
-import com.example.optimizeprimeandroidapp.model.UpcomingEventsResponse
-import com.example.optimizeprimeandroidapp.services.APIInterface
-import com.example.optimizeprimeandroidapp.view.adapter.RetrofitClientInstance
-import com.example.optimizeprimeandroidapp.view.adapter.UpcomingEventsAdapter
+import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.databinding.FragmentUpcomingEventsBinding
+import com.kiprosh.optimizeprime.dummy.DummyContent
+import com.kiprosh.optimizeprime.model.UpcomingEventsResponse
+import com.kiprosh.optimizeprime.services.APIInterface
+import com.kiprosh.optimizeprime.view.activity.UploadDataActivity
+import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
+import com.kiprosh.optimizeprime.view.adapter.UpcomingEventsAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
+import java.util.*
 
 
 class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener {

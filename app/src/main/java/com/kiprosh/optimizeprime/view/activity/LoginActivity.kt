@@ -1,3 +1,4 @@
+/*
 package com.example.optimizeprimeandroidapp.view.activity
 
 import android.content.Intent
@@ -10,7 +11,7 @@ import com.example.optimizeprimeandroidapp.databinding.ActivityLoginBinding
 import com.example.optimizeprimeandroidapp.model.EmailReq
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.example.optimizeprimeandroidapp.model.UpcomingEventsResponse
-import com.example.optimizeprimeandroidapp.services.APIInterface
+import com.kiprosh.optimizeprime.services.APIInterface
 import com.example.optimizeprimeandroidapp.view.adapter.RetrofitClientInstance
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -77,8 +78,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun redirectToMainActivity(){
-        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-        startActivity(intent)
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
     }
 
     private fun getHeaderMap(accessToken: String): Map<String, String> {
@@ -115,4 +116,4 @@ class LoginActivity : AppCompatActivity() {
             }
         })
     }
-}
+}*/

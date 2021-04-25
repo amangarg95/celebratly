@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="My Profile"
+            android:text="@string/title_my_profile"
             android:textColor="@color/white"
             android:textSize="32dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,8 +39,7 @@
             app:layout_constraintBottom_toTopOf="@+id/gd_card_start"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_my_profile"
-            app:srcCompat="@drawable/no_profile" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_my_profile" />
 
 
         <androidx.constraintlayout.widget.Guideline

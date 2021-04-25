@@ -1,7 +1,7 @@
 package com.kiprosh.optimizeprime;
 
-import com.example.optimizeprimeandroidapp.model.User;
 import com.google.gson.annotations.SerializedName;
+import com.kiprosh.optimizeprime.model.User;
 
 public class UserProfile {
 

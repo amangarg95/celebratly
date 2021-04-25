@@ -8,11 +8,9 @@ import de.hdodenhof.circleimageview.CircleImageView
 
 class CommonCode(val context: Context) {
 
-    fun loadUserProfileImage(civUserProfile: CircleImageView, profileUrl: String) {
+    fun loadUserProfileImage(civUserProfile: CircleImageView, profileUrl: String?) {
         Glide.with(context).load(profileUrl)
             .apply(RequestOptions().placeholder(R.drawable.no_profile).error(R.drawable.no_profile))
             .into(civUserProfile)
     }
-
-
 }

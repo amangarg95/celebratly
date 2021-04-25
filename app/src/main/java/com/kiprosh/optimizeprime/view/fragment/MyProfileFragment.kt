@@ -10,8 +10,6 @@ import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kiprosh.optimizeprime.dummy.DummyContent
-
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
@@ -25,34 +23,42 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyProfileBinding
+import com.kiprosh.optimizeprime.dummy.DummyContent
+import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.view.adapter.MyProfileAdapter
 
 class MyProfileFragment : Fragment() {
-    private lateinit var fragmentMyProfileBinding: FragmentMyProfileBinding
+    private lateinit var binding: FragmentMyProfileBinding
 
     private var player: SimpleExoPlayer? = null
     private lateinit var exoFullScreenToggle: ImageView
     private var playerView: PlayerView? = null
+    private lateinit var authenticationHelper: AuthenticationHelper
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        fragmentMyProfileBinding =
+        binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false)
-        fragmentMyProfileBinding.lifecycleOwner = this
-
-        fragmentMyProfileBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
-        fragmentMyProfileBinding.rvMyFeed.adapter = MyProfileAdapter(DummyContent.ITEMS, false)
-
-        CommonCode(context!!).loadUserProfileImage(fragmentMyProfileBinding.ivUserProfile, "")
+        binding.lifecycleOwner = this
+        authenticationHelper = AuthenticationHelper(activity!!.applicationContext)
+        binding.rvMyFeed.layoutManager = LinearLayoutManager(context)
+        val user = authenticationHelper.getUser()
+        binding.rvMyFeed.adapter = MyProfileAdapter(
+            user,
+            DummyContent.ITEMS,
+            false
+        )
+        CommonCode(context!!).loadUserProfileImage(binding.ivUserProfile, user!!.profileUrl)
         /*exoFullScreenToggle = fragmentMyProfileBinding.exoPlayerView.exo_full_screen_toggle
         playerView = fragmentMyProfileBinding.exoPlayerView
         rlPlayer = fragmentMyProfileBinding.rlPlayer*/
-        return fragmentMyProfileBinding.root
+        return binding.root
     }
+
 
     private fun configureMediaPlayer(videoUrl: String) {
         //exoFullScreenToggle.setOnClickListener(this)
