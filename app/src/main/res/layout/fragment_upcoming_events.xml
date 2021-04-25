@@ -5,31 +5,46 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#009999">
+        android:background="@color/white"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/baby_pink"
+            app:layout_constraintBottom_toTopOf="@+id/gd_bg_height"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_bg_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".45" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_upcoming_events"
             style="@style/TextViewLargeBold"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:background="@color/baby_pink"
+            android:fontFamily="@font/roboto_medium"
+            android:padding="16dp"
             android:text="Upcoming Events"
             android:textColor="@color/white"
-            android:textSize="32dp"
+            android:textSize="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_my_feed"
             android:name="com.example.optimizeprimeandroidapp.MyFeedFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="16dp"
-            android:background="#009999"
             app:layout_constraintTop_toBottomOf="@id/tv_upcoming_events"
             tools:context=".view.fragment.UpcomingEventsFragment"
-            tools:listitem="@layout/fragment_my_feed_item" />
+            tools:listitem="@layout/fragment_upcoming_event_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

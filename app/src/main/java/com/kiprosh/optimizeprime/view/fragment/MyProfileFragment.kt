@@ -3,10 +3,9 @@ package com.kiprosh.optimizeprime.view.fragment
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.media.session.MediaSessionCompat
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,7 +51,8 @@ class MyProfileFragment : Fragment() {
             DummyContent.ITEMS,
             false
         )
-        CommonCode(context!!).loadUserProfileImage(binding.ivUserProfile, user!!.profileUrl)
+        updateStatusBarColour()
+        CommonCode(context!!).loadUserProfileImage(binding.ivUserProfile, "https://homepages.cae.wisc.edu/~ece533/images/lena.png")
         /*exoFullScreenToggle = fragmentMyProfileBinding.exoPlayerView.exo_full_screen_toggle
         playerView = fragmentMyProfileBinding.exoPlayerView
         rlPlayer = fragmentMyProfileBinding.rlPlayer*/
@@ -106,5 +106,12 @@ class MyProfileFragment : Fragment() {
         val mediaSessionConnector = MediaSessionConnector(mediaSession)
         mediaSessionConnector.setPlayer(player, null)
         mediaSession?.isActive = true
+    }
+
+    private fun updateStatusBarColour() {
+        val window: Window = activity!!.window
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = ContextCompat.getColor(activity!!, R.color.yellow)
     }
 }

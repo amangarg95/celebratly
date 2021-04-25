@@ -5,21 +5,29 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
+import android.os.Handler
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Base64
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.Window
+import android.view.WindowManager
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.ActivityUploadData2Binding
 import com.kiprosh.optimizeprime.helper.CommonCode
+import com.kiprosh.optimizeprime.helper.ProgressDialog
 import java.io.ByteArrayOutputStream
 
 class UploadDataActivity : AppCompatActivity() {
     lateinit var uploadDataActivityBinding: ActivityUploadData2Binding
+    lateinit var progressDialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uploadDataActivityBinding =
@@ -27,10 +35,8 @@ class UploadDataActivity : AppCompatActivity() {
         uploadDataActivityBinding.lifecycleOwner = this
         uploadDataActivityBinding.llOpenCamera.setOnClickListener { takePhoto() }
         uploadDataActivityBinding.llOpenGallery.setOnClickListener { selectImageInAlbum() }
-        CommonCode(this).loadUserProfileImage(uploadDataActivityBinding.civOpenCamera, "")
-        CommonCode(this).loadUserProfileImage(uploadDataActivityBinding.civOpenGallery, "")
-        CommonCode(this).loadUserProfileImage(uploadDataActivityBinding.civCustomBackground, "")
-
+        updateStatusBarColour()
+        progressDialog = ProgressDialog()
         uploadDataActivityBinding.etGreeting.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 //Do nothing
@@ -41,7 +47,7 @@ class UploadDataActivity : AppCompatActivity() {
                     uploadDataActivityBinding.tvPreviewText.visibility = VISIBLE
                     uploadDataActivityBinding.tvPreviewText.text = s.toString()
                 } else {
-                    uploadDataActivityBinding.tvPreviewText.visibility = GONE
+//                    uploadDataActivityBinding.tvPreviewText.visibility = GONE
                 }
             }
 
@@ -49,43 +55,17 @@ class UploadDataActivity : AppCompatActivity() {
 
             }
         })
-//        uploadDataActivityBinding.llSummer.setOnClickListener {
-//            changeBackground(0)
-//        }
-//
-//        uploadDataActivityBinding.llCool.setOnClickListener {
-//            changeBackground(1)
-//        }
-//
-//        uploadDataActivityBinding.llNight.setOnClickListener {
-//            changeBackground(2)
-//        }
-//
-//        uploadDataActivityBinding.llDesert.setOnClickListener {
-//            changeBackground(3)
-//        }
-    }
 
-//    private fun changeBackground(position: Int) {
-//        when (position) {
-//            0 -> {
-//                uploadDataActivityBinding.ivPreview.background =
-//                    ContextCompat.getDrawable(this, R.drawable.ic_summer)
-//            }
-//            1 -> {
-//                uploadDataActivityBinding.ivPreview.background =
-//                    ContextCompat.getDrawable(this, R.drawable.ic_cool)
-//            }
-//            2 -> {
-//                uploadDataActivityBinding.ivPreview.background =
-//                    ContextCompat.getDrawable(this, R.drawable.ic_night)
-//            }
-//            3 -> {
-//                uploadDataActivityBinding.ivPreview.background =
-//                    ContextCompat.getDrawable(this, R.drawable.ic_desert)
-//            }
-//        }
-//    }
+        uploadDataActivityBinding.tvUploadGreeting.setOnClickListener {
+            progressDialog.showProgress(supportFragmentManager)
+            Handler().postDelayed(Runnable {
+                progressDialog.hideProgress()
+                finish()
+                Toast.makeText(this, "Greeting uploaded!", LENGTH_LONG).show()
+            }, 5000)
+
+        }
+    }
 
     private fun selectImageInAlbum() {
         val intent = Intent(Intent.ACTION_PICK)
@@ -118,5 +98,20 @@ class UploadDataActivity : AppCompatActivity() {
         val bAOS = ByteArrayOutputStream()
         photo.compress(Bitmap.CompressFormat.PNG, 60, bAOS)
         return Base64.encodeToString(bAOS.toByteArray(), Base64.DEFAULT)
+    }
+
+    private fun takeScreenshot() {
+        uploadDataActivityBinding.civOpenCamera.setImageBitmap(
+            CommonCode(this).getScreenShot(
+                uploadDataActivityBinding.clPreview
+            )
+        )
+    }
+
+    private fun updateStatusBarColour() {
+        val window: Window = window
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.intro_slide_2)
     }
 }

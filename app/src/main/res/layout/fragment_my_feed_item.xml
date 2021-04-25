@@ -13,22 +13,23 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:visibility="gone"
             android:id="@+id/cv_profile_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/screen_margin_start_end_medium"
             android:layout_marginTop="@dimen/screen_margin_start_end_medium"
             android:layout_marginEnd="@dimen/screen_margin_start_end_medium"
-            app:cardElevation="5dp"
+            android:visibility="gone"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:padding="@dimen/screen_padding_start_end_medium"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/screen_padding_start_end_medium">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_name"
@@ -38,54 +39,54 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_name_title"
-                    android:text="Name"
                     style="@style/TextViewBodyTextMuted"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
 
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
                     android:id="@+id/tv_email"
                     style="@style/TextViewMediumTextDark"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_email_title"
-                    android:text="Email"
                     style="@style/TextViewBodyTextMuted"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="Email" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
                     android:id="@+id/tv_dob"
                     style="@style/TextViewMediumTextDark"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_dob_title"
-                    android:text="Date Of Birth"
                     style="@style/TextViewBodyTextMuted"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="Date Of Birth" />
 
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
                     android:id="@+id/tv_doj"
                     style="@style/TextViewMediumTextDark"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_doj_title"
-                    android:text="@string/title_date_of_joining"
                     style="@style/TextViewBodyTextMuted"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_date_of_joining" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -94,30 +95,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/screen_margin_start_end_medium"
-            app:cardElevation="5dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_round"
-                android:padding="@dimen/screen_padding_start_end_medium"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/screen_padding_start_end_medium">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:id="@+id/tv_card_name"
-                    android:text="Happy Birthday Kavita!"
-                    style="@style/TextViewMediumTextDark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <!--                <androidx.appcompat.widget.AppCompatTextView-->
+                <!--                    app:layout_constraintTop_toTopOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    android:id="@+id/tv_card_name"-->
+                <!--                    android:text="Wishing you a very happy birthday, Kavita Patil!"-->
+                <!--                    style="@style/TextViewMediumTextDark"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content" />-->
 
                 <com.google.android.exoplayer2.ui.PlayerView
-                    android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_card_name"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/exo_player_view"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
@@ -125,19 +123,43 @@
                     android:visibility="visible"
                     app:controller_layout_id="@layout/home_player_control"
                     app:fastforward_increment="10000"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:resize_mode="fill"
                     app:rewind_increment="10000" />
 
                 <TextView
                     android:id="@+id/content"
+                    style="@style/TextViewBodyText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/screen_margin_top_bottom_low"
-                    android:text="Blah blah blah...\nBlah blah blah..."
-                    style="@style/TextViewBodyTextMuted"
-                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:text="Wishing Kavita Patil a very happy birthday!!"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/exo_player_view" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/screen_margin_top_bottom_low"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/content">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_date"
+                        android:tint="@color/text_muted" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/date"
+                        style="@style/TextViewBodyTextMuted"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/screen_margin_start_end_low"
+                        android:text="March 02, 2021" />
+                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>

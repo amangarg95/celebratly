@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mainActivityMainBinding: ActivityMainBinding
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -32,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
     }
 
     private fun setCurrentFragment(fragment: Fragment) =

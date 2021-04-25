@@ -4,9 +4,8 @@ package com.kiprosh.optimizeprime.view.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,7 +40,7 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
         fragmentUpcomingEventsBinding.rvMyFeed.adapter =
             UpcomingEventsAdapter(DummyContent.ITEMS, this)
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface::class.java)
-
+        updateStatusBarColour()
         return fragmentUpcomingEventsBinding.root
     }
 
@@ -74,5 +73,12 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
 
             }
         })
+    }
+
+    private fun updateStatusBarColour() {
+        val window: Window = activity!!.window
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = ContextCompat.getColor(activity!!, R.color.baby_pink)
     }
 }
