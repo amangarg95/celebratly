@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_upload_data"
+        tools:context=".view.activity.UploadDataActivity">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintTop_toBottomOf="@id/gd_h_1">
+
+            <LinearLayout
+                android:id="@+id/ll_open_camera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_open_camera"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@color/blue"
+                    app:civ_border_width="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/gd_card_start"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/no_profile" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:gravity="center"
+                    android:text="Open \nCamera" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_open_gallery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_open_gallery"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@color/black"
+                    app:civ_border_width="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/gd_card_start"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/no_profile" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:gravity="center"
+                    android:text="Open \nGallery" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_custom_background"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_custom_background"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    app:civ_border_width="0dp"
+                    app:layout_constraintBottom_toTopOf="@+id/gd_card_start"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/no_profile" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:gravity="center"
+                    android:text="Custom \nBackground" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_greeting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/screen_margin_start_end_low"
+            android:maxLength="130"
+            android:hint="Add greeting..."
+            android:maxLines="3"
+            android:layout_margin="@dimen/screen_margin_start_end_medium"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/gd_h_2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_show_preview"
+            android:layout_width="wrap_content"
+            android:text="Show Preview"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/screen_margin_top_bottom_high"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_greeting" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_preview"
+            android:background="@drawable/ic_night"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/screen_margin_top_bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_show_preview" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_preview_text"
+            android:layout_width="300dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:maxLines="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_preview"
+            android:gravity="center"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/white"
+            android:background="#66000000"
+            android:maxLength="130"
+            android:visibility="gone"
+            android:layout_height="wrap_content"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_h_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_h_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

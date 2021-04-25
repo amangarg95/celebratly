@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:visibility="gone"
+            android:id="@+id/cv_profile_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_margin_start_end_medium"
+            android:layout_marginTop="@dimen/screen_margin_start_end_medium"
+            android:layout_marginEnd="@dimen/screen_margin_start_end_medium"
+            app:cardElevation="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:padding="@dimen/screen_padding_start_end_medium"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_name"
+                    android:text="Kavita Patil"
+                    style="@style/TextViewMediumTextDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_name_title"
+                    android:text="Name"
+                    style="@style/TextViewBodyTextMuted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:id="@+id/tv_email"
+                    android:text="kavita@kiprosh.com"
+                    style="@style/TextViewMediumTextDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_email_title"
+                    android:text="Email"
+                    style="@style/TextViewBodyTextMuted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:id="@+id/tv_dob"
+                    style="@style/TextViewMediumTextDark"
+                    android:text="19 December, 1994"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_dob_title"
+                    android:text="Date Of Birth"
+                    style="@style/TextViewBodyTextMuted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:id="@+id/tv_doj"
+                    style="@style/TextViewMediumTextDark"
+                    android:text="19 September, 2018"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_doj_title"
+                    android:text="Date Of Joining"
+                    style="@style/TextViewBodyTextMuted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/screen_margin_start_end_medium"
+            app:cardElevation="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_round"
+                android:padding="@dimen/screen_padding_start_end_medium"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/tv_card_name"
+                    android:text="Happy Birthday Kavita!"
+                    style="@style/TextViewMediumTextDark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_card_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/exo_player_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    app:controller_layout_id="@layout/home_player_control"
+                    app:fastforward_increment="10000"
+                    app:resize_mode="fill"
+                    app:rewind_increment="10000" />
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/screen_margin_top_bottom_low"
+                    android:text="Blah blah blah...\nBlah blah blah..."
+                    style="@style/TextViewBodyTextMuted"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/exo_player_view" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

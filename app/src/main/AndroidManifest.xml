@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kiprosh.optimizeprime">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +27,9 @@
         <activity
             android:name=".SignInActivity"
             android:screenOrientation="portrait">
+        android:theme="@style/Theme.OptimizePrimeAndroidApp"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".view.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,7 +44,19 @@
             </intent-filter>
         </service>
 
+        <activity
+            android:name=".view.activity.UploadDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.IntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     </application>
-
 
 </manifest>
