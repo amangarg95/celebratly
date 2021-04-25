@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.view.adapter
+package com.kiprosh.optimizeprime.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View.GONE
@@ -6,12 +6,13 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.optimizeprimeandroidapp.R
-import com.example.optimizeprimeandroidapp.databinding.FragmentMyFeedItemBinding
-import com.example.optimizeprimeandroidapp.dummy.DummyContent.DummyItem
+import com.kiprosh.optimizeprime.dummy.DummyContent
+import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.databinding.FragmentMyFeedItemBinding
+
 
 class MyProfileAdapter(
-    private val values: List<DummyItem>, var isMyFeed: Boolean
+    private val values: List<DummyContent.DummyItem>, var isMyFeed: Boolean
 ) : RecyclerView.Adapter<MyProfileAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

@@ -21,20 +21,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OptimizePrimeAndroidApp">
         <activity
-            android:name="com.kiprosh.optimizeprime.MainActivity"
+            android:name="com.kiprosh.optimizeprime.view.activity.MainActivity"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".SignInActivity"
-            android:screenOrientation="portrait">
-        android:theme="@style/Theme.OptimizePrimeAndroidApp"
-        android:usesCleartextTraffic="true">
+            android:screenOrientation="portrait" />
         <activity android:name=".view.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".view.activity.UploadDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.IntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.optimizeprimeandroidapp.view.activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SplashScreenActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
 
         <service
             android:name="MyFirebaseMessagingService"
@@ -44,19 +56,6 @@
             </intent-filter>
         </service>
 
-        <activity
-            android:name=".view.activity.UploadDataActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.IntroActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.MainActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".view.activity.SplashScreenActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     </application>
 
 </manifest>

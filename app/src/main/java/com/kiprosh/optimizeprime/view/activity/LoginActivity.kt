@@ -1,15 +1,14 @@
-package com.example.optimizeprimeandroidapp.view.activity
+package com.kiprosh.optimizeprime.view.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.optimizeprimeandroidapp.R
-import com.example.optimizeprimeandroidapp.databinding.ActivityLoginBinding
-import com.example.optimizeprimeandroidapp.helper.ProgressDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     private val RC_SIGN_IN = 1

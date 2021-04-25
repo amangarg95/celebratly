@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.helper;
+package com.kiprosh.optimizeprime.helper;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,8 +15,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
-import com.example.optimizeprimeandroidapp.R;
-import com.example.optimizeprimeandroidapp.databinding.DialogProgressBinding;
+import com.kiprosh.optimizeprime.R;
+import com.kiprosh.optimizeprime.databinding.DialogProgressBinding;
 
 import java.util.Objects;
 

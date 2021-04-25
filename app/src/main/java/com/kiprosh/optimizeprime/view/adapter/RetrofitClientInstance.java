@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.view.adapter;
+package com.kiprosh.optimizeprime.view.adapter;
 
 import java.util.concurrent.TimeUnit;
 

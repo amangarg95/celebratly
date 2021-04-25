@@ -1,8 +1,7 @@
-package com.example.optimizeprimeandroidapp.services
+package com.kiprosh.optimizeprime.services
 
-import com.example.optimizeprimeandroidapp.UserProfile
-import com.example.optimizeprimeandroidapp.model.UpcomingEventsResponse
-import com.example.optimizeprimeandroidapp.model.User
+import com.kiprosh.optimizeprime.UserProfile
+import com.kiprosh.optimizeprime.model.UpcomingEventsResponse
 import retrofit2.Call
 import retrofit2.http.*
 

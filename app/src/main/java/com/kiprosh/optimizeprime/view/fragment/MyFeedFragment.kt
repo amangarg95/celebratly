@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.view.fragment
+package com.kiprosh.optimizeprime.view.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.optimizeprimeandroidapp.R
-import com.example.optimizeprimeandroidapp.databinding.FragmentMyFeedBinding
-import com.example.optimizeprimeandroidapp.dummy.DummyContent
-import com.example.optimizeprimeandroidapp.view.adapter.MyProfileAdapter
+import com.kiprosh.optimizeprime.dummy.DummyContent
+import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.databinding.FragmentMyFeedBinding
+import com.kiprosh.optimizeprime.view.adapter.MyProfileAdapter
+
 
 class MyFeedFragment : Fragment() {
     private lateinit var myFeedFragmentBinding: FragmentMyFeedBinding

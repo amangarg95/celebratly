@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.view.fragment
+package com.kiprosh.optimizeprime.view.fragment
 
 import android.net.Uri
 import android.os.Bundle
@@ -10,11 +10,8 @@ import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.optimizeprimeandroidapp.R
-import com.example.optimizeprimeandroidapp.databinding.FragmentMyProfileBinding
-import com.example.optimizeprimeandroidapp.dummy.DummyContent
-import com.example.optimizeprimeandroidapp.helper.CommonCode
-import com.example.optimizeprimeandroidapp.view.adapter.MyProfileAdapter
+import com.kiprosh.optimizeprime.dummy.DummyContent
+
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.ext.mediasession.MediaSessionConnector
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
@@ -26,6 +23,10 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
+import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.databinding.FragmentMyProfileBinding
+import com.kiprosh.optimizeprime.helper.CommonCode
+import com.kiprosh.optimizeprime.view.adapter.MyProfileAdapter
 
 class MyProfileFragment : Fragment() {
     private lateinit var fragmentMyProfileBinding: FragmentMyProfileBinding

@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.dummy
+package com.kiprosh.optimizeprime.dummy
 
 import java.util.ArrayList
 import java.util.HashMap

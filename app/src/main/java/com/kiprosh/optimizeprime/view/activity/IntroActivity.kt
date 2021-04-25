@@ -1,12 +1,12 @@
-package com.example.optimizeprimeandroidapp.view.activity
+package com.kiprosh.optimizeprime.view.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.optimizeprimeandroidapp.R
 import com.github.appintro.AppIntro
 import com.github.appintro.AppIntroFragment
 import com.github.appintro.AppIntroPageTransformerType
+import com.kiprosh.optimizeprime.R
 
 class IntroActivity : AppIntro() {
     override fun onCreate(savedInstanceState: Bundle?) {

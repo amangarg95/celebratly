@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.view.activity
+package com.kiprosh.optimizeprime.view.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -13,9 +13,9 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.optimizeprimeandroidapp.R
-import com.example.optimizeprimeandroidapp.databinding.ActivityUploadData2Binding
-import com.example.optimizeprimeandroidapp.helper.CommonCode
+import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.databinding.ActivityUploadData2Binding
+import com.kiprosh.optimizeprime.helper.CommonCode
 import java.io.ByteArrayOutputStream
 
 class UploadDataActivity : AppCompatActivity() {

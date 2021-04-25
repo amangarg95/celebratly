@@ -1,12 +1,12 @@
-package com.example.optimizeprimeandroidapp.view.adapter
+package com.kiprosh.optimizeprime.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.example.optimizeprimeandroidapp.R
-import com.example.optimizeprimeandroidapp.dummy.DummyContent.DummyItem
+import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.dummy.DummyContent.DummyItem
 
 class UpcomingEventsAdapter(
     private val values: List<DummyItem>, private val actionListener: ActionListener

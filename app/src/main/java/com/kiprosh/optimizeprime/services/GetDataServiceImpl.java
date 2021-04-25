@@ -1,7 +1,7 @@
-package com.example.optimizeprimeandroidapp.services;
+package com.kiprosh.optimizeprime.services;
 
-import com.example.optimizeprimeandroidapp.UserProfile;
-import com.example.optimizeprimeandroidapp.model.UpcomingEventsResponse;
+import com.kiprosh.optimizeprime.UserProfile;
+import com.kiprosh.optimizeprime.model.UpcomingEventsResponse;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

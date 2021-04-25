@@ -1,9 +1,9 @@
-package com.example.optimizeprimeandroidapp.helper
+package com.kiprosh.optimizeprime.helper
 
 import android.content.Context
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.optimizeprimeandroidapp.R
+import com.kiprosh.optimizeprime.R
 import de.hdodenhof.circleimageview.CircleImageView
 
 class CommonCode(val context: Context) {

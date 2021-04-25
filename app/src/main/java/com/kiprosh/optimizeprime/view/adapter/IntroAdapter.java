@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.view.adapter;
+package com.kiprosh.optimizeprime.view.adapter;
 
 import android.graphics.Color;
 
@@ -6,7 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.optimizeprimeandroidapp.view.fragment.IntroFragment;
+import com.kiprosh.optimizeprime.view.fragment.IntroFragment;
+
 
 public class IntroAdapter extends FragmentPagerAdapter {
 

@@ -1,4 +1,4 @@
-package com.example.optimizeprimeandroidapp.view.activity
+package com.kiprosh.optimizeprime.view.activity
 
 import android.os.Build
 import android.os.Bundle
@@ -6,11 +6,12 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.example.optimizeprimeandroidapp.R
-import com.example.optimizeprimeandroidapp.databinding.ActivityMainBinding
-import com.example.optimizeprimeandroidapp.view.fragment.MyFeedFragment
-import com.example.optimizeprimeandroidapp.view.fragment.MyProfileFragment
-import com.example.optimizeprimeandroidapp.view.fragment.UpcomingEventsFragment
+import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.databinding.ActivityMainBinding
+import com.kiprosh.optimizeprime.view.fragment.MyFeedFragment
+import com.kiprosh.optimizeprime.view.fragment.MyProfileFragment
+import com.kiprosh.optimizeprime.view.fragment.UpcomingEventsFragment
+
 
 class MainActivity : AppCompatActivity() {
 
