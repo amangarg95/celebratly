@@ -25,9 +25,8 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".SignInActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".view.activity.LoginActivity">
+            android:name=".view.activity.SignInActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -40,9 +39,7 @@
         <activity
             android:name=".view.activity.IntroActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name="com.example.optimizeprimeandroidapp.view.activity.MainActivity"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name=".view.activity.SplashScreenActivity"
             android:screenOrientation="portrait"
