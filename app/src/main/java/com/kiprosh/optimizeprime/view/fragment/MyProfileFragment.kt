@@ -18,15 +18,13 @@ import com.kiprosh.optimizeprime.helper.ProgressDialog
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.MyFeedAdapter
-import com.kiprosh.optimizeprime.view.adapter.MyProfileAdapter
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class MyProfileFragment : Fragment(), MyProfileAdapter.OnShareClickListener {
-class MyProfileFragment : Fragment(), MyProfileAdapter.FullScreenListener {
+class MyProfileFragment : Fragment(), MyFeedAdapter.OnShareClickListener {
     private lateinit var binding: FragmentMyProfileBinding
     lateinit var progressDialog: ProgressDialog
     lateinit var apiInterface: APIInterface
@@ -47,9 +45,11 @@ class MyProfileFragment : Fragment(), MyProfileAdapter.FullScreenListener {
         binding.rvMyFeed.layoutManager = LinearLayoutManager(context)
         user = authenticationHelper.getUser()
         getOccurrences()
-
         updateStatusBarColour()
-        CommonCode(context!!).loadUserProfileImage(binding.ivUserProfile, "https://homepages.cae.wisc.edu/~ece533/images/lena.png")
+        CommonCode(context!!).loadUserProfileImage(
+            binding.ivUserProfile,
+            ""
+        )
         return binding.root
     }
 
@@ -69,7 +69,6 @@ class MyProfileFragment : Fragment(), MyProfileAdapter.FullScreenListener {
                 )
 
                 setAdapter(recyclerDataArrayList)
-                //binding.rvMyFeed.adapter = MyProfileAdapter(this@MyProfileFragment, context!!, user, recyclerDataArrayList, false)
                 progressDialog.hideProgress()
             }
 
@@ -91,32 +90,27 @@ class MyProfileFragment : Fragment(), MyProfileAdapter.FullScreenListener {
         window.statusBarColor = ContextCompat.getColor(activity!!, R.color.pistachio_green)
     }
 
-    override fun onToggleClick(isFullScreen: Boolean) {
-
-    }
-
     private fun setAdapter(recyclerDataArrayList: ArrayList<OccurrencesResponse>) {
-        val mAdapter: MyFeedAdapter =
-            MyFeedAdapter(requireActivity(), user, recyclerDataArrayList, false)
-        binding.rvMyFeed!!.setHasFixedSize(true)
+        val mAdapter =
+            MyFeedAdapter(requireActivity(), user, recyclerDataArrayList, false, this)
+        binding.rvMyFeed.setHasFixedSize(true)
 
         // use a linear layout manager
         val layoutManager = LinearLayoutManager(activity)
-        binding.rvMyFeed!!.layoutManager = layoutManager
-        binding.rvMyFeed!!.adapter = mAdapter
-        var scrollListener: RecyclerViewScrollListener = object : RecyclerViewScrollListener() {
+        binding.rvMyFeed.layoutManager = layoutManager
+        binding.rvMyFeed.adapter = mAdapter
+        val scrollListener: RecyclerViewScrollListener = object : RecyclerViewScrollListener() {
             override fun onItemIsFirstVisibleItem(index: Int) {
                 Log.d("visible item index", index.toString())
                 // play just visible item
                 if (index != -1)
                     PlayerViewAdapter.playIndexThenPausePreviousPlayer(index)
             }
-
         }
-        binding.rvMyFeed!!.addOnScrollListener(scrollListener)
-        mAdapter!!.SetOnItemClickListener(object : MyFeedAdapter.OnItemClickListener {
+        binding.rvMyFeed.addOnScrollListener(scrollListener)
+        mAdapter.setOnItemClickListener(object : MyFeedAdapter.OnItemClickListener {
             override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?) {
-
+// D
             }
         })
     }

@@ -21,8 +21,8 @@ class MyFeedAdapter(
     private val mContext: Context,
     private val user: User?,
     private var modelList: ArrayList<OccurrencesResponse>,
-    private var isMyFeed: Boolean
-
+    private var isMyFeed: Boolean,
+    private val onShareClickListener: OnShareClickListener
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), PlayerStateCallback {
     private val dateTimeUtil = DateTimeUtil()
 
@@ -67,10 +67,12 @@ class MyFeedAdapter(
                     holder.binding.tvMyFeed.visibility = View.GONE
                     updateCards(model, holder.binding)
                 }
-
+                holder.binding.ivShareText.visibility = View.VISIBLE
+                holder.binding.ivShareText.setOnClickListener { onShareClickListener.onShareClick("https://player.vimeo.com/external/481511608.hd.mp4?s=40bfbf85159679a2f69f1155f9ae4d6da357580b") }
             } else {
                 holder.binding.cvProfileInfo.visibility = View.GONE
                 holder.binding.tvMyFeed.visibility = View.GONE
+                holder.binding.ivShareText.visibility = View.GONE
                 updateCards(model, holder.binding)
             }
             // send data to view holder
@@ -92,7 +94,7 @@ class MyFeedAdapter(
         return modelList[position]
     }
 
-    fun SetOnItemClickListener(mItemClickListener: OnItemClickListener?) {
+    fun setOnItemClickListener(mItemClickListener: OnItemClickListener?) {
         this.mItemClickListener = mItemClickListener
     }
 
@@ -102,6 +104,10 @@ class MyFeedAdapter(
             position: Int,
             model: OccurrencesResponse?
         )
+    }
+
+    interface OnShareClickListener {
+        fun onShareClick(link: String)
     }
 
     inner class VideoPlayerViewHolder(val binding: FragmentMyFeedItemBinding) :
@@ -154,7 +160,6 @@ class MyFeedAdapter(
         Log.d("playvideo", "staaaart" + player.contentDuration)
 
     }
-
 
     override fun onFinishedPlaying(player: Player) {
         Log.d("playvideo", "onFinishedPlaying")

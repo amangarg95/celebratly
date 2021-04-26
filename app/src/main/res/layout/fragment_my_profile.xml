@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".30" />
+            app:layout_constraintGuide_percent=".275" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_my_feed"

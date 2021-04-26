@@ -1,7 +1,6 @@
 package com.kiprosh.optimizeprime.view.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -16,7 +15,6 @@ import com.kiprosh.optimizeprime.databinding.FragmentMyFeedBinding
 import com.kiprosh.optimizeprime.helper.ProgressDialog
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.MyFeedAdapter
-import com.kiprosh.optimizeprime.view.adapter.MyProfileAdapter
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,7 +22,7 @@ import retrofit2.Response
 import java.util.*
 
 
-class MyFeedFragment : Fragment(), MyProfileAdapter.FullScreenListener {
+class MyFeedFragment : Fragment(), MyFeedAdapter.OnShareClickListener {
     private lateinit var myFeedFragmentBinding: FragmentMyFeedBinding
     lateinit var apiInterface: APIInterface
     lateinit var progressDialog: ProgressDialog
@@ -75,19 +73,14 @@ class MyFeedFragment : Fragment(), MyProfileAdapter.FullScreenListener {
         window.statusBarColor = ContextCompat.getColor(activity!!, R.color.light_blue)
     }
 
-    override fun onToggleClick(isFullScreen: Boolean) {
-    }
-
     private fun setAdapter(recyclerDataArrayList: ArrayList<OccurrencesResponse>) {
-        val mAdapter: MyFeedAdapter =
-            MyFeedAdapter(requireActivity(), null, recyclerDataArrayList, true)
-        myFeedFragmentBinding.rvMyFeed!!.setHasFixedSize(true)
-
-        // use a linear layout manager
+        val mAdapter =
+            MyFeedAdapter(requireActivity(), null, recyclerDataArrayList, true, this)
+        myFeedFragmentBinding.rvMyFeed.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(activity)
-        myFeedFragmentBinding.rvMyFeed!!.layoutManager = layoutManager
-        myFeedFragmentBinding.rvMyFeed!!.adapter = mAdapter
-        var scrollListener: RecyclerViewScrollListener = object : RecyclerViewScrollListener() {
+        myFeedFragmentBinding.rvMyFeed.layoutManager = layoutManager
+        myFeedFragmentBinding.rvMyFeed.adapter = mAdapter
+        val scrollListener: RecyclerViewScrollListener = object : RecyclerViewScrollListener() {
             override fun onItemIsFirstVisibleItem(index: Int) {
                 // play just visible item
                 if (index != -1)
@@ -95,10 +88,10 @@ class MyFeedFragment : Fragment(), MyProfileAdapter.FullScreenListener {
             }
 
         }
-        myFeedFragmentBinding.rvMyFeed!!.addOnScrollListener(scrollListener)
-        mAdapter!!.SetOnItemClickListener(object : MyFeedAdapter.OnItemClickListener {
+        myFeedFragmentBinding.rvMyFeed.addOnScrollListener(scrollListener)
+        mAdapter.setOnItemClickListener(object : MyFeedAdapter.OnItemClickListener {
             override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?) {
-
+                // Do nothing
             }
         })
     }
@@ -108,4 +101,7 @@ class MyFeedFragment : Fragment(), MyProfileAdapter.FullScreenListener {
         PlayerViewAdapter.releaseAllPlayers()
     }
 
+    override fun onShareClick(link: String) {
+        //Do Nothing
+    }
 }
