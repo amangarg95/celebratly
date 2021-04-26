@@ -5,7 +5,7 @@
         android:checked="true"
         android:icon="@drawable/ic_baseline_dynamic_feed_24"
         android:color="@color/blue"
-        android:title="My Feed" />
+        android:title="Feed" />
     <item
         android:id="@+id/item_upcoming_events"
         android:icon="@drawable/ic_baseline_event_24"
