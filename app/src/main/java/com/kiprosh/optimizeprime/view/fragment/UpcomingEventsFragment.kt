@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -35,7 +37,19 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
         fragmentUpcomingEventsBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_upcoming_events, container, false)
         fragmentUpcomingEventsBinding.lifecycleOwner = this
-
+        fragmentUpcomingEventsBinding.sbgFilter.setOnClickedButtonListener {
+            when (it) {
+                0 -> {
+                    Toast.makeText(context, "Week", LENGTH_SHORT).show()
+                }
+                1 -> {
+                    Toast.makeText(context, "Month", LENGTH_SHORT).show()
+                }
+                2 -> {
+                    Toast.makeText(context, "Year", LENGTH_SHORT).show()
+                }
+            }
+        }
         fragmentUpcomingEventsBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
         fragmentUpcomingEventsBinding.rvMyFeed.adapter =
             UpcomingEventsAdapter(DummyContent.ITEMS, this)
@@ -49,7 +63,7 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
         startActivity(intent)
     }
 
-    private fun getUpcomingEvents(){
+    private fun getUpcomingEvents() {
         var recyclerDataArrayList: ArrayList<UpcomingEventsResponse>
 
         apiInterface.getUpcomingEvents().enqueue(object :
