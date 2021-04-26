@@ -10,7 +10,6 @@ import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Base64
-import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.Window
 import android.view.WindowManager
@@ -21,11 +20,13 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.ActivityUploadData2Binding
+import com.kiprosh.optimizeprime.helper.BottomSheetDialog
 import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.ProgressDialog
 import java.io.ByteArrayOutputStream
 
-class UploadDataActivity : AppCompatActivity() {
+
+class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickListener {
     lateinit var uploadDataActivityBinding: ActivityUploadData2Binding
     lateinit var progressDialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +38,9 @@ class UploadDataActivity : AppCompatActivity() {
         uploadDataActivityBinding.llOpenGallery.setOnClickListener { selectImageInAlbum() }
         updateStatusBarColour()
         progressDialog = ProgressDialog()
+        uploadDataActivityBinding.civCustomBackground.setOnClickListener {
+            BottomSheetDialog(this).show(supportFragmentManager, " ModalBottomSheet")
+        }
         uploadDataActivityBinding.etGreeting.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 //Do nothing
@@ -113,5 +117,19 @@ class UploadDataActivity : AppCompatActivity() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = ContextCompat.getColor(this, R.color.intro_slide_2)
+    }
+
+    override fun onItemClick(pos: Int) {
+        when (pos) {
+            1 -> {
+                uploadDataActivityBinding.ivPreview.background = getDrawable(R.drawable.ic_cool)
+            }
+            2 -> {
+                uploadDataActivityBinding.ivPreview.background = getDrawable(R.drawable.ic_summer)
+            }
+            3 -> {
+                uploadDataActivityBinding.ivPreview.background = getDrawable(R.drawable.ic_night)
+            }
+        }
     }
 }

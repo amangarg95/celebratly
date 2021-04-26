@@ -83,4 +83,5 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-messaging-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
 }

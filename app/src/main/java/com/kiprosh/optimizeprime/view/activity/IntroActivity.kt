@@ -1,5 +1,6 @@
 package com.kiprosh.optimizeprime.view.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,50 +15,37 @@ class IntroActivity : AppIntro() {
 
         addSlide(
             AppIntroFragment.newInstance(
-                backgroundDrawable = R.drawable.bg_intro_animals
+                description = "Never miss to wish your colleagues\non their special day!",
+                backgroundColor = resources.getColor(R.color.blue),
+                imageDrawable = R.drawable.ic_greeting
             )
         )
 
         addSlide(
             AppIntroFragment.newInstance(
-                backgroundDrawable = R.drawable.bg_intro_dino
+                description = "Keep track of the upcoming events\nin your workplace",
+                backgroundColor = resources.getColor(R.color.baby_pink),
+                imageDrawable = R.drawable.ic_track
             )
         )
 
         addSlide(
             AppIntroFragment.newInstance(
-                backgroundDrawable = R.drawable.bg_intro_rabbit
+                description = "Keep track of the upcoming events\nin your workplace",
+                backgroundColor = resources.getColor(R.color.yellow),
+                imageDrawable = R.drawable.ic_track
             )
         )
-
-//        addSlide(
-//            AppIntroFragment.newInstance(
-//                SliderPage(
-//                    description = "Never miss to wish your colleagues on their special day!",
-//                    backgroundColor = resources.getColor(R.color.intro_slide_2),
-//                    imageDrawable = R.drawable.ic_track
-//                )
-//            )
-//        )
-//
-//        addSlide(
-//            AppIntroFragment.newInstance(
-//                SliderPage(
-//                    description = "Keep track of the upcoming events in your workplace",
-//                    backgroundColor = resources.getColor(R.color.intro_slide_3),
-//                    imageDrawable = R.drawable.ic_greeting
-//                )
-//            )
-//        )
 
         setTransformer(AppIntroPageTransformerType.Parallax())
-//      isColorTransitionsEnabled = true
+        isColorTransitionsEnabled = true
         setImmersiveMode()
     }
 
     public override fun onSkipPressed(currentFragment: Fragment?) {
         super.onSkipPressed(currentFragment)
-        finish()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     public override fun onDonePressed(currentFragment: Fragment?) {

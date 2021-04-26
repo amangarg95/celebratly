@@ -65,9 +65,9 @@
                     android:gravity="center"
                     android:maxLength="130"
                     android:padding="@dimen/screen_padding_all_side_medium"
+                    android:text="Add your greetings..."
                     android:textColor="@color/white"
                     android:textSize="24dp"
-                    android:text="Add your greetings..."
                     app:layout_constraintBottom_toBottomOf="@id/iv_preview"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
@@ -108,12 +108,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_camera"
-                    app:civ_border_width="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/gd_card_start"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:src="@drawable/ic_camera" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -136,12 +131,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_gallery"
-                    app:civ_border_width="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/gd_card_start"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:src="@drawable/ic_gallery" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -164,12 +154,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_background_library"
-                    app:civ_border_width="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/gd_card_start"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:src="@drawable/ic_background_library" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"

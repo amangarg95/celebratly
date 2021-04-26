@@ -163,12 +163,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/helper/AuthenticationHelper.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/helper/BottomSheetDialog.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/helper/CommonCode.kt">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/activity/IntroActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/activity/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/activity/SignInActivity.kt">
           <value>
             <set />
           </value>
@@ -234,6 +254,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_upload_data_2.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/bottom_sheet_behaviour.xml">
           <value>
             <set />
           </value>

@@ -1,5 +1,6 @@
 package com.kiprosh.optimizeprime.view.activity
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -28,6 +29,7 @@ import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class SignInActivity : AppCompatActivity(), View.OnClickListener {
 
