@@ -2,6 +2,7 @@ package com.kiprosh.optimizeprime.view.activity
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.github.appintro.AppIntro
 import com.github.appintro.AppIntroFragment
@@ -15,7 +16,7 @@ class IntroActivity : AppIntro() {
         addSlide(
             AppIntroFragment.newInstance(
                 description = "Never miss to wish your colleagues\non their special day!",
-                backgroundColor = resources.getColor(R.color.blue),
+                backgroundColor = ContextCompat.getColor(applicationContext, R.color.blue),
                 imageDrawable = R.drawable.ic_greeting
             )
         )
@@ -23,7 +24,7 @@ class IntroActivity : AppIntro() {
         addSlide(
             AppIntroFragment.newInstance(
                 description = "Keep track of the upcoming events\nin your workplace",
-                backgroundColor = resources.getColor(R.color.baby_pink),
+                backgroundColor = ContextCompat.getColor(applicationContext, R.color.baby_pink),
                 imageDrawable = R.drawable.ic_track
             )
         )
@@ -31,7 +32,7 @@ class IntroActivity : AppIntro() {
         addSlide(
             AppIntroFragment.newInstance(
                 description = "Keep track of the upcoming events\nin your workplace",
-                backgroundColor = resources.getColor(R.color.yellow),
+                backgroundColor = ContextCompat.getColor(applicationContext, R.color.yellow),
                 imageDrawable = R.drawable.ic_track
             )
         )

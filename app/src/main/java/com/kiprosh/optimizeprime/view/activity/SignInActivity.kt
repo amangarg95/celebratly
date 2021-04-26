@@ -53,6 +53,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+        googleSignInClient.revokeAccess()
         googleSignInClient.signOut()
         auth = Firebase.auth
         Firebase.messaging.isAutoInitEnabled = true
