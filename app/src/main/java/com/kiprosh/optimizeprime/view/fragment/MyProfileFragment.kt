@@ -87,7 +87,7 @@ class MyProfileFragment : Fragment(), MyProfileAdapter.FullScreenListener {
         val window: Window = activity!!.window
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = ContextCompat.getColor(activity!!, R.color.yellow)
+        window.statusBarColor = ContextCompat.getColor(activity!!, R.color.pistachio_green)
     }
 
     override fun onToggleClick(isFullScreen: Boolean) {
