@@ -90,10 +90,10 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_SELECT_IMAGE_IN_ALBUM) {
-            uploadDataActivityBinding.ivPreview.setImageURI(data?.data) // handle chosen image
+            uploadDataActivityBinding.ivPreview.setImageURI(data?.data)
         } else if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_TAKE_PHOTO && data != null) {
             uploadDataActivityBinding.ivPreview.setImageBitmap(data.extras?.get("data") as Bitmap)
-            var bitmap = (uploadDataActivityBinding.ivPreview.drawable as BitmapDrawable).bitmap
+            val bitmap = (uploadDataActivityBinding.ivPreview.drawable as BitmapDrawable).bitmap
             getEncodedBitmapString(bitmap)
         }
     }
