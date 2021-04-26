@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:background="@color/light_blue"
-            android:text="My Feed"
+            android:text="Feed"
             android:textColor="@color/white"
             android:fontFamily="@font/roboto_medium"
             android:textSize="28dp"

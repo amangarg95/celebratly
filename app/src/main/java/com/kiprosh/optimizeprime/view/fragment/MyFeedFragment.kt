@@ -3,7 +3,6 @@ package com.kiprosh.optimizeprime.view.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -12,7 +11,6 @@ import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyFeedBinding
 import com.kiprosh.optimizeprime.dummy.DummyContent
-import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.MyProfileAdapter
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
@@ -39,7 +37,8 @@ class MyFeedFragment : Fragment() {
 //        getOccurrences()
         updateStatusBarColour()
         myFeedFragmentBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
-        myFeedFragmentBinding.rvMyFeed.adapter = MyProfileAdapter(null, DummyContent.ITEMS, true)
+        myFeedFragmentBinding.rvMyFeed.adapter =
+            MyProfileAdapter(null, DummyContent.ITEMS, true, null)
         return myFeedFragmentBinding.root
     }
 

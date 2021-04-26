@@ -27,7 +27,7 @@ import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.view.adapter.MyProfileAdapter
 
-class MyProfileFragment : Fragment() {
+class MyProfileFragment : Fragment(), MyProfileAdapter.OnShareClickListener {
     private lateinit var binding: FragmentMyProfileBinding
 
     private var player: SimpleExoPlayer? = null
@@ -49,7 +49,7 @@ class MyProfileFragment : Fragment() {
         binding.rvMyFeed.adapter = MyProfileAdapter(
             user,
             DummyContent.ITEMS,
-            false
+            false, this
         )
         updateStatusBarColour()
         CommonCode(context!!).loadUserProfileImage(binding.ivUserProfile, user?.profileUrl)
@@ -113,5 +113,9 @@ class MyProfileFragment : Fragment() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = ContextCompat.getColor(activity!!, R.color.yellow)
+    }
+
+    override fun onShareClick(link: String) {
+        CommonCode(context!!).shareTextWithAnotherApp(context!!, link)
     }
 }

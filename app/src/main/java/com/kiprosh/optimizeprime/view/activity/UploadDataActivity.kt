@@ -10,7 +10,6 @@ import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Base64
-import android.view.View.VISIBLE
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
