@@ -11,11 +11,11 @@ import app.videoplayerinsiderecyclerview.utils.PlayerViewAdapter
 import app.videoplayerinsiderecyclerview.utils.PlayerViewAdapter.Companion.playIndexThenPausePreviousPlayer
 import app.videoplayerinsiderecyclerview.utils.RecyclerViewScrollListener
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
-import com.kiprosh.optimizeprime.MyFeedAdapter
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyFeedBinding
 import com.kiprosh.optimizeprime.helper.ProgressDialog
 import com.kiprosh.optimizeprime.services.APIInterface
+import com.kiprosh.optimizeprime.view.adapter.MyFeedAdapter
 import com.kiprosh.optimizeprime.view.adapter.MyProfileAdapter
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
 import retrofit2.Call
@@ -87,7 +87,8 @@ class MyFeedFragment : Fragment(), MyProfileAdapter.FullScreenListener {
     }
 
     private fun setAdapter(recyclerDataArrayList: ArrayList<OccurrencesResponse>) {
-        val mAdapter:MyFeedAdapter  = MyFeedAdapter(requireActivity(), recyclerDataArrayList)
+        val mAdapter: MyFeedAdapter =
+            MyFeedAdapter(requireActivity(), null, recyclerDataArrayList, true)
         myFeedFragmentBinding.rvMyFeed!!.setHasFixedSize(true)
 
         // use a linear layout manager

@@ -4,12 +4,12 @@
         android:id="@+id/item_my_feed"
         android:checked="true"
         android:icon="@drawable/ic_baseline_dynamic_feed_24"
-        android:color="@color/blue"
+        android:color="@color/light_blue"
         android:title="My Feed" />
     <item
         android:id="@+id/item_upcoming_events"
         android:icon="@drawable/ic_baseline_event_24"
-        android:color="@color/red"
+        android:color="@color/baby_pink"
         android:title="Upcoming Events" />
     <item
         android:id="@+id/item_my_profile"

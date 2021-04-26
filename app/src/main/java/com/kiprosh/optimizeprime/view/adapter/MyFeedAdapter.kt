@@ -1,4 +1,4 @@
-package com.kiprosh.optimizeprime
+package com.kiprosh.optimizeprime.view.adapter
 
 import android.content.Context
 import android.util.Log
@@ -11,13 +11,17 @@ import app.videoplayerinsiderecyclerview.utils.PlayerStateCallback
 import app.videoplayerinsiderecyclerview.utils.PlayerViewAdapter.Companion.releaseRecycledPlayers
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.google.android.exoplayer2.Player
+import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyFeedItemBinding
 import com.kiprosh.optimizeprime.helper.DateTimeUtil
+import com.kiprosh.optimizeprime.model.User
 import java.util.*
 
 class MyFeedAdapter(
     private val mContext: Context,
-    private var modelList: ArrayList<OccurrencesResponse>
+    private val user: User?,
+    private var modelList: ArrayList<OccurrencesResponse>,
+    private var isMyFeed: Boolean
 
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), PlayerStateCallback {
     private val dateTimeUtil = DateTimeUtil()
@@ -80,18 +84,26 @@ class MyFeedAdapter(
 
     inner class VideoPlayerViewHolder(private val binding: FragmentMyFeedItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        fun onBind(model: OccurrencesResponse) {
 
-        fun onBind(
-            model: OccurrencesResponse
-        ) {
+            if (!isMyFeed) {
+                if (position == 0) {
+                    binding.cvProfileInfo.visibility = View.VISIBLE
+                    if (user != null) {
+                        binding.tvName.text = user.fullName
+                        binding.tvEmail.text = user.email
+                        binding.tvDob.text = dateTimeUtil.changeDateFormat(user.dob)
+                        binding.tvDoj.text = dateTimeUtil.changeDateFormat(user.doj)
+                    }
+                } else {
+                    updateCards(model, binding)
+                }
 
-            binding.cvProfileInfo.visibility = View.GONE
-            binding.date.text = dateTimeUtil.changeDateFormat(model.startAt)
-            if (model.eventTyoe == "work_anniversary") {
-                binding.content.text = model.titleText + "\n" + model.caption
             } else {
-                binding.content.text = model.titleText
+                binding.cvProfileInfo.visibility = View.GONE
+                updateCards(model, binding)
             }
+
 
             // handel on item click
             binding.root.setOnClickListener {
@@ -117,6 +129,15 @@ class MyFeedAdapter(
             }
 
 
+        }
+    }
+
+    private fun updateCards(model: OccurrencesResponse, binding: FragmentMyFeedItemBinding) {
+        binding.date.text = dateTimeUtil.changeDateFormat(model.startAt)
+        if (model.eventTyoe == "work_anniversary") {
+            binding.content.text = model.titleText + "\n" + model.caption
+        } else {
+            binding.content.text = model.titleText
         }
     }
 

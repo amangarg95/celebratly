@@ -1,40 +1,29 @@
 package com.kiprosh.optimizeprime.view.fragment
 
-import android.net.Uri
 import android.os.Bundle
-import android.support.v4.media.session.MediaSessionCompat
 import android.util.Log
 import android.view.*
-import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import app.videoplayerinsiderecyclerview.utils.PlayerViewAdapter
+import app.videoplayerinsiderecyclerview.utils.RecyclerViewScrollListener
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
-import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.source.ProgressiveMediaSource
-import com.google.android.exoplayer2.source.TrackGroupArray
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
-import com.google.android.exoplayer2.trackselection.TrackSelectionArray
-import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
-import com.google.android.exoplayer2.ui.PlayerView
-import com.google.android.exoplayer2.upstream.DataSource
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
-import com.google.android.exoplayer2.util.Util
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyProfileBinding
-import com.kiprosh.optimizeprime.dummy.DummyContent
 import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.ProgressDialog
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.services.APIInterface
+import com.kiprosh.optimizeprime.view.adapter.MyFeedAdapter
 import com.kiprosh.optimizeprime.view.adapter.MyProfileAdapter
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
+import java.util.*
 
 class MyProfileFragment : Fragment(), MyProfileAdapter.FullScreenListener {
     private lateinit var binding: FragmentMyProfileBinding
@@ -78,7 +67,8 @@ class MyProfileFragment : Fragment(), MyProfileAdapter.FullScreenListener {
                     "recyclerDataArrayList-->" + recyclerDataArrayList.toString()
                 )
 
-                binding.rvMyFeed.adapter = MyProfileAdapter(this@MyProfileFragment, context!!, user, recyclerDataArrayList, false)
+                setAdapter(recyclerDataArrayList)
+                //binding.rvMyFeed.adapter = MyProfileAdapter(this@MyProfileFragment, context!!, user, recyclerDataArrayList, false)
                 progressDialog.hideProgress()
             }
 
@@ -102,5 +92,36 @@ class MyProfileFragment : Fragment(), MyProfileAdapter.FullScreenListener {
 
     override fun onToggleClick(isFullScreen: Boolean) {
 
+    }
+
+    private fun setAdapter(recyclerDataArrayList: ArrayList<OccurrencesResponse>) {
+        val mAdapter: MyFeedAdapter =
+            MyFeedAdapter(requireActivity(), user, recyclerDataArrayList, false)
+        binding.rvMyFeed!!.setHasFixedSize(true)
+
+        // use a linear layout manager
+        val layoutManager = LinearLayoutManager(activity)
+        binding.rvMyFeed!!.layoutManager = layoutManager
+        binding.rvMyFeed!!.adapter = mAdapter
+        var scrollListener: RecyclerViewScrollListener = object : RecyclerViewScrollListener() {
+            override fun onItemIsFirstVisibleItem(index: Int) {
+                Log.d("visible item index", index.toString())
+                // play just visible item
+                if (index != -1)
+                    PlayerViewAdapter.playIndexThenPausePreviousPlayer(index)
+            }
+
+        }
+        binding.rvMyFeed!!.addOnScrollListener(scrollListener)
+        mAdapter!!.SetOnItemClickListener(object : MyFeedAdapter.OnItemClickListener {
+            override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?) {
+
+            }
+        })
+    }
+
+    override fun onPause() {
+        super.onPause()
+        PlayerViewAdapter.releaseAllPlayers()
     }
 }
