@@ -7,17 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import app.videoplayerinsiderecyclerview.utils.PlayerStateCallback
-import app.videoplayerinsiderecyclerview.utils.PlayerViewAdapter.Companion.releaseRecycledPlayers
+import com.kiprosh.optimizeprime.helper.PlayerStateCallback
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.google.android.exoplayer2.Player
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyFeedItemBinding
 import com.kiprosh.optimizeprime.helper.DateTimeUtil
 import com.kiprosh.optimizeprime.model.User
+import com.kiprosh.optimizeprime.view.adapter.PlayerViewAdapter.Companion.releaseRecycledPlayers
 import java.util.*
 
-class MyFeedAdapter(
+class FeedAdapter(
     private val mContext: Context,
     private val user: User?,
     private var modelList: ArrayList<OccurrencesResponse>,
@@ -130,7 +130,7 @@ class MyFeedAdapter(
 
             binding.apply {
                 videoUrl = videoPlayerUrl
-                callback = this@MyFeedAdapter
+                callback = this@FeedAdapter
                 index = adapterPosition
                 executePendingBindings()
             }

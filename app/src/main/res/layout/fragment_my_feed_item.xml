@@ -9,7 +9,7 @@
 
         <variable
             name="callback"
-            type="app.videoplayerinsiderecyclerview.utils.PlayerStateCallback"/>
+            type="com.kiprosh.optimizeprime.helper.PlayerStateCallback"/>
 
         <variable
             name="index"

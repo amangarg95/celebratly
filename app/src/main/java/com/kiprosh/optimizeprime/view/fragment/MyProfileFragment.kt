@@ -7,24 +7,24 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import app.videoplayerinsiderecyclerview.utils.PlayerViewAdapter
-import app.videoplayerinsiderecyclerview.utils.RecyclerViewScrollListener
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyProfileBinding
 import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.ProgressDialog
+import com.kiprosh.optimizeprime.helper.RecyclerViewScrollListener
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.services.APIInterface
-import com.kiprosh.optimizeprime.view.adapter.MyFeedAdapter
+import com.kiprosh.optimizeprime.view.adapter.FeedAdapter
+import com.kiprosh.optimizeprime.view.adapter.PlayerViewAdapter
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class MyProfileFragment : Fragment(), MyFeedAdapter.OnShareClickListener {
+class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
     private lateinit var binding: FragmentMyProfileBinding
     lateinit var progressDialog: ProgressDialog
     lateinit var apiInterface: APIInterface
@@ -92,7 +92,7 @@ class MyProfileFragment : Fragment(), MyFeedAdapter.OnShareClickListener {
 
     private fun setAdapter(recyclerDataArrayList: ArrayList<OccurrencesResponse>) {
         val mAdapter =
-            MyFeedAdapter(requireActivity(), user, recyclerDataArrayList, false, this)
+            FeedAdapter(requireActivity(), user, recyclerDataArrayList, false, this)
         binding.rvMyFeed.setHasFixedSize(true)
 
         // use a linear layout manager
@@ -108,7 +108,7 @@ class MyProfileFragment : Fragment(), MyFeedAdapter.OnShareClickListener {
             }
         }
         binding.rvMyFeed.addOnScrollListener(scrollListener)
-        mAdapter.setOnItemClickListener(object : MyFeedAdapter.OnItemClickListener {
+        mAdapter.setOnItemClickListener(object : FeedAdapter.OnItemClickListener {
             override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?) {
 // D
             }

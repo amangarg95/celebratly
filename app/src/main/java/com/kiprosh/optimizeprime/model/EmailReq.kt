@@ -6,5 +6,4 @@ class EmailReq {
 
     @SerializedName("user[email]")
     var email: String = ""
-
 }

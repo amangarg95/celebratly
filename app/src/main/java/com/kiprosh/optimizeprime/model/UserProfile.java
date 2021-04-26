@@ -1,4 +1,4 @@
-package com.kiprosh.optimizeprime;
+package com.kiprosh.optimizeprime.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.kiprosh.optimizeprime.model.User;

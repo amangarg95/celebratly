@@ -193,26 +193,43 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_show_preview"
+            style="@style/TextViewSmallMuted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
             android:text="Preview"
+            android:fontFamily="@font/roboto_thin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_profile_info" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_upload_greeting"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_upload_greeting"
+            style="@style/TextViewBodyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/screen_margin_top_bottom_high"
             android:background="@drawable/bg_round"
+            android:fontFamily="@font/roboto_medium"
             android:padding="8dp"
-            android:text="Send Wishes"
+            android:text="Send Greeting"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ll_backgrounds" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_disclaimer"
+            style="@style/TextViewSmallMuted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/screen_margin_start_end_medium"
+            android:gravity="center"
+            android:fontFamily="@font/roboto_thin"
+            android:text="Greeting once uploaded cannot be deleted/modified"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_upload_greeting" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gd_h_1"

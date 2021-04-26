@@ -1,4 +1,4 @@
-package app.videoplayerinsiderecyclerview.utils
+package com.kiprosh.optimizeprime.view.adapter
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

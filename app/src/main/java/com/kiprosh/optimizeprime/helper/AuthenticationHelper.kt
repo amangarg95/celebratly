@@ -2,7 +2,7 @@ package com.kiprosh.optimizeprime.helper
 
 import android.content.Context
 import com.google.gson.Gson
-import com.kiprosh.optimizeprime.UserProfile
+import com.kiprosh.optimizeprime.model.UserProfile
 import com.kiprosh.optimizeprime.model.User
 
 class AuthenticationHelper(var context: Context) {

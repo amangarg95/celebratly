@@ -6,24 +6,23 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import app.videoplayerinsiderecyclerview.utils.PlayerViewAdapter
-import app.videoplayerinsiderecyclerview.utils.PlayerViewAdapter.Companion.playIndexThenPausePreviousPlayer
-import app.videoplayerinsiderecyclerview.utils.RecyclerViewScrollListener
+import com.kiprosh.optimizeprime.helper.RecyclerViewScrollListener
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
-import com.kiprosh.optimizeprime.databinding.FragmentMyFeedBinding
+import com.kiprosh.optimizeprime.databinding.FragmentFeedBinding
 import com.kiprosh.optimizeprime.helper.ProgressDialog
 import com.kiprosh.optimizeprime.services.APIInterface
-import com.kiprosh.optimizeprime.view.adapter.MyFeedAdapter
+import com.kiprosh.optimizeprime.view.adapter.FeedAdapter
+import com.kiprosh.optimizeprime.view.adapter.PlayerViewAdapter
+import com.kiprosh.optimizeprime.view.adapter.PlayerViewAdapter.Companion.playIndexThenPausePreviousPlayer
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-
-class MyFeedFragment : Fragment(), MyFeedAdapter.OnShareClickListener {
-    private lateinit var myFeedFragmentBinding: FragmentMyFeedBinding
+class FeedFragment : Fragment(), FeedAdapter.OnShareClickListener {
+    private lateinit var myFeedFragmentBinding: FragmentFeedBinding
     lateinit var apiInterface: APIInterface
     lateinit var progressDialog: ProgressDialog
 
@@ -33,7 +32,7 @@ class MyFeedFragment : Fragment(), MyFeedAdapter.OnShareClickListener {
         savedInstanceState: Bundle?
     ): View {
         myFeedFragmentBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_my_feed, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_feed, container, false)
         myFeedFragmentBinding.lifecycleOwner = this
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface::class.java)
         progressDialog = ProgressDialog()
@@ -75,7 +74,7 @@ class MyFeedFragment : Fragment(), MyFeedAdapter.OnShareClickListener {
 
     private fun setAdapter(recyclerDataArrayList: ArrayList<OccurrencesResponse>) {
         val mAdapter =
-            MyFeedAdapter(requireActivity(), null, recyclerDataArrayList, true, this)
+            FeedAdapter(requireActivity(), null, recyclerDataArrayList, true, this)
         myFeedFragmentBinding.rvMyFeed.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(activity)
         myFeedFragmentBinding.rvMyFeed.layoutManager = layoutManager
@@ -89,7 +88,7 @@ class MyFeedFragment : Fragment(), MyFeedAdapter.OnShareClickListener {
 
         }
         myFeedFragmentBinding.rvMyFeed.addOnScrollListener(scrollListener)
-        mAdapter.setOnItemClickListener(object : MyFeedAdapter.OnItemClickListener {
+        mAdapter.setOnItemClickListener(object : FeedAdapter.OnItemClickListener {
             override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?) {
                 // Do nothing
             }

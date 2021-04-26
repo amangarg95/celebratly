@@ -1,51 +1,50 @@
-package app.videoplayerinsiderecyclerview.utils
+package com.kiprosh.optimizeprime.view.adapter
 
 import android.content.Context
 import android.net.Uri
 import android.view.View
-import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
+import com.kiprosh.optimizeprime.helper.PlayerStateCallback
 
 // extension function for show toast
-fun Context.toast(text: String){
+fun Context.toast(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 }
 
 class PlayerViewAdapter {
 
-    companion object{
+    companion object {
         // for hold all players generated
-        private var playersMap: MutableMap<Int, SimpleExoPlayer>  = mutableMapOf()
+        private var playersMap: MutableMap<Int, SimpleExoPlayer> = mutableMapOf()
+
         // for hold current player
         private var currentPlayingVideo: Pair<Int, SimpleExoPlayer>? = null
-        fun releaseAllPlayers(){
+        fun releaseAllPlayers() {
             playersMap.map {
                 it.value.release()
             }
         }
 
         // call when item recycled to improve performance
-        fun releaseRecycledPlayers(index: Int){
+        fun releaseRecycledPlayers(index: Int) {
             playersMap[index]?.release()
         }
 
         // call when scroll to pause any playing player
-        fun pauseCurrentPlayingVideo(){
-            if (currentPlayingVideo != null){
+        fun pauseCurrentPlayingVideo() {
+            if (currentPlayingVideo != null) {
                 currentPlayingVideo?.second?.playWhenReady = false
             }
         }
 
-        fun playIndexThenPausePreviousPlayer(index: Int){
+        fun playIndexThenPausePreviousPlayer(index: Int) {
             if (playersMap.get(index)?.playWhenReady == false) {
                 pauseCurrentPlayingVideo()
                 playersMap.get(index)?.playWhenReady = true
@@ -60,8 +59,17 @@ class PlayerViewAdapter {
         * thumbnail for show before video start
         * */
         @JvmStatic
-        @BindingAdapter(value = ["video_url", "on_state_change", "progressbar", "thumbnail", "item_index"], requireAll = false)
-        fun PlayerView.loadVideo(url: String, callback: PlayerStateCallback, progressbar: ProgressBar, thumbnail: AppCompatImageView, item_index: Int? = null) {
+        @BindingAdapter(
+            value = ["video_url", "on_state_change", "progressbar", "thumbnail", "item_index"],
+            requireAll = false
+        )
+        fun PlayerView.loadVideo(
+            url: String,
+            callback: PlayerStateCallback,
+            progressbar: ProgressBar,
+            thumbnail: AppCompatImageView,
+            item_index: Int? = null
+        ) {
             if (url == null) return
             val player = SimpleExoPlayer.Builder(context).build()
 
@@ -72,7 +80,8 @@ class PlayerViewAdapter {
             // We'll show the controller, change to true if want controllers as pause and start
             //this.useController = false
             // Provide url to load the video from here
-            val mediaSource = ProgressiveMediaSource.Factory(DefaultHttpDataSourceFactory("Demo")).createMediaSource(Uri.parse(url))
+            val mediaSource = ProgressiveMediaSource.Factory(DefaultHttpDataSourceFactory("Demo"))
+                .createMediaSource(Uri.parse(url))
 
             player.prepare(mediaSource)
 
@@ -94,7 +103,7 @@ class PlayerViewAdapter {
                 override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
                     super.onPlayerStateChanged(playWhenReady, playbackState)
 
-                    if (playbackState == Player.STATE_BUFFERING){
+                    if (playbackState == Player.STATE_BUFFERING) {
                         callback.onVideoBuffering(player)
                         // Buffering..
                         // set progress bar visible here
@@ -103,7 +112,7 @@ class PlayerViewAdapter {
                         progressbar.visibility = View.VISIBLE
                     }
 
-                    if (playbackState == Player.STATE_READY){
+                    if (playbackState == Player.STATE_READY) {
                         // [PlayerView] has fetched the video duration so this is the block to hide the buffering progress bar
                         progressbar.visibility = View.GONE
                         // set thumbnail gone
@@ -111,7 +120,7 @@ class PlayerViewAdapter {
                         callback.onVideoDurationRetrieved(this@loadVideo.player!!.duration, player)
                     }
 
-                    if (playbackState == Player.STATE_READY && player.playWhenReady){
+                    if (playbackState == Player.STATE_READY && player.playWhenReady) {
                         // [PlayerView] has started playing/resumed the video
                         callback.onStartedPlaying(player)
                     }

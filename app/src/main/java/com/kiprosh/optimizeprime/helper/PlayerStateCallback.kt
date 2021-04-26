@@ -1,4 +1,4 @@
-package app.videoplayerinsiderecyclerview.utils
+package com.kiprosh.optimizeprime.helper
 
 import com.google.android.exoplayer2.Player
 

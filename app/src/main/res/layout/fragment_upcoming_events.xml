@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="@dimen/screen_padding_very_low"
-                app:sb_text="This Week"
+                app:sb_text="Upcoming Week"
                 app:sb_textColor="@color/black" />
 
             <co.ceryle.segmentedbutton.SegmentedButton
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="@dimen/screen_padding_very_low"
-                app:sb_text="This Month"
+                app:sb_text="Upcoming Month"
                 app:sb_textColor="@color/black" />
 
             <co.ceryle.segmentedbutton.SegmentedButton
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:padding="@dimen/screen_padding_very_low"
-                app:sb_text="This Year"
+                app:sb_text="Upcoming Year"
                 app:sb_textColor="@color/black" />
         </co.ceryle.segmentedbutton.SegmentedButtonGroup>
 

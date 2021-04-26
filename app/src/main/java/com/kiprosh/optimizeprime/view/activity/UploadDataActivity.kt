@@ -54,7 +54,7 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
             }
         })
 
-        uploadDataActivityBinding.tvUploadGreeting.setOnClickListener {
+        uploadDataActivityBinding.btnUploadGreeting.setOnClickListener {
             progressDialog.showProgress(supportFragmentManager)
             Handler().postDelayed(Runnable {
                 progressDialog.hideProgress()

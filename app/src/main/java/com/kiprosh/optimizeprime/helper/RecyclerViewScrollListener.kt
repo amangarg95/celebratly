@@ -1,4 +1,4 @@
-package app.videoplayerinsiderecyclerview.utils
+package com.kiprosh.optimizeprime.helper
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
