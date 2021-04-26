@@ -47,12 +47,7 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s!!.isNotEmpty()) {
-                    uploadDataActivityBinding.tvPreviewText.visibility = VISIBLE
-                    uploadDataActivityBinding.tvPreviewText.text = s.toString()
-                } else {
-//                    uploadDataActivityBinding.tvPreviewText.visibility = GONE
-                }
+                uploadDataActivityBinding.tvPreviewText.text = s.toString()
             }
 
             override fun afterTextChanged(s: Editable?) {
