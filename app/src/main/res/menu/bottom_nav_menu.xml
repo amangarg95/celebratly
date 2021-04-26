@@ -14,7 +14,7 @@
     <item
         android:id="@+id/item_my_profile"
         android:icon="@drawable/ic_baseline_profile_24"
-        android:color="@color/yellow"
+        android:color="@color/bottom_bar_pistachio_green"
         android:title="My Profile" />
 </menu>
 
