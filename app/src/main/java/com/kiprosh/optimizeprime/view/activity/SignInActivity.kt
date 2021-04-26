@@ -1,9 +1,7 @@
 package com.kiprosh.optimizeprime.view.activity
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +21,7 @@ import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.UserProfile
 import com.kiprosh.optimizeprime.databinding.ActivityLoginBinding
 import com.kiprosh.optimizeprime.helper.AuthenticationHelper
+import com.kiprosh.optimizeprime.helper.ProgressDialog
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
@@ -38,6 +37,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var auth: FirebaseAuth
     private lateinit var apiInterface: APIInterface
     private lateinit var authenticationHelper: AuthenticationHelper
+    private lateinit var progressBar: ProgressDialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,17 +46,16 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
         binding.googleButton.setOnClickListener(this)
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface::class.java)
         authenticationHelper = AuthenticationHelper(applicationContext)
+        progressBar = ProgressDialog()
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .setHostedDomain(getString(R.string.sign_in_domain))
             .requestIdToken(getString(R.string.auth_api_key))
             .requestEmail()
             .build()
-
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         googleSignInClient.signOut()
         auth = Firebase.auth
         Firebase.messaging.isAutoInitEnabled = true
-
     }
 
     override fun onClick(v: View?) {
@@ -78,16 +77,13 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                 try {
                     val account = task.getResult(ApiException::class.java)!!
                     getAuthenticationToken(account)
-                    Log.d(
-                        TAG,
-                        "firebaseAuthWithGoogle:" + account.id + account.email + account.givenName
-                    )
                 } catch (e: ApiException) {
-                    // Google Sign In failed, update UI appropriately
-                    Log.w(TAG, "Google sign in failed", e)
+                    Toast.makeText(applicationContext, "Please try again later", Toast.LENGTH_SHORT)
+                        .show()
                 }
             } else {
-
+                Toast.makeText(applicationContext, R.string.text_api_error, Toast.LENGTH_SHORT)
+                    .show()
             }
         }
     }
@@ -98,6 +94,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getAuthenticationToken(googleSignInAccount: GoogleSignInAccount) {
+        progressBar.showProgress(supportFragmentManager)
         val emailReq = EmailReq()
         emailReq.email = googleSignInAccount.email!!.toString()
         apiInterface.getTokenNew(googleSignInAccount.email!!.toString())
@@ -110,7 +107,9 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                 }
 
                 override fun onFailure(call: Call<UserProfile>, t: Throwable) {
-
+                    progressBar.hideProgress()
+                    Toast.makeText(applicationContext, R.string.text_api_error, Toast.LENGTH_SHORT)
+                        .show()
                 }
             })
     }
@@ -129,7 +128,6 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                         )
                     }
                 }
-
             }
         }
     }
@@ -149,21 +147,32 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                     response: Response<User>
                 ) {
                     if (response.isSuccessful) {
+                        progressBar.hideProgress()
                         Toast.makeText(
                             applicationContext,
                             "Authenticate Successfully",
                             Toast.LENGTH_SHORT
                         ).show()
                         openMainActivity()
+                    } else {
+                        progressBar.hideProgress()
+                        Toast.makeText(
+                            applicationContext,
+                            R.string.text_api_error,
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
                     }
                 }
 
                 override fun onFailure(call: Call<User>, t: Throwable) {
-
+                    progressBar.hideProgress()
+                    Toast.makeText(applicationContext, R.string.text_api_error, Toast.LENGTH_SHORT)
+                        .show()
                 }
             })
         } else {
-
+            progressBar.hideProgress()
         }
     }
 

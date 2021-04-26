@@ -1,6 +1,5 @@
 package com.kiprosh.optimizeprime.view.activity
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -44,13 +43,16 @@ class IntroActivity : AppIntro() {
 
     public override fun onSkipPressed(currentFragment: Fragment?) {
         super.onSkipPressed(currentFragment)
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        openLoginActivity()
     }
 
     public override fun onDonePressed(currentFragment: Fragment?) {
         super.onDonePressed(currentFragment)
-        val intent = Intent(this, MainActivity::class.java)
+        openLoginActivity()
+    }
+
+    private fun openLoginActivity() {
+        val intent = Intent(this, SignInActivity::class.java)
         startActivity(intent)
     }
 }
