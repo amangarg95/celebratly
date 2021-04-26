@@ -3,6 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="videoUrl"
+            type="String"/>
+
+        <variable
+            name="callback"
+            type="app.videoplayerinsiderecyclerview.utils.PlayerStateCallback"/>
+
+        <variable
+            name="index"
+            type="int"/>
+
 
     </data>
 
@@ -106,15 +118,6 @@
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/screen_padding_start_end_medium">
 
-                <!--                <androidx.appcompat.widget.AppCompatTextView-->
-                <!--                    app:layout_constraintTop_toTopOf="parent"-->
-                <!--                    app:layout_constraintStart_toStartOf="parent"-->
-                <!--                    android:id="@+id/tv_card_name"-->
-                <!--                    android:text="Wishing you a very happy birthday, Kavita Patil!"-->
-                <!--                    style="@style/TextViewMediumTextDark"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content" />-->
-
                 <com.google.android.exoplayer2.ui.PlayerView
                     android:id="@+id/exo_player_view"
                     android:layout_width="match_parent"
@@ -123,18 +126,49 @@
                     android:visibility="visible"
                     app:controller_layout_id="@layout/home_player_control"
                     app:fastforward_increment="10000"
+                    app:video_url="@{videoUrl}"
+                    app:show_timeout="0"
+                    app:thumbnail="@{thumbnail}"
+                    app:hide_on_touch="false"
+                    app:on_state_change="@{callback}"
+                    app:progressbar="@{progressBar}"
+                    app:item_index="@{index}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:resize_mode="fill"
                     app:rewind_increment="10000" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/thumbnail"
+                    android:src="@drawable/bg_profile_new"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:background="#fff"
+                    android:scaleType="centerCrop"/>
+
+                <ProgressBar
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/content"
                     style="@style/TextViewBodyText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/screen_margin_top_bottom_low"
-                    android:text="Wishing Kavita Patil a very happy birthday!!"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/exo_player_view" />
 

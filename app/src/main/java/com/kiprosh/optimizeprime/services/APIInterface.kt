@@ -21,7 +21,7 @@ interface APIInterface {
     @GET("/events")
     fun getUpcomingEvents(): Call<ArrayList<UpcomingEventsResponse>>
 
-    @GET("/occurrences")
+    @GET("/occurrences.json")
     fun getOccurrences(): Call<ArrayList<OccurrencesResponse>>
 
     @FormUrlEncoded

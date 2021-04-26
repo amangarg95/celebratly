@@ -37,9 +37,11 @@
             android:id="@id/exo_rew"
             style="@style/ExoMediaButton.Rewind"/>
 
+<!--
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@id/exo_shuffle"
             style="@style/ExoMediaButton.Shuffle"/>
+-->
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@id/exo_repeat_toggle"

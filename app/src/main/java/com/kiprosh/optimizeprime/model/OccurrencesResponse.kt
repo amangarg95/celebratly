@@ -8,21 +8,23 @@ data class OccurrencesResponse(
     @SerializedName("event_id")
     val eventId: Int,
     @SerializedName("expires_at")
-    val expiresAt: String,
+    var expiresAt: String,
     @SerializedName("note")
-    val note: String,
+    var note: String,
     @SerializedName("title")
-    val title: String,
+    var titleText: String,
     @SerializedName("start_at")
-    val startAt: String,
+    var startAt: String,
     @SerializedName("end_at")
-    val endAt: String,
+    var endAt: String,
     @SerializedName("caption")
-    val caption: String,
+    var caption: String,
     @SerializedName("url")
-    val url: String,
+    var url: String,
     @SerializedName("event_type")
-    val eventTyoe: String,
+    var eventTyoe: String,
     @SerializedName("color")
-    val color: String
+    var color: String,
+    @SerializedName("final_video_url")
+    var videoUrl: String
 )
