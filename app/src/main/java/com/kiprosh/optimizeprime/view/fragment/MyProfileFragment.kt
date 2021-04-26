@@ -52,7 +52,7 @@ class MyProfileFragment : Fragment() {
             false
         )
         updateStatusBarColour()
-        CommonCode(context!!).loadUserProfileImage(binding.ivUserProfile, "https://homepages.cae.wisc.edu/~ece533/images/lena.png")
+        CommonCode(context!!).loadUserProfileImage(binding.ivUserProfile, user?.profileUrl)
         /*exoFullScreenToggle = fragmentMyProfileBinding.exoPlayerView.exo_full_screen_toggle
         playerView = fragmentMyProfileBinding.exoPlayerView
         rlPlayer = fragmentMyProfileBinding.rlPlayer*/
