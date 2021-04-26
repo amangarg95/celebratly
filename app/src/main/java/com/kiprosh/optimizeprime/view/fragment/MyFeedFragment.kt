@@ -39,7 +39,6 @@ class MyFeedFragment : Fragment(), MyProfileAdapter.FullScreenListener {
         myFeedFragmentBinding.lifecycleOwner = this
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface::class.java)
         progressDialog = ProgressDialog()
-        Log.d("occurrence_test", "MyFeedFragment")
         getOccurrences()
         updateStatusBarColour()
         return myFeedFragmentBinding.root
@@ -55,12 +54,7 @@ class MyFeedFragment : Fragment(), MyProfileAdapter.FullScreenListener {
                 response: Response<ArrayList<OccurrencesResponse>>
             ) {
                 recyclerDataArrayList = response.body()!!
-                Log.d(
-                    "occurrence_test",
-                    "recyclerDataArrayList-->" + recyclerDataArrayList.toString()
-                )
                 myFeedFragmentBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
-                //myFeedFragmentBinding.rvMyFeed.adapter = MyProfileAdapter(this@MyFeedFragment, context!!,null, recyclerDataArrayList, true)
                 setAdapter(recyclerDataArrayList)
                 progressDialog.hideProgress()
             }
@@ -70,8 +64,6 @@ class MyFeedFragment : Fragment(), MyProfileAdapter.FullScreenListener {
                 throwable: Throwable
             ) {
                 progressDialog.hideProgress()
-                Log.d("occurrence_test", "throwable-->" + throwable.message)
-
             }
         })
     }
@@ -97,7 +89,6 @@ class MyFeedFragment : Fragment(), MyProfileAdapter.FullScreenListener {
         myFeedFragmentBinding.rvMyFeed!!.adapter = mAdapter
         var scrollListener: RecyclerViewScrollListener = object : RecyclerViewScrollListener() {
             override fun onItemIsFirstVisibleItem(index: Int) {
-                Log.d("visible item index", index.toString())
                 // play just visible item
                 if (index != -1)
                     playIndexThenPausePreviousPlayer(index)

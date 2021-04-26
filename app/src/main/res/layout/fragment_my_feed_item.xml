@@ -31,7 +31,7 @@
             android:layout_marginStart="@dimen/screen_margin_start_end_medium"
             android:layout_marginTop="@dimen/screen_margin_start_end_medium"
             android:layout_marginEnd="@dimen/screen_margin_start_end_medium"
-            android:visibility="gone"
+            android:visibility="visible"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,6 +102,15 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_my_feed"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/screen_margin_start_end_medium"
+            android:text="-----------  My Videos  -----------"
+            style="@style/TextViewBodyTextMuted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

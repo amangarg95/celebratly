@@ -51,8 +51,30 @@ class MyFeedAdapter(
             val model = getItem(position)
             val genericViewHolder = holder
 
+            if (!isMyFeed) {
+                if (position == 0) {
+                    holder.binding.cvProfileInfo.visibility = View.VISIBLE
+                    holder.binding.tvMyFeed.visibility = View.VISIBLE
+                    if (user != null) {
+                        holder.binding.tvName.text = user.fullName
+                        holder.binding.tvEmail.text = user.email
+                        holder.binding.tvDob.text = dateTimeUtil.changeDateFormat(user.dob)
+                        holder.binding.tvDoj.text = dateTimeUtil.changeDateFormat(user.doj)
+                    }
+                    updateCards(model, holder.binding)
+                } else {
+                    holder.binding.cvProfileInfo.visibility = View.GONE
+                    holder.binding.tvMyFeed.visibility = View.GONE
+                    updateCards(model, holder.binding)
+                }
+
+            } else {
+                holder.binding.cvProfileInfo.visibility = View.GONE
+                holder.binding.tvMyFeed.visibility = View.GONE
+                updateCards(model, holder.binding)
+            }
             // send data to view holder
-            genericViewHolder.onBind(model)
+            genericViewHolder.onBind(model, holder)
         }
     }
 
@@ -82,28 +104,9 @@ class MyFeedAdapter(
         )
     }
 
-    inner class VideoPlayerViewHolder(private val binding: FragmentMyFeedItemBinding) :
+    inner class VideoPlayerViewHolder(val binding: FragmentMyFeedItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(model: OccurrencesResponse) {
-
-            if (!isMyFeed) {
-                if (position == 0) {
-                    binding.cvProfileInfo.visibility = View.VISIBLE
-                    if (user != null) {
-                        binding.tvName.text = user.fullName
-                        binding.tvEmail.text = user.email
-                        binding.tvDob.text = dateTimeUtil.changeDateFormat(user.dob)
-                        binding.tvDoj.text = dateTimeUtil.changeDateFormat(user.doj)
-                    }
-                } else {
-                    updateCards(model, binding)
-                }
-
-            } else {
-                binding.cvProfileInfo.visibility = View.GONE
-                updateCards(model, binding)
-            }
-
+        fun onBind(model: OccurrencesResponse, holder: RecyclerView.ViewHolder) {
 
             // handel on item click
             binding.root.setOnClickListener {
@@ -114,12 +117,10 @@ class MyFeedAdapter(
                 )
             }
             var videoPlayerUrl = model.videoUrl
-            Log.d("sadajhsjd", "videoPlayerUrl-->" + videoPlayerUrl)
             if (videoPlayerUrl.isNullOrEmpty()) {
                 videoPlayerUrl =
                     "https://player.vimeo.com/external/481511608.hd.mp4?s=40bfbf85159679a2f69f1155f9ae4d6da357580b"
             }
-            Log.d("sadajhsjd", "New videoPlayerUrl-->" + videoPlayerUrl)
 
             binding.apply {
                 videoUrl = videoPlayerUrl
