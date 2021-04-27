@@ -45,7 +45,7 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
         updateStatusBarColour()
         CommonCode(context!!).loadUserProfileImage(
             binding.ivUserProfile,
-            ""
+            user!!.profileUrl
         )
         return binding.root
     }

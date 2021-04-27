@@ -6,4 +6,5 @@
     <string name="title_date_of_joining">Date Of Joining</string>
     <string name="title_my_profile">My Profile</string>
     <string name="text_api_error">Please try after sometime</string>
+    <string name="text_my_profile">My Profile</string>
 </resources>
