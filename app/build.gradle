@@ -82,4 +82,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
     implementation 'com.github.ceryle:SegmentedButton:v2.0.2'
+    implementation 'com.pixelcarrot.base64image:base64image:1.0.0'
 }
