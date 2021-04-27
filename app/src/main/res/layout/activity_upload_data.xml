@@ -6,139 +6,230 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_upload_data"
+        android:background="@color/white"
         tools:context=".view.activity.UploadDataActivity">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_preview"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gd_h_1" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/intro_slide_2"
+            app:layout_constraintBottom_toTopOf="@+id/gd_bg_height"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_preview"
-            android:text="Sample Test"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:padding="24dp"
-            android:textSize="@dimen/text_size_header_one"
+            android:id="@+id/tv_my_profile"
+            style="@style/TextViewLargeBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/intro_slide_2"
+            android:fontFamily="@font/roboto_medium"
+            android:padding="16dp"
+            android:text="Send Greeting"
+            android:textColor="@color/white"
+            android:textSize="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gd_h_1" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_profile_info"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gd_h_1">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_preview_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#4D000000"
+                    android:fontFamily="@font/architects_daughter_regular"
+                    android:gravity="center"
+                    android:maxLength="130"
+                    android:padding="@dimen/screen_padding_all_side_medium"
+                    android:text="Add your greetings..."
+                    android:textColor="@color/white"
+                    android:textSize="24dp"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_preview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_associate_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/architects_daughter_regular"
+                    android:gravity="center"
+                    android:padding="@dimen/screen_padding_all_side_medium"
+                    android:text="\@aman_garg"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_open_camera"
+            android:id="@+id/tv_add_background"
+            style="@style/TextViewBodyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_margin_start_end_medium"
+            android:layout_marginTop="@dimen/screen_margin_top_bottom"
+            android:layout_marginEnd="@dimen/screen_margin_start_end_medium"
+            android:text="Select Personalised Background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_greeting" />
+
+        <LinearLayout
+            android:id="@+id/ll_backgrounds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/screen_margin_top_bottom_high"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_background">
+
+            <LinearLayout
+                android:id="@+id/ll_open_camera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/civ_open_camera"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_camera" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:gravity="center"
+                    android:text="Open \nCamera" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_open_gallery"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/civ_open_gallery"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_gallery" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:gravity="center"
+                    android:text="Open \nGallery" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_custom_background"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/civ_custom_background"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_background_library" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:gravity="center"
+                    android:text="Custom \nBackground" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_greeting"
+            style="@style/TextViewSmallMuted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/screen_margin_start_end_medium"
+            android:background="@drawable/bg_round"
+            android:hint="Click here to add greeting..."
+            android:maxLength="130"
+            android:maxLines="3"
+            android:padding="@dimen/screen_margin_start_end_low"
+            app:layout_constraintTop_toBottomOf="@id/tv_show_preview" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_show_preview"
+            style="@style/TextViewSmallMuted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
+            android:text="Preview"
+            android:fontFamily="@font/roboto_thin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_profile_info" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_upload_greeting"
+            style="@style/TextViewBodyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/screen_margin_top_bottom_high"
-            android:gravity="center"
-            android:text="Open Camera"
-            android:textColor="@color/blue"
-            android:textSize="18dp"
+            android:background="@drawable/bg_round"
+            android:fontFamily="@font/roboto_medium"
+            android:padding="8dp"
+            android:text="Send Greeting"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_preview" />
+            app:layout_constraintTop_toBottomOf="@id/ll_backgrounds" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_open_gallery"
+            android:id="@+id/tv_disclaimer"
+            style="@style/TextViewSmallMuted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_margin="@dimen/screen_margin_start_end_medium"
             android:gravity="center"
-            android:text="Open Gallery"
-            android:textColor="@color/blue"
-            android:textSize="18dp"
+            android:fontFamily="@font/roboto_thin"
+            android:text="Greeting once uploaded cannot be deleted/modified"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_open_camera" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:weightSum="4"
-            app:layout_constraintTop_toBottomOf="@id/tv_open_gallery">
-
-            <LinearLayout
-                android:id="@+id/ll_summer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="24dp"
-                    android:background="#FAFAD2"
-                    android:layout_height="24dp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Summer" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_cool"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="24dp"
-                    android:background="#ADD8E6"
-                    android:layout_height="24dp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cool" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_night"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="24dp"
-                    android:background="@color/black"
-                    android:layout_height="24dp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Night" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_desert"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="24dp"
-                    android:background="#A52A2A"
-                    android:layout_height="24dp" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dessert" />
-            </LinearLayout>
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@id/btn_upload_greeting" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gd_h_1"
@@ -147,5 +238,18 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent=".1" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_h_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_bg_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".45" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
