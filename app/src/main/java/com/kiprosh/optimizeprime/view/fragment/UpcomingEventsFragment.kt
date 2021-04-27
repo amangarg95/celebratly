@@ -4,8 +4,6 @@ package com.kiprosh.optimizeprime.view.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -13,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentUpcomingEventsBinding
+import com.kiprosh.optimizeprime.helper.DateTimeUtil
 import com.kiprosh.optimizeprime.helper.ProgressDialog
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.activity.UploadDataActivity
@@ -21,13 +20,18 @@ import com.kiprosh.optimizeprime.view.adapter.UpcomingEventsAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener {
     private lateinit var fragmentUpcomingEventsBinding: FragmentUpcomingEventsBinding
     lateinit var apiInterface: APIInterface
     lateinit var progressDialog: ProgressDialog
+    var listByWeek = ArrayList<OccurrencesResponse>()
+    var listByMonth = ArrayList<OccurrencesResponse>()
+    var listByYear = ArrayList<OccurrencesResponse>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,23 +41,23 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
         fragmentUpcomingEventsBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_upcoming_events, container, false)
         fragmentUpcomingEventsBinding.lifecycleOwner = this
-        fragmentUpcomingEventsBinding.sbgFilter.setOnClickedButtonListener {
-            when (it) {
-                0 -> {
-                    Toast.makeText(context, "Week", LENGTH_SHORT).show()
-                }
-                1 -> {
-                    Toast.makeText(context, "Month", LENGTH_SHORT).show()
-                }
-                2 -> {
-                    Toast.makeText(context, "Year", LENGTH_SHORT).show()
-                }
-            }
-        }
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface::class.java)
         progressDialog = ProgressDialog()
         updateStatusBarColour()
         getOccurrences()
+        fragmentUpcomingEventsBinding.sbgFilter.setOnClickedButtonListener {
+            when (it) {
+                0 -> {
+                    setAdapter(listByWeek)
+                }
+                1 -> {
+                    setAdapter(listByMonth)
+                }
+                2 -> {
+                    setAdapter(listByYear)
+                }
+            }
+        }
         return fragmentUpcomingEventsBinding.root
     }
 
@@ -72,7 +76,25 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
                 response: Response<ArrayList<OccurrencesResponse>>
             ) {
                 recyclerDataArrayList = response.body()!!
-                setAdapter(recyclerDataArrayList)
+
+                recyclerDataArrayList.forEach {
+                    if (DateTimeUtil().getDifferenceInDate(
+                            Calendar.getInstance().time,
+                            SimpleDateFormat("yyyy-MM-dd").parse(it.startAt)
+                        ).first < 8
+                    ) {
+                        listByWeek.add(it)
+                    } else if (DateTimeUtil().getDifferenceInDate(
+                            Calendar.getInstance().time,
+                            SimpleDateFormat("yyyy-MM-dd").parse(it.startAt)
+                        ).first in 8..31
+                    ) {
+                        listByMonth.add(it)
+                    } else {
+                        listByYear.add(it)
+                    }
+                }
+                setAdapter(listByWeek)
                 progressDialog.hideProgress()
             }
 

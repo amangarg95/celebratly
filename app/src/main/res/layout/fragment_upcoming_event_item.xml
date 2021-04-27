@@ -51,22 +51,24 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_card_name"
                     style="@style/TextViewMediumTextDark"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/screen_margin_start_end_medium"
                     android:text="It's Aman's Birthday!"
+                    app:layout_constraintEnd_toStartOf="@id/iv_lock"
                     app:layout_constraintStart_toEndOf="@+id/iv_user_profile"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/content"
                     style="@style/TextViewBodyTextMuted"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/screen_margin_start_end_medium"
                     android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
                     android:text="Wish him before it's too late!"
                     android:textAppearance="?attr/textAppearanceListItem"
+                    app:layout_constraintEnd_toStartOf="@id/iv_lock"
                     app:layout_constraintStart_toEndOf="@+id/iv_user_profile"
                     app:layout_constraintTop_toBottomOf="@+id/tv_card_name" />
 

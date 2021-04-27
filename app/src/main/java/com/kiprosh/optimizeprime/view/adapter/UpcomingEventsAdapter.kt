@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentUpcomingEventItemBinding
+import com.kiprosh.optimizeprime.helper.DateTimeUtil
 
 class UpcomingEventsAdapter(
     private val values: List<OccurrencesResponse>, private val actionListener: ActionListener
@@ -30,6 +31,7 @@ class UpcomingEventsAdapter(
             holder.binding.ivLock.visibility = GONE
         }
         holder.binding.tvCardName.text = item.titleText
+        holder.binding.tvDate.text = DateTimeUtil().changeDateFormat(item.startAt)
     }
 
     override fun getItemCount(): Int = values.size

@@ -13,7 +13,7 @@
             android:layout_height="0dp"
             android:background="@color/baby_pink"
             app:layout_constraintBottom_toTopOf="@+id/gd_bg_height"
-            app:layout_constraintTop_toTopOf="parent"></androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/gd_bg_height"
@@ -73,6 +73,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_my_feed"
+            android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
             android:name="com.example.optimizeprimeandroidapp.MyFeedFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
