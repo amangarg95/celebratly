@@ -31,6 +31,7 @@ class UpcomingEventsAdapter(
             holder.binding.ivLock.visibility = GONE
         }
         holder.binding.tvCardName.text = item.titleText
+        holder.binding.content.text = item.caption
         holder.binding.tvDate.text = DateTimeUtil().changeDateFormat(item.startAt)
     }
 
