@@ -1,14 +1,11 @@
 package com.kiprosh.optimizeprime.helper
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.kiprosh.optimizeprime.R
@@ -30,5 +27,17 @@ class CommonCode(val context: Context) {
         else canvas.drawColor(Color.WHITE)
         view.draw(canvas)
         return returnedBitmap
+    }
+
+    fun shareTextWithAnotherApp(context: Context, textToBeShared: String?) {
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.type = "text/plain"
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, textToBeShared)
+        context.startActivity(
+            Intent.createChooser(
+                sharingIntent,
+                "Share via"
+            )
+        )
     }
 }

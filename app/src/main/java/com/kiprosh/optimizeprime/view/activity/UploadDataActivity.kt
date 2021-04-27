@@ -10,7 +10,6 @@ import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Base64
-import android.view.View.VISIBLE
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
@@ -19,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.kiprosh.optimizeprime.R
-import com.kiprosh.optimizeprime.databinding.ActivityUploadData2Binding
+import com.kiprosh.optimizeprime.databinding.ActivityUploadDataBinding
 import com.kiprosh.optimizeprime.helper.BottomSheetDialog
 import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.ProgressDialog
@@ -27,12 +26,12 @@ import java.io.ByteArrayOutputStream
 
 
 class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickListener {
-    lateinit var uploadDataActivityBinding: ActivityUploadData2Binding
+    lateinit var uploadDataActivityBinding: ActivityUploadDataBinding
     lateinit var progressDialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uploadDataActivityBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_upload_data_2)
+            DataBindingUtil.setContentView(this, R.layout.activity_upload_data)
         uploadDataActivityBinding.lifecycleOwner = this
         uploadDataActivityBinding.llOpenCamera.setOnClickListener { takePhoto() }
         uploadDataActivityBinding.llOpenGallery.setOnClickListener { selectImageInAlbum() }
@@ -55,7 +54,7 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
             }
         })
 
-        uploadDataActivityBinding.tvUploadGreeting.setOnClickListener {
+        uploadDataActivityBinding.btnUploadGreeting.setOnClickListener {
             progressDialog.showProgress(supportFragmentManager)
             Handler().postDelayed(Runnable {
                 progressDialog.hideProgress()

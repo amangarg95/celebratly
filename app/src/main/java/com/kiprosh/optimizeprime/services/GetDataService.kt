@@ -1,6 +1,6 @@
 package com.kiprosh.optimizeprime.services
 
-import com.kiprosh.optimizeprime.UserProfile
+import com.kiprosh.optimizeprime.model.UserProfile
 import okhttp3.ResponseBody
 import retrofit2.Call
 

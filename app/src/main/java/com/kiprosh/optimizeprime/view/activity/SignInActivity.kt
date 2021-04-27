@@ -18,7 +18,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.ktx.messaging
 import com.kiprosh.optimizeprime.R
-import com.kiprosh.optimizeprime.UserProfile
+import com.kiprosh.optimizeprime.model.UserProfile
 import com.kiprosh.optimizeprime.databinding.ActivityLoginBinding
 import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.ProgressDialog

@@ -2,7 +2,7 @@ package com.kiprosh.optimizeprime.services
 
 import com.example.optimizeprimeandroidapp.model.EmailReq
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
-import com.kiprosh.optimizeprime.UserProfile
+import com.kiprosh.optimizeprime.model.UserProfile
 import com.kiprosh.optimizeprime.model.UpcomingEventsResponse
 import com.kiprosh.optimizeprime.model.User
 import okhttp3.ResponseBody
@@ -21,7 +21,7 @@ interface APIInterface {
     @GET("/events")
     fun getUpcomingEvents(): Call<ArrayList<UpcomingEventsResponse>>
 
-    @GET("/occurrences")
+    @GET("/occurrences.json")
     fun getOccurrences(): Call<ArrayList<OccurrencesResponse>>
 
     @FormUrlEncoded

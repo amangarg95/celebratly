@@ -1,38 +1,44 @@
 package com.kiprosh.optimizeprime.view.adapter
 
 import android.view.LayoutInflater
-import android.view.View
-import android.view.View.INVISIBLE
+import android.view.View.GONE
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import androidx.appcompat.widget.AppCompatImageView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
-import com.kiprosh.optimizeprime.dummy.DummyContent.DummyItem
+import com.kiprosh.optimizeprime.databinding.FragmentUpcomingEventItemBinding
+import com.kiprosh.optimizeprime.helper.DateTimeUtil
 
 class UpcomingEventsAdapter(
-    private val values: List<DummyItem>, private val actionListener: ActionListener
+    private val values: List<OccurrencesResponse>, private val actionListener: ActionListener
 ) : RecyclerView.Adapter<UpcomingEventsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_upcoming_event_item, parent, false)
-        return ViewHolder(view)
+        val binding: FragmentUpcomingEventItemBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.fragment_upcoming_event_item,
+            parent,
+            false
+        )
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
-        holder.llMain.setOnClickListener { actionListener.onItemClick() }
-        if (position == 0){
-            holder.ivLock.visibility = INVISIBLE
+        holder.binding.llMain.setOnClickListener { actionListener.onItemClick() }
+        if (position == 0) {
+            holder.binding.ivLock.visibility = GONE
         }
+        holder.binding.tvCardName.text = item.titleText
+        holder.binding.tvDate.text = DateTimeUtil().changeDateFormat(item.startAt)
     }
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val llMain: LinearLayout = view.findViewById(R.id.ll_main)
-        val ivLock: AppCompatImageView = view.findViewById(R.id.iv_lock)
+    inner class ViewHolder(val binding: FragmentUpcomingEventItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
 
         override fun toString(): String {
             return ""

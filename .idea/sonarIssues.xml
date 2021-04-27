@@ -163,6 +163,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/PlayerStateCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/PlayerViewBindingAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/RecyclerViewScrollListener.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/helper/AuthenticationHelper.kt">
           <value>
             <set />
@@ -174,6 +189,36 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/helper/CommonCode.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/helper/DateTimeUtil.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/helper/PlayerStateCallback.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/helper/RecyclerViewScrollListener.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/model/EmailReq.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/model/UserProfile.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/services/MyFirebaseMessagingService.java">
           <value>
             <set />
           </value>
@@ -198,12 +243,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/adapter/FeedAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/adapter/LoadImageBindingAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/adapter/MyFeedAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/adapter/MyProfileAdapter.kt">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/adapter/PlayerViewBindingAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/adapter/UpcomingEventsAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/fragment/FeedFragment.kt">
           <value>
             <set />
           </value>
@@ -388,7 +458,52 @@
             <set />
           </value>
         </entry>
+        <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/src/main/java/com/renatus/helios/util/IntentDataKeys.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/src/main/java/com/renatus/helios/view_models/EducationDashboardViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/src/main/java/com/renatus/helios/views/activities/AssessmentQuestionsActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/src/main/java/com/renatus/helios/views/activities/LastNotesAndActionStepsActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/src/main/java/com/renatus/helios/views/adapters/CourseNotesAndActionStepsDashboardAdapter.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/src/main/java/com/renatus/helios/views/fragments/EducationDashboardFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/src/main/res/layout/fragment_education_dashboard.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/src/main/res/layout/fragment_user_education_progress.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/src/main/res/layout/layout_course_notes_and_action_steps_dashboard_item.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Documents/KiproshProjects/Renatus/HeliosMobile.Android/app/src/main/res/values/strings.xml">
           <value>
             <set />
           </value>
