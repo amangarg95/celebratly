@@ -5,15 +5,12 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
-import android.os.Handler
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Base64
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Toast
-import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -22,12 +19,14 @@ import com.kiprosh.optimizeprime.databinding.ActivityUploadDataBinding
 import com.kiprosh.optimizeprime.helper.BottomSheetDialog
 import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.ProgressDialog
+import com.pixelcarrot.base64image.Base64Image
 import java.io.ByteArrayOutputStream
 
 
 class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickListener {
     lateinit var uploadDataActivityBinding: ActivityUploadDataBinding
     lateinit var progressDialog: ProgressDialog
+    var base64String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uploadDataActivityBinding =
@@ -55,13 +54,15 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
         })
 
         uploadDataActivityBinding.btnUploadGreeting.setOnClickListener {
-            progressDialog.showProgress(supportFragmentManager)
-            Handler().postDelayed(Runnable {
-                progressDialog.hideProgress()
-                finish()
-                Toast.makeText(this, "Greeting uploaded!", LENGTH_LONG).show()
-            }, 5000)
-
+            var bitmap = CommonCode(this).getScreenShot(
+                uploadDataActivityBinding.clPreview
+            )
+            Base64Image.encode(bitmap) { base64 ->
+                base64?.let {
+                    base64String = it
+                }
+            }
+            finish()
         }
     }
 
