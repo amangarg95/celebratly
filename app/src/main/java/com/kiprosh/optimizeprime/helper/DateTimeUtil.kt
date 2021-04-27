@@ -29,4 +29,9 @@ class DateTimeUtil {
         val elapsedSeconds = different / secondsInMilli
         return Triple(elapsedDays, elapsedMinutes, elapsedSeconds)
     }
+
+    fun getDateFromString(startDate: String): Date {
+        return SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(startDate)!!
+    }
+
 }

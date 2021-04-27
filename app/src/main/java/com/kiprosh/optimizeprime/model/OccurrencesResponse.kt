@@ -26,5 +26,7 @@ data class OccurrencesResponse(
     @SerializedName("color")
     var color: String,
     @SerializedName("final_video_url")
-    var videoUrl: String
+    var videoUrl: String,
+    @SerializedName("timestamp")
+    var timestamp: Long
 )

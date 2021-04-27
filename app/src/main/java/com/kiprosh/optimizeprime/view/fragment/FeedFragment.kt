@@ -6,12 +6,12 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kiprosh.optimizeprime.helper.RecyclerViewScrollListener
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentFeedBinding
-import com.kiprosh.optimizeprime.helper.DateTimeUtil
+import com.kiprosh.optimizeprime.helper.FeedHelper
 import com.kiprosh.optimizeprime.helper.ProgressDialog
+import com.kiprosh.optimizeprime.helper.RecyclerViewScrollListener
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.FeedAdapter
 import com.kiprosh.optimizeprime.view.adapter.PlayerViewAdapter
@@ -51,9 +51,15 @@ class FeedFragment : Fragment(), FeedAdapter.OnShareClickListener {
                 call: Call<ArrayList<OccurrencesResponse>>,
                 response: Response<ArrayList<OccurrencesResponse>>
             ) {
-                recyclerDataArrayList = response.body()!!
-                myFeedFragmentBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
-                setAdapter(recyclerDataArrayList)
+                if (response.isSuccessful) {
+                    val feedHelper = FeedHelper()
+                    recyclerDataArrayList = response.body()!!
+                    val eventList = feedHelper.sortList(recyclerDataArrayList)
+                    recyclerDataArrayList.clear()
+                    recyclerDataArrayList.addAll(eventList)
+                    myFeedFragmentBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
+                    setAdapter(recyclerDataArrayList)
+                }
                 progressDialog.hideProgress()
             }
 

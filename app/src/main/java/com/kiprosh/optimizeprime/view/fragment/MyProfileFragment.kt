@@ -10,10 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyProfileBinding
-import com.kiprosh.optimizeprime.helper.AuthenticationHelper
-import com.kiprosh.optimizeprime.helper.CommonCode
-import com.kiprosh.optimizeprime.helper.ProgressDialog
-import com.kiprosh.optimizeprime.helper.RecyclerViewScrollListener
+import com.kiprosh.optimizeprime.helper.*
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.FeedAdapter
@@ -62,13 +59,19 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
                 call: Call<ArrayList<OccurrencesResponse>>,
                 response: Response<ArrayList<OccurrencesResponse>>
             ) {
-                recyclerDataArrayList = response.body()!!
-                Log.d(
-                    "occurrence_test",
-                    "recyclerDataArrayList-->" + recyclerDataArrayList.toString()
-                )
-
-                setAdapter(recyclerDataArrayList)
+                if (response.isSuccessful) {
+                    recyclerDataArrayList = response.body()!!
+                    Log.d(
+                        "occurrence_test",
+                        "recyclerDataArrayList-->" + recyclerDataArrayList.toString()
+                    )
+                    val feedHelper = FeedHelper()
+                    recyclerDataArrayList = response.body()!!
+                    val eventList = feedHelper.sortList(recyclerDataArrayList)
+                    recyclerDataArrayList.clear()
+                    recyclerDataArrayList.addAll(eventList)
+                    setAdapter(recyclerDataArrayList)
+                }
                 progressDialog.hideProgress()
             }
 
@@ -110,7 +113,7 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
         binding.rvMyFeed.addOnScrollListener(scrollListener)
         mAdapter.setOnItemClickListener(object : FeedAdapter.OnItemClickListener {
             override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?) {
-// D
+
             }
         })
     }

@@ -20,7 +20,6 @@ import com.kiprosh.optimizeprime.view.adapter.UpcomingEventsAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -76,22 +75,24 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
                 response: Response<ArrayList<OccurrencesResponse>>
             ) {
                 recyclerDataArrayList = response.body()!!
-
+                val dateTimeUtil = DateTimeUtil()
                 recyclerDataArrayList.forEach {
-                    if (DateTimeUtil().getDifferenceInDate(
+                    when {
+                        DateTimeUtil().getDifferenceInDate(
                             Calendar.getInstance().time,
-                            SimpleDateFormat("yyyy-MM-dd").parse(it.startAt)
-                        ).first < 8
-                    ) {
-                        listByWeek.add(it)
-                    } else if (DateTimeUtil().getDifferenceInDate(
+                            dateTimeUtil.getDateFromString(it.startAt)
+                        ).first < 8 -> {
+                            listByWeek.add(it)
+                        }
+                        DateTimeUtil().getDifferenceInDate(
                             Calendar.getInstance().time,
-                            SimpleDateFormat("yyyy-MM-dd").parse(it.startAt)
-                        ).first in 8..31
-                    ) {
-                        listByMonth.add(it)
-                    } else {
-                        listByYear.add(it)
+                            dateTimeUtil.getDateFromString(it.startAt)
+                        ).first in 8..31 -> {
+                            listByMonth.add(it)
+                        }
+                        else -> {
+                            listByYear.add(it)
+                        }
                     }
                 }
                 setAdapter(listByWeek)
