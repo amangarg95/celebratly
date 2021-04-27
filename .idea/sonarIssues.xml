@@ -3,6 +3,106 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../AppIntro/appintro/src/main/java/com/github/appintro/AppIntro2.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../AppIntro/example/src/main/java/com/github/appintro/example/ui/default/DefaultIntro2.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../BubbleTabBar/app/src/main/res/layout/fragment_nav_controller.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../BubbleTabBar/app/src/main/res/menu/list.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../BubbleTabBar/app/src/main/res/values/styles.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/androidTest/assets/education/learning_path/learning_path_by_filter_response.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/androidTest/java/com/renatus/helios/viewModel/LearningPathViewModelTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/java/com/renatus/helios/configs/AppComponent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/java/com/renatus/helios/models/repositories/LearningPathRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/java/com/renatus/helios/models/services/ApiUrls.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/java/com/renatus/helios/models/services/contracts/ApiInterface.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/java/com/renatus/helios/models/services/contracts/LeadService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/java/com/renatus/helios/models/services/contracts/LearningPathService.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/java/com/renatus/helios/models/services/impls/LearningPathServiceImpl.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/java/com/renatus/helios/models/services/response/CourseDetailsResponse.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/java/com/renatus/helios/models/services/response/LearningPathResponse.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../HeliosMobile.Android/app/src/main/java/com/renatus/helios/view_models/LearningPathViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/README.md">
           <value>
             <set />
@@ -218,6 +318,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/FeedsViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/activity/IntroActivity.kt">
           <value>
             <set />
@@ -373,6 +478,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/home_player_control.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/intro_fragment_layout_1.xml">
           <value>
             <set />
@@ -403,6 +513,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <value>
             <set />
@@ -414,31 +529,6 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/build.gradle">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Desktop/AppIntro/appintro/src/main/java/com/github/appintro/AppIntro2.kt">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Desktop/AppIntro/example/src/main/java/com/github/appintro/example/ui/default/DefaultIntro2.kt">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Desktop/BubbleTabBar/app/src/main/res/layout/fragment_nav_controller.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Desktop/BubbleTabBar/app/src/main/res/menu/list.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Desktop/BubbleTabBar/app/src/main/res/values/styles.xml">
           <value>
             <set />
           </value>

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.databinding.FragmentMyFeedItemBinding
 import com.kiprosh.optimizeprime.databinding.FragmentMyProfileBinding
 import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.CommonCode
@@ -109,7 +110,7 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
         }
         binding.rvMyFeed.addOnScrollListener(scrollListener)
         mAdapter.setOnItemClickListener(object : FeedAdapter.OnItemClickListener {
-            override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?) {
+            override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?, binding: FragmentMyFeedItemBinding) {
 // D
             }
         })

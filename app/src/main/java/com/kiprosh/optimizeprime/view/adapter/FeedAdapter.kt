@@ -15,6 +15,7 @@ import com.kiprosh.optimizeprime.databinding.FragmentMyFeedItemBinding
 import com.kiprosh.optimizeprime.helper.DateTimeUtil
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.view.adapter.PlayerViewAdapter.Companion.releaseRecycledPlayers
+import kotlinx.android.synthetic.main.home_player_control.view.*
 import java.util.*
 
 class FeedAdapter(
@@ -102,7 +103,8 @@ class FeedAdapter(
         fun onItemClick(
             view: View?,
             position: Int,
-            model: OccurrencesResponse?
+            model: OccurrencesResponse?,
+            binding: FragmentMyFeedItemBinding
         )
     }
 
@@ -115,11 +117,12 @@ class FeedAdapter(
         fun onBind(model: OccurrencesResponse, holder: RecyclerView.ViewHolder) {
 
             // handel on item click
-            binding.root.setOnClickListener {
+            binding.exoPlayerView.exo_full_screen_toggle.setOnClickListener {
                 mItemClickListener!!.onItemClick(
                     it,
                     adapterPosition,
-                    model
+                    model,
+                    binding
                 )
             }
             var videoPlayerUrl = model.videoUrl

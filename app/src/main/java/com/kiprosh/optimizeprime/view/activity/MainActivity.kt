@@ -13,7 +13,7 @@ import com.kiprosh.optimizeprime.view.fragment.UpcomingEventsFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainActivityMainBinding: ActivityMainBinding
+    lateinit var mainActivityMainBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

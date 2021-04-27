@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.util.DisplayMetrics
 import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -27,6 +28,21 @@ class CommonCode(val context: Context) {
         else canvas.drawColor(Color.WHITE)
         view.draw(canvas)
         return returnedBitmap
+    }
+
+    fun getStatusBarHeight(): Int {
+        var result = 0
+        val resourceId: Int =
+            context.getResources().getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            result = context.getResources().getDimensionPixelSize(resourceId)
+        }
+        return result
+    }
+
+    fun dpToPx(dp: Int): Int {
+        val displayMetrics: DisplayMetrics = context.getResources().getDisplayMetrics()
+        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
     }
 
     fun shareTextWithAnotherApp(context: Context, textToBeShared: String?) {
