@@ -8,11 +8,12 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentUpcomingEventsBinding
+import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.DateTimeUtil
 import com.kiprosh.optimizeprime.helper.ProgressDialog
+import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.activity.UploadDataActivity
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
@@ -60,8 +61,15 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
         return fragmentUpcomingEventsBinding.root
     }
 
-    override fun onItemClick() {
+    override fun onItemClick(occurrencesResponse: OccurrencesResponse) {
         val intent = Intent(this.context, UploadDataActivity::class.java)
+        intent.putExtra("OCCURRENCE_ID", occurrencesResponse.id)
+        var user = AuthenticationHelper(context!!).getUser()
+        var userName = "Park Jimin"
+        if (user != null) {
+            userName = user.fullName
+        }
+        intent.putExtra("USER_NAME", userName)
         startActivity(intent)
     }
 
@@ -77,22 +85,28 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
                 recyclerDataArrayList = response.body()!!
                 val dateTimeUtil = DateTimeUtil()
                 recyclerDataArrayList.forEach {
-                    when {
-                        DateTimeUtil().getDifferenceInDate(
+
+                    if (DateTimeUtil().getDifferenceInDate(
                             Calendar.getInstance().time,
                             dateTimeUtil.getDateFromString(it.startAt)
-                        ).first < 8 -> {
-                            listByWeek.add(it)
-                        }
-                        DateTimeUtil().getDifferenceInDate(
+                        ).first in 0..8
+                    ) {
+                        listByWeek.add(it)
+                    }
+                    if (DateTimeUtil().getDifferenceInDate(
                             Calendar.getInstance().time,
                             dateTimeUtil.getDateFromString(it.startAt)
-                        ).first in 8..31 -> {
-                            listByMonth.add(it)
-                        }
-                        else -> {
-                            listByYear.add(it)
-                        }
+                        ).first in 0..31
+                    ) {
+                        listByMonth.add(it)
+                    }
+
+                    if (DateTimeUtil().getDifferenceInDate(
+                            Calendar.getInstance().time,
+                            dateTimeUtil.getDateFromString(it.startAt)
+                        ).first in 0..365
+                    ) {
+                        listByYear.add(it)
                     }
                 }
                 setAdapter(listByWeek)
@@ -111,10 +125,10 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
     private fun setAdapter(recyclerDataArrayList: ArrayList<OccurrencesResponse>) {
         val mAdapter =
             UpcomingEventsAdapter(recyclerDataArrayList, this)
-        fragmentUpcomingEventsBinding.rvMyFeed.setHasFixedSize(true)
+        fragmentUpcomingEventsBinding.rvUpcomingEvents.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(activity)
-        fragmentUpcomingEventsBinding.rvMyFeed.layoutManager = layoutManager
-        fragmentUpcomingEventsBinding.rvMyFeed.adapter = mAdapter
+        fragmentUpcomingEventsBinding.rvUpcomingEvents.layoutManager = layoutManager
+        fragmentUpcomingEventsBinding.rvUpcomingEvents.adapter = mAdapter
     }
 
     private fun updateStatusBarColour() {

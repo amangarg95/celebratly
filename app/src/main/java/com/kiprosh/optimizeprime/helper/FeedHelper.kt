@@ -1,6 +1,6 @@
 package com.kiprosh.optimizeprime.helper
 
-import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
+import com.kiprosh.optimizeprime.model.OccurrencesResponse
 
 class FeedHelper {
     fun sortList(feedsList: ArrayList<OccurrencesResponse>): List<OccurrencesResponse> {

@@ -5,11 +5,13 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.util.Base64
 import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.kiprosh.optimizeprime.R
 import de.hdodenhof.circleimageview.CircleImageView
+import java.io.ByteArrayOutputStream
 
 class CommonCode(val context: Context) {
 
@@ -39,5 +41,12 @@ class CommonCode(val context: Context) {
                 "Share via"
             )
         )
+    }
+
+    fun getBase64FromBitmap(bitmap: Bitmap): String? {
+        val byteArrayOutputStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+        val byteArray = byteArrayOutputStream.toByteArray()
+        return Base64.encodeToString(byteArray, Base64.DEFAULT)
     }
 }

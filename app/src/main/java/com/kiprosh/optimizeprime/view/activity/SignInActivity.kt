@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.optimizeprimeandroidapp.model.EmailReq
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -96,8 +95,6 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun getAuthenticationToken(googleSignInAccount: GoogleSignInAccount) {
         progressBar.showProgress(supportFragmentManager)
-        val emailReq = EmailReq()
-        emailReq.email = googleSignInAccount.email!!.toString()
         apiInterface.getTokenNew(googleSignInAccount.email!!.toString())
             .enqueue(object : Callback<UserProfile> {
                 override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {

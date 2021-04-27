@@ -2,7 +2,7 @@
 package com.example.optimizeprimeandroidapp.services;
 
 import com.example.optimizeprimeandroidapp.UserProfile;
-import com.example.optimizeprimeandroidapp.model.OccurrencesResponse;
+import com.kiprosh.optimizeprime.model.OccurrencesResponse;
 import com.example.optimizeprimeandroidapp.model.UpcomingEventsResponse;
 import com.example.optimizeprimeandroidapp.view.adapter.RetrofitClientInstance;
 

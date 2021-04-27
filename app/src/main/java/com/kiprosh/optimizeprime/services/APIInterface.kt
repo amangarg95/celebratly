@@ -1,10 +1,10 @@
 package com.kiprosh.optimizeprime.services
 
-import com.example.optimizeprimeandroidapp.model.EmailReq
-import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
-import com.kiprosh.optimizeprime.model.UserProfile
+import com.kiprosh.optimizeprime.model.EmailReq
+import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.model.UpcomingEventsResponse
 import com.kiprosh.optimizeprime.model.User
+import com.kiprosh.optimizeprime.model.UserProfile
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -23,6 +23,10 @@ interface APIInterface {
 
     @GET("/occurrences.json")
     fun getOccurrences(): Call<ArrayList<OccurrencesResponse>>
+
+    @POST("/occurrences/{id}/image_upload")
+    fun uploadData(@HeaderMap header: Map<String, String>, @Path("id") id: String, @Body body: String): Call<ResponseBody>
+
 
     @FormUrlEncoded
     @PUT("/profile.json")

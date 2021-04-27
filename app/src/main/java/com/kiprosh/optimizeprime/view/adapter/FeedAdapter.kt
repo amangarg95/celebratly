@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.kiprosh.optimizeprime.helper.PlayerStateCallback
-import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
+import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.google.android.exoplayer2.Player
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyFeedItemBinding

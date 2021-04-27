@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_green_animals">
+    android:background="#e2cc69">
 
-
-<!--    <androidx.appcompat.widget.AppCompatImageView-->
-<!--        android:id="@+id/imageView"-->
-<!--        android:layout_width="250dp"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:layout_marginLeft="8dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginRight="8dp"-->
-<!--        android:layout_marginBottom="8dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.447"-->
-<!--        app:srcCompat="@drawable/ic_wish" />-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447"
+        app:layout_constraintWidth_percent="0.50"
+        app:srcCompat="@drawable/logo_celebratly" />
 </androidx.constraintlayout.widget.ConstraintLayout>

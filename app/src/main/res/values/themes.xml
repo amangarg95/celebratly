@@ -315,7 +315,7 @@
         <item name="sbg_backgroundColor">@color/white</item>
         <item name="sbg_position">0</item>
         <item name="sbg_radius">4dp</item>
-        <item name="sbg_selectorColor">@color/baby_pink</item>
+        <item name="sbg_selectorColor">@color/intro_slide_3</item>
         <item name="sb_textSize">@dimen/text_size_tiny</item>
     </style>
 </resources>

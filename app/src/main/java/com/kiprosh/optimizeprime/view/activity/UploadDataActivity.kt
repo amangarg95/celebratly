@@ -3,12 +3,10 @@ package com.kiprosh.optimizeprime.view.activity
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Base64
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -16,19 +14,33 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.ActivityUploadDataBinding
+import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.BottomSheetDialog
 import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.ProgressDialog
-import com.pixelcarrot.base64image.Base64Image
-import java.io.ByteArrayOutputStream
+import com.kiprosh.optimizeprime.services.APIInterface
+import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
+import okhttp3.ResponseBody
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickListener {
     lateinit var uploadDataActivityBinding: ActivityUploadDataBinding
     lateinit var progressDialog: ProgressDialog
-    var base64String = ""
+    lateinit var apiInterface: APIInterface
+    private lateinit var authenticationHelper: AuthenticationHelper
+    private var occurrenceId = 0
+    var userName = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        occurrenceId = intent.getIntExtra("OCCURRENCE_ID", 0)
+        userName = intent.getStringExtra("USER_NAME").toString()
+        apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface::class.java)
+        authenticationHelper = AuthenticationHelper(applicationContext)
         uploadDataActivityBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_upload_data)
         uploadDataActivityBinding.lifecycleOwner = this
@@ -36,6 +48,8 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
         uploadDataActivityBinding.llOpenGallery.setOnClickListener { selectImageInAlbum() }
         updateStatusBarColour()
         progressDialog = ProgressDialog()
+        uploadDataActivityBinding.tvAssociateName.text =
+            "@" + userName.partition { it in " " }.second
         uploadDataActivityBinding.civCustomBackground.setOnClickListener {
             BottomSheetDialog(this).show(supportFragmentManager, " ModalBottomSheet")
         }
@@ -49,21 +63,25 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
             }
 
             override fun afterTextChanged(s: Editable?) {
-
+//
             }
         })
 
         uploadDataActivityBinding.btnUploadGreeting.setOnClickListener {
-            var bitmap = CommonCode(this).getScreenShot(
-                uploadDataActivityBinding.clPreview
-            )
-            Base64Image.encode(bitmap) { base64 ->
-                base64?.let {
-                    base64String = it
-                }
-            }
-            finish()
+            callApi()
+
         }
+    }
+
+    private fun callApi() {
+        val bitmap = CommonCode(this).getScreenShot(
+            uploadDataActivityBinding.clPreview
+        )
+        val encodedString = CommonCode(this).getBase64FromBitmap(bitmap)
+        val paramObject = JSONObject()
+        paramObject.put("base64", "data:image/gif;base64,$encodedString") //Base64 image
+        uploadData(paramObject.toString())
+        finish()
     }
 
     private fun selectImageInAlbum() {
@@ -88,23 +106,7 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
             uploadDataActivityBinding.ivPreview.setImageURI(data?.data)
         } else if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_TAKE_PHOTO && data != null) {
             uploadDataActivityBinding.ivPreview.setImageBitmap(data.extras?.get("data") as Bitmap)
-            val bitmap = (uploadDataActivityBinding.ivPreview.drawable as BitmapDrawable).bitmap
-            getEncodedBitmapString(bitmap)
         }
-    }
-
-    private fun getEncodedBitmapString(photo: Bitmap): String {
-        val bAOS = ByteArrayOutputStream()
-        photo.compress(Bitmap.CompressFormat.PNG, 60, bAOS)
-        return Base64.encodeToString(bAOS.toByteArray(), Base64.DEFAULT)
-    }
-
-    private fun takeScreenshot() {
-        uploadDataActivityBinding.civOpenCamera.setImageBitmap(
-            CommonCode(this).getScreenShot(
-                uploadDataActivityBinding.clPreview
-            )
-        )
     }
 
     private fun updateStatusBarColour() {
@@ -126,5 +128,20 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
                 uploadDataActivityBinding.ivPreview.background = getDrawable(R.drawable.ic_night)
             }
         }
+    }
+
+    private fun uploadData(emailReq: String) {
+        val headerMap = mutableMapOf<String, String>()
+        headerMap["Authorization"] =
+            "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjYsImV4cCI6MTYyNDcwOTkyMH0.EXggM21bXPnfdT0olp0mbRo0VossAysyssu8ITT6Vsk"
+        apiInterface.uploadData(headerMap, occurrenceId.toString(), emailReq).enqueue(object :
+            Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+            }
+        })
     }
 }

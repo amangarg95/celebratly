@@ -27,11 +27,11 @@ class DateTimeUtil {
         val elapsedMinutes = different / minutesInMilli
         different %= minutesInMilli
         val elapsedSeconds = different / secondsInMilli
-        return Triple(elapsedDays, elapsedMinutes, elapsedSeconds)
+        return Triple(elapsedDays, elapsedHours, elapsedMinutes)
     }
 
-    fun getDateFromString(startDate: String): Date {
-        return SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(startDate)!!
+    fun getDateFromString(date: String): Date {
+        return SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(date)!!
     }
 
 }

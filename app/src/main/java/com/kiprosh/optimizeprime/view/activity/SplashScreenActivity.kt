@@ -13,7 +13,7 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler().postDelayed({
             val intent = Intent(
                 this@SplashScreenActivity,
-                MainActivity::class.java
+                IntroActivity::class.java
             )
             startActivity(intent)
             finish()

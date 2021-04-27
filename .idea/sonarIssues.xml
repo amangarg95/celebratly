@@ -213,7 +213,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/model/OccurrencesResponse.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/model/UserProfile.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/services/APIInterface.kt">
           <value>
             <set />
           </value>
@@ -234,6 +244,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/activity/SignInActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/activity/SplashScreenActivity.kt">
           <value>
             <set />
           </value>

@@ -35,13 +35,15 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_profile_info"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gd_h_1">
+            app:layout_constraintTop_toBottomOf="@+id/gd_h_1"
+            app:layout_constraintWidth_percent="0.77">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_preview"
@@ -79,7 +81,6 @@
                     android:fontFamily="@font/architects_daughter_regular"
                     android:gravity="center"
                     android:padding="@dimen/screen_padding_all_side_medium"
-                    android:text="\@aman_garg"
                     android:textColor="@color/white"
                     android:textSize="18dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -93,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/screen_margin_start_end_medium"
-            android:layout_marginTop="@dimen/screen_margin_top_bottom"
+            android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
             android:layout_marginEnd="@dimen/screen_margin_start_end_medium"
             android:text="Select Personalised Background"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +104,7 @@
             android:id="@+id/ll_backgrounds"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/screen_margin_top_bottom_high"
+            android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
             android:orientation="horizontal"
             android:weightSum="3"
             app:layout_constraintTop_toBottomOf="@id/tv_add_background">
@@ -126,7 +127,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
                     android:gravity="center"
                     android:text="Open \nCamera" />
             </LinearLayout>
@@ -149,7 +150,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
                     android:gravity="center"
                     android:text="Open \nGallery" />
             </LinearLayout>
@@ -172,7 +173,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/screen_margin_top_bottom_medium"
+                    android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
                     android:gravity="center"
                     android:text="Custom \nBackground" />
             </LinearLayout>
@@ -197,8 +198,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
-            android:text="Preview"
             android:fontFamily="@font/roboto_thin"
+            android:text="Preview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_profile_info" />
@@ -224,8 +225,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/screen_margin_start_end_medium"
-            android:gravity="center"
             android:fontFamily="@font/roboto_thin"
+            android:gravity="center"
             android:text="Greeting once uploaded cannot be deleted/modified"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

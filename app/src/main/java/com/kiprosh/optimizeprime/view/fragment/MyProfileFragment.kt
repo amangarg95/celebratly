@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.optimizeprimeandroidapp.model.OccurrencesResponse
+import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyProfileBinding
 import com.kiprosh.optimizeprime.helper.*

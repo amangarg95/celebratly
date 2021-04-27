@@ -15,9 +15,12 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/screen_margin_start_end_medium"
+            android:layout_marginStart="@dimen/screen_margin_start_end_medium"
+            android:layout_marginTop="@dimen/screen_margin_start_end_low"
+            android:layout_marginEnd="@dimen/screen_margin_start_end_medium"
+            android:layout_marginBottom="@dimen/screen_margin_start_end_low"
             app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
+            app:cardElevation="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -35,6 +38,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/ic_no_image"
                     app:civ_border_width="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/no_profile" />
@@ -54,6 +58,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/screen_margin_start_end_medium"
+                    android:maxLines="2"
                     android:text="It's Aman's Birthday!"
                     app:layout_constraintEnd_toStartOf="@id/iv_lock"
                     app:layout_constraintStart_toEndOf="@+id/iv_user_profile"

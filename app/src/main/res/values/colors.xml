@@ -23,6 +23,8 @@
     <color name="bottom_bar_pistachio_green">#60986e</color>
     <color name="bottom_bar_blue">#5586ab</color>
     <color name="bottom_bar_pink">#9f6895</color>
+    <color name="turquoise">#016773</color>
+    <color name="white_with_blue">#f9ffff</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
