@@ -9,9 +9,10 @@ import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Base64
-import android.view.Window
-import android.view.WindowManager
+import android.util.Log
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import com.kiprosh.optimizeprime.R
@@ -23,10 +24,13 @@ import com.pixelcarrot.base64image.Base64Image
 import java.io.ByteArrayOutputStream
 
 
-class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickListener {
+class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickListener,
+    View.OnTouchListener,
+    View.OnDragListener {
     lateinit var uploadDataActivityBinding: ActivityUploadDataBinding
     lateinit var progressDialog: ProgressDialog
     var base64String = ""
+    private val TAG = "OP"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uploadDataActivityBinding =
@@ -36,6 +40,8 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
         uploadDataActivityBinding.llOpenGallery.setOnClickListener { selectImageInAlbum() }
         updateStatusBarColour()
         progressDialog = ProgressDialog()
+        uploadDataActivityBinding.tvPreviewText.setOnTouchListener(this)
+        uploadDataActivityBinding..setOnDragListener(this)
         uploadDataActivityBinding.civCustomBackground.setOnClickListener {
             BottomSheetDialog(this).show(supportFragmentManager, " ModalBottomSheet")
         }
@@ -125,6 +131,58 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
             3 -> {
                 uploadDataActivityBinding.ivPreview.background = getDrawable(R.drawable.ic_night)
             }
+        }
+    }
+
+    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+        return if (event!!.action === MotionEvent.ACTION_DOWN) {
+            val dragShadowBuilder = View.DragShadowBuilder(v)
+            v!!.startDrag(null, dragShadowBuilder, v, 0)
+            true
+        } else {
+            false
+        }
+    }
+
+    override fun onDrag(v: View?, event: DragEvent?): Boolean {
+        when (event!!.action) {
+            DragEvent.ACTION_DRAG_ENDED -> {
+                Log.d(TAG, "onDrag: ACTION_DRAG_ENDED ")
+                return true
+            }
+            DragEvent.ACTION_DRAG_EXITED -> {
+                Log.d(TAG, "onDrag: ACTION_DRAG_EXITED")
+                return true
+            }
+            DragEvent.ACTION_DRAG_ENTERED -> {
+                Log.d(TAG, "onDrag: ACTION_DRAG_ENTERED")
+                return true
+            }
+            DragEvent.ACTION_DRAG_STARTED -> {
+                Log.d(TAG, "onDrag: ACTION_DRAG_STARTED")
+                return true
+            }
+            DragEvent.ACTION_DROP -> {
+                Log.d(TAG, "onDrag: ACTION_DROP")
+                val tvState = event.localState as View
+                Log.d(TAG, "onDrag:viewX" + event.x + "viewY" + event.y)
+                Log.d(TAG, "onDrag: Owner->" + tvState.parent)
+                val tvParent = tvState.parent as ViewGroup
+                tvParent.removeView(tvState)
+                val container = v as ConstraintLayout
+                container.addView(tvState)
+                tvParent.removeView(tvState)
+                tvState.x = event.x
+                tvState.y = event.y
+                v.addView(tvState)
+                v.setVisibility(View.VISIBLE)
+                return true
+            }
+            DragEvent.ACTION_DRAG_LOCATION -> {
+                Log.d(TAG, "onDrag: ACTION_DRAG_LOCATION")
+                return true
+            }
+            else -> return false
         }
     }
 }
