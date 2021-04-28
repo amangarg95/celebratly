@@ -157,7 +157,7 @@
                     android:adjustViewBounds="true"
                     android:background="#fff"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/bg_profile_new"
+                    android:src="@drawable/bg_friends"
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
