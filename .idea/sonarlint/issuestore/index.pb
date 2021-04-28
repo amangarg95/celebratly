@@ -48,3 +48,17 @@ p
 @app/src/main/java/com/kiprosh/optimizeprime/helper/CommonCode.kt,a/1/a1e398667a383686319844e7ea7a60f07bfe71e9
 
 Oapp/src/main/java/com/kiprosh/optimizeprime/view/activity/UploadDataActivity.kt,7/d/7d5a54b0362a17ce2dede22a664f92dcd6a6f2dd
+{
+Kapp/src/main/java/com/kiprosh/optimizeprime/view/activity/SignInActivity.kt,e/8/e8bab901c34ef88b906d72d44da6de3cae70c6c9
+{
+Kapp/src/main/java/com/kiprosh/optimizeprime/model/UpcomingEventsResponse.kt,9/3/932e014c1db33bf5cd799b3449a732cab89564cd
+x
+Happ/src/main/java/com/kiprosh/optimizeprime/model/OccurrencesResponse.kt,9/4/94fd62c01abce9756c8075b95e8d3bf7e51a7594
+p
+@app/src/main/java/com/kiprosh/optimizeprime/helper/FeedHelper.kt,9/9/997d61bc7e3e8674387477a9df8f3f3b53c68ccb
+r
+Bapp/src/main/java/com/kiprosh/optimizeprime/helper/DateTimeUtil.kt,7/2/723e12b4cea02240e584fca7b6e8253919eb599f
+z
+Japp/src/main/java/com/kiprosh/optimizeprime/helper/AuthenticationHelper.kt,7/2/725837f22dfc5ea280aff8bfc28c99d6fe5e704e
+Å
+Qapp/src/main/java/com/kiprosh/optimizeprime/view/activity/SplashScreenActivity.kt,d/e/deb3fc64f6e0f9a13f2d8b4840555539f6260de5

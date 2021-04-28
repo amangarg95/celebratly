@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -15,23 +16,17 @@
             app:layout_constraintTop_toTopOf="parent">
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gd_bg_height"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".45" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_my_feed"
             style="@style/TextViewLargeBold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
             android:background="@color/light_blue"
+            android:fontFamily="@font/roboto_medium"
+            android:padding="16dp"
             android:text="Feed"
             android:textColor="@color/white"
-            android:fontFamily="@font/roboto_medium"
             android:textSize="28dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,5 +40,36 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_my_feed"
             tools:context=".view.fragment.FeedFragment"
             tools:listitem="@layout/fragment_my_feed_item" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_no_data"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_no_data"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.90" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_no_data"
+            style="@style/TextViewLargeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oops! No data found."
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/iv_no_data"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_bg_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".45" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -2,16 +2,18 @@ package com.kiprosh.optimizeprime.view.fragment
 
 import android.os.Bundle
 import android.view.*
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentFeedBinding
 import com.kiprosh.optimizeprime.helper.FeedHelper
 import com.kiprosh.optimizeprime.helper.ProgressDialog
 import com.kiprosh.optimizeprime.helper.RecyclerViewScrollListener
+import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.FeedAdapter
 import com.kiprosh.optimizeprime.view.adapter.PlayerViewAdapter
@@ -80,26 +82,34 @@ class FeedFragment : Fragment(), FeedAdapter.OnShareClickListener {
     }
 
     private fun setAdapter(recyclerDataArrayList: ArrayList<OccurrencesResponse>) {
-        val mAdapter =
-            FeedAdapter(requireActivity(), null, recyclerDataArrayList, true, this)
-        myFeedFragmentBinding.rvMyFeed.setHasFixedSize(true)
-        val layoutManager = LinearLayoutManager(activity)
-        myFeedFragmentBinding.rvMyFeed.layoutManager = layoutManager
-        myFeedFragmentBinding.rvMyFeed.adapter = mAdapter
-        val scrollListener: RecyclerViewScrollListener = object : RecyclerViewScrollListener() {
-            override fun onItemIsFirstVisibleItem(index: Int) {
-                // play just visible item
-                if (index != -1)
-                    playIndexThenPausePreviousPlayer(index)
+        if (recyclerDataArrayList.isEmpty()) {
+            myFeedFragmentBinding.rvMyFeed.visibility = INVISIBLE
+            myFeedFragmentBinding.ivNoData.visibility = VISIBLE
+            myFeedFragmentBinding.tvNoData.visibility = VISIBLE
+        } else {
+            myFeedFragmentBinding.rvMyFeed.visibility = VISIBLE
+            myFeedFragmentBinding.ivNoData.visibility = INVISIBLE
+            myFeedFragmentBinding.tvNoData.visibility = INVISIBLE
+            val mAdapter =
+                FeedAdapter(requireActivity(), null, recyclerDataArrayList, true, this)
+            myFeedFragmentBinding.rvMyFeed.setHasFixedSize(true)
+            val layoutManager = LinearLayoutManager(activity)
+            myFeedFragmentBinding.rvMyFeed.layoutManager = layoutManager
+            myFeedFragmentBinding.rvMyFeed.adapter = mAdapter
+            val scrollListener: RecyclerViewScrollListener = object : RecyclerViewScrollListener() {
+                override fun onItemIsFirstVisibleItem(index: Int) {
+                    // play just visible item
+                    if (index != -1)
+                        playIndexThenPausePreviousPlayer(index)
+                }
             }
-
+            myFeedFragmentBinding.rvMyFeed.addOnScrollListener(scrollListener)
+            mAdapter.setOnItemClickListener(object : FeedAdapter.OnItemClickListener {
+                override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?) {
+                    // Do nothing
+                }
+            })
         }
-        myFeedFragmentBinding.rvMyFeed.addOnScrollListener(scrollListener)
-        mAdapter.setOnItemClickListener(object : FeedAdapter.OnItemClickListener {
-            override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?) {
-                // Do nothing
-            }
-        })
     }
 
     override fun onPause() {
