@@ -2,13 +2,14 @@ package com.kiprosh.optimizeprime.helper
 
 import android.content.Context
 import com.google.gson.Gson
-import com.kiprosh.optimizeprime.model.UserProfile
 import com.kiprosh.optimizeprime.model.User
+import com.kiprosh.optimizeprime.model.UserProfile
 
 class AuthenticationHelper(var context: Context) {
 
-    private val keyName = "Information"
-    private val keyUser = "User"
+    val keyName = "Information"
+    val keyUser = "User"
+    val keyIsFirstSignIn = "FirstSignIn"
 
     fun saveUserProfile(userProfile: UserProfile?) {
         if (userProfile != null) {
@@ -39,5 +40,12 @@ class AuthenticationHelper(var context: Context) {
             return Gson().fromJson(userString, User::class.java)
         }
         return null
+    }
+
+    fun saveSignInStatus() {
+        val spUser = context.getSharedPreferences(keyName, Context.MODE_PRIVATE)
+        val editor = spUser.edit()
+        editor.putBoolean(keyIsFirstSignIn, false)
+        editor.apply()
     }
 }

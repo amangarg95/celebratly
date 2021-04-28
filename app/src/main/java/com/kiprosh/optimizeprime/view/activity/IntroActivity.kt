@@ -8,6 +8,7 @@ import com.github.appintro.AppIntro2
 import com.github.appintro.AppIntroFragment
 import com.github.appintro.AppIntroPageTransformerType
 import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 
 class IntroActivity : AppIntro2() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,11 +56,13 @@ class IntroActivity : AppIntro2() {
 
     public override fun onSkipPressed(currentFragment: Fragment?) {
         super.onSkipPressed(currentFragment)
+        AuthenticationHelper(this).saveSignInStatus()
         openSignInActivity()
     }
 
     public override fun onDonePressed(currentFragment: Fragment?) {
         super.onDonePressed(currentFragment)
+        AuthenticationHelper(this).saveSignInStatus()
         openSignInActivity()
     }
 
