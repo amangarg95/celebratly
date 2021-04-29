@@ -83,15 +83,13 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                     val account = task.getResult(ApiException::class.java)!!
                     getAuthenticationToken(account)
                 } catch (e: ApiException) {
-                    Toast.makeText(applicationContext, "Please try again later", Toast.LENGTH_SHORT)
+                    Toast.makeText(applicationContext, R.string.text_api_error, Toast.LENGTH_SHORT)
                         .show()
                 }
-            } else {
-                Toast.makeText(applicationContext, R.string.text_api_error, Toast.LENGTH_SHORT)
-                    .show()
             }
         }
     }
+
 
     companion object {
         private const val TAG = "GoogleActivity"

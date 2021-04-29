@@ -78,7 +78,9 @@ class PlayerViewAdapter {
             // When changing track, retain the latest frame instead of showing a black screen
             setKeepContentOnPlayerReset(true)
             // We'll show the controller, change to true if want controllers as pause and start
-            //this.useController = false
+            this.useController = true
+            //this.controllerAutoShow = false
+            this.controllerShowTimeoutMs = 2500
             // Provide url to load the video from here
             val mediaSource = ProgressiveMediaSource.Factory(DefaultHttpDataSourceFactory("Demo"))
                 .createMediaSource(Uri.parse(url))
@@ -97,7 +99,7 @@ class PlayerViewAdapter {
 
                 override fun onPlayerError(error: ExoPlaybackException) {
                     super.onPlayerError(error)
-                    this@loadVideo.context.toast("Oops! Error occurred while playing media.")
+                    //this@loadVideo.context.toast("Oops! Error occurred while playing media.")
                 }
 
                 override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
@@ -109,12 +111,12 @@ class PlayerViewAdapter {
                         // set progress bar visible here
                         // set thumbnail visible
                         //thumbnail.visibility = View.VISIBLE
-                        progressbar.visibility = View.VISIBLE
+                        //progressbar.visibility = View.VISIBLE
                     }
 
                     if (playbackState == Player.STATE_READY) {
                         // [PlayerView] has fetched the video duration so this is the block to hide the buffering progress bar
-                        progressbar.visibility = View.GONE
+                        //progressbar.visibility = View.GONE
                         // set thumbnail gone
                         //thumbnail.visibility = View.GONE
                         callback.onVideoDurationRetrieved(this@loadVideo.player!!.duration, player)

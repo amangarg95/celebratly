@@ -13,6 +13,9 @@ interface APIInterface {
     @GET("/occurrences.json")
     fun getOccurrences(): Call<ArrayList<OccurrencesResponse>>
 
+    @GET("/profile.json")
+    fun getProfileWithOccurrences(@HeaderMap header: Map<String, String>): Call<ProfileAndOccurrencesResponse>
+
 
     @POST("/occurrences/{id}/image_upload.json")
     fun uploadData(
