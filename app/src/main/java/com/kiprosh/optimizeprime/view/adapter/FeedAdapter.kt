@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.kiprosh.optimizeprime.helper.PlayerStateCallback
-import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.google.android.exoplayer2.Player
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyFeedItemBinding
 import com.kiprosh.optimizeprime.helper.DateTimeUtil
+import com.kiprosh.optimizeprime.helper.PlayerStateCallback
+import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.view.adapter.PlayerViewAdapter.Companion.releaseRecycledPlayers
 import java.util.*
@@ -122,7 +122,7 @@ class FeedAdapter(
                     model
                 )
             }
-            var videoPlayerUrl = model.videoUrl
+            var videoPlayerUrl = model.finalVideoUrl
             if (videoPlayerUrl.isNullOrEmpty()) {
                 videoPlayerUrl =
                     "https://player.vimeo.com/external/481511608.hd.mp4?s=40bfbf85159679a2f69f1155f9ae4d6da357580b"
@@ -141,10 +141,10 @@ class FeedAdapter(
 
     private fun updateCards(model: OccurrencesResponse, binding: FragmentMyFeedItemBinding) {
         binding.date.text = dateTimeUtil.changeDateFormat(model.startAt)
-        if (model.eventTyoe == "work_anniversary") {
-            binding.content.text = model.titleText + "\n" + model.caption
+        if (model.eventType == "work_anniversary") {
+            binding.content.text = model.title + "\n" + model.caption
         } else {
-            binding.content.text = model.titleText
+            binding.content.text = model.title
         }
     }
 

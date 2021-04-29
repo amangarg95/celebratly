@@ -39,7 +39,7 @@ class IntroActivity : AppIntro2() {
             AppIntroFragment.newInstance(
                 description = "Make sure you never celebrate\nyour special day, alone",
                 descriptionColor = resources.getColor(R.color.text_danger),
-                backgroundColor = ContextCompat.getColor(applicationContext, R.color.white),
+                backgroundColor = ContextCompat.getColor(applicationContext, R.color.red_with_white),
                 imageDrawable = R.drawable.ic_2
             )
         )

@@ -3,30 +3,34 @@ package com.kiprosh.optimizeprime.model
 import com.google.gson.annotations.SerializedName
 
 data class OccurrencesResponse(
-    @SerializedName("id")
-    val id: Int,
-    @SerializedName("event_id")
-    val eventId: Int,
-    @SerializedName("expires_at")
-    var expiresAt: String,
-    @SerializedName("note")
-    var note: String,
-    @SerializedName("title")
-    var titleText: String,
-    @SerializedName("start_at")
-    var startAt: String,
-    @SerializedName("end_at")
-    var endAt: String,
+    @SerializedName("allow_upload")
+    var allowUpload: Boolean,
     @SerializedName("caption")
     var caption: String,
-    @SerializedName("url")
-    var url: String,
-    @SerializedName("event_type")
-    var eventTyoe: String,
     @SerializedName("color")
     var color: String,
+    @SerializedName("end_at")
+    var endAt: String,
+    @SerializedName("event_id")
+    var eventId: Int,
+    @SerializedName("event_type")
+    var eventType: String,
+    @SerializedName("expires_at")
+    var expiresAt: String,
     @SerializedName("final_video_url")
-    var videoUrl: String,
-    @SerializedName("timestamp")
-    var timestamp: Long
+    var finalVideoUrl: String,
+    @SerializedName("id")
+    var id: Int,
+    @SerializedName("note")
+    var note: String,
+    @SerializedName("start_at")
+    var startAt: String,
+    @SerializedName("status_uploads")
+    var statusUploads: List<StatusUpload>,
+    @SerializedName("title")
+    var title: String,
+    @SerializedName("url")
+    var url: String,
+    @SerializedName("image_url")
+    var imageUrl: String = ""
 )

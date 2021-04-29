@@ -1,7 +1,7 @@
 package com.kiprosh.optimizeprime.view.adapter
 
 import android.view.LayoutInflater
-import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -27,21 +27,63 @@ class UpcomingEventsAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val occurrencesResponse = values[position]
-        holder.binding.llMain.setOnClickListener { actionListener.onItemClick(occurrencesResponse) }
-        if (position == 0) {
-            holder.binding.ivLock.visibility = GONE
+//        if (occurrencesResponse.allowUpload) {
+//            holder.binding.llMain.isClickable = true
+//            if (!occurrencesResponse.imageUrl.isNullOrEmpty()) {
+//                holder.binding.ivLock.setImageResource(R.drawable.ic_check)
+//                holder.binding.llMain.setOnClickListener {
+//                    actionListener.onItemClick(
+//                        occurrencesResponse,
+//                        occurrencesResponse.imageUrl
+//                    )
+//                }
+//            } else {
+//                holder.binding.llMain.setOnClickListener {
+//                    actionListener.onItemClick(
+//                        occurrencesResponse,
+//                        ""
+//                    )
+//                }
+//                holder.binding.ivLock.setImageResource(0)
+//            }
+//        } else {
+//            holder.binding.llMain.isClickable = false
+//            holder.binding.ivLock.setImageResource(R.drawable.ic_lock)
+//        }
+
+        if (!occurrencesResponse.imageUrl.isNullOrEmpty()) {
+            holder.binding.ivLock.setImageResource(R.drawable.ic_check)
+            holder.binding.tvAction.visibility = VISIBLE
+            holder.binding.tvAction.text = "Click on the card to preview your wishes!"
+            holder.binding.llMain.setOnClickListener {
+                actionListener.onItemClick(
+                    occurrencesResponse,
+                    occurrencesResponse.imageUrl
+                )
+            }
+        } else {
+            holder.binding.tvAction.visibility = VISIBLE
+            holder.binding.tvAction.text = "Click on the card to upload your wishes!"
+            holder.binding.llMain.setOnClickListener {
+                actionListener.onItemClick(
+                    occurrencesResponse,
+                    ""
+                )
+            }
+            holder.binding.ivLock.setImageResource(0)
         }
-        holder.binding.tvCardName.text = occurrencesResponse.titleText
+
+
+        holder.binding.tvCardName.text = occurrencesResponse.title
         holder.binding.content.text = occurrencesResponse.caption
         holder.binding.tvDate.text = DateTimeUtil().changeDateFormat(occurrencesResponse.startAt)
-
 
         val calendar = Calendar.getInstance()
         calendar.time =
             DateTimeUtil().getDateFromString(occurrencesResponse.startAt)
         calendar.add(Calendar.HOUR, 10)
 
-        var diffInDays = DateTimeUtil().getDifferenceInDate(
+        val diffInDays = DateTimeUtil().getDifferenceInDate(
             Calendar.getInstance().time,
             calendar.time
         ).first.toInt()
@@ -75,6 +117,6 @@ class UpcomingEventsAdapter(
     }
 
     interface ActionListener {
-        fun onItemClick(occurrencesResponse: OccurrencesResponse)
+        fun onItemClick(occurrencesResponse: OccurrencesResponse, imageUrl: String)
     }
 }

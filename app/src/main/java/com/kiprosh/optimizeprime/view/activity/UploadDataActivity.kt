@@ -9,6 +9,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Toast
+import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -18,9 +20,10 @@ import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.BottomSheetDialog
 import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.ProgressDialog
+import com.kiprosh.optimizeprime.model.EncodedStringReq
+import com.kiprosh.optimizeprime.model.UploadDataResponse
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
-import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,10 +33,10 @@ import retrofit2.Response
 class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickListener {
     lateinit var uploadDataActivityBinding: ActivityUploadDataBinding
     lateinit var progressDialog: ProgressDialog
-    lateinit var apiInterface: APIInterface
+    private lateinit var apiInterface: APIInterface
     private lateinit var authenticationHelper: AuthenticationHelper
     private var occurrenceId = 0
-    var userName = ""
+    private var userName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,14 +77,14 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
     }
 
     private fun callApi() {
+        progressDialog.showProgress(supportFragmentManager)
         val bitmap = CommonCode(this).getScreenShot(
             uploadDataActivityBinding.clPreview
         )
         val encodedString = CommonCode(this).getBase64FromBitmap(bitmap)
         val paramObject = JSONObject()
-        paramObject.put("base64", "data:image/gif;base64,$encodedString") //Base64 image
-        uploadData(paramObject.toString())
-        finish()
+        paramObject.put("base64", encodedString) //Base64 image
+        uploadData(encodedString!!)
     }
 
     private fun selectImageInAlbum() {
@@ -127,21 +130,56 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
             3 -> {
                 uploadDataActivityBinding.ivPreview.background = getDrawable(R.drawable.ic_night)
             }
+            4 -> {
+                uploadDataActivityBinding.ivPreview.background = getDrawable(R.drawable.bg_flowers)
+            }
+            5 -> {
+                uploadDataActivityBinding.ivPreview.background = getDrawable(R.drawable.bg_friends)
+            }
+            6 -> {
+                uploadDataActivityBinding.ivPreview.background = getDrawable(R.drawable.bg_colours)
+            }
         }
     }
 
-    private fun uploadData(emailReq: String) {
-        val headerMap = mutableMapOf<String, String>()
-        headerMap["Authorization"] =
-            "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjYsImV4cCI6MTYyNDcwOTkyMH0.EXggM21bXPnfdT0olp0mbRo0VossAysyssu8ITT6Vsk"
-        apiInterface.uploadData(headerMap, occurrenceId.toString(), emailReq).enqueue(object :
-            Callback<ResponseBody> {
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+    private fun uploadData(encodedString: String) {
+//        var headerMap = AuthenticationHelper(this).getHeaderMap()
+        var headerMap = mutableMapOf<String, String>()
+        if (headerMap.isNullOrEmpty()) {
+            headerMap["Authorization"] =
+                "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjYsImV4cCI6MTYyNDcwOTkyMH0.EXggM21bXPnfdT0olp0mbRo0VossAysyssu8ITT6Vsk"
+        }
+        var encodedStringReq = EncodedStringReq()
+        encodedStringReq.email = encodedString
+        apiInterface.uploadData(headerMap, occurrenceId.toString(), encodedStringReq)
+            .enqueue(object :
+                Callback<UploadDataResponse> {
+                override fun onResponse(
+                    call: Call<UploadDataResponse>,
+                    response: Response<UploadDataResponse>
+                ) {
+                    progressDialog.dismiss()
+                    Toast.makeText(
+                        applicationContext,
+                        "Hooray! Upload successful!",
+                        LENGTH_LONG
+                    ).show()
+                    val intent = Intent()
+                    setResult(Activity.RESULT_OK, intent)
+                    finish()
+                }
 
-            }
-
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-            }
-        })
+                override fun onFailure(call: Call<UploadDataResponse>, t: Throwable) {
+                    progressDialog.dismiss()
+                    Toast.makeText(
+                        applicationContext,
+                        "Upload failed! Please try again...",
+                        LENGTH_LONG
+                    ).show()
+                    val intent = Intent()
+                    setResult(Activity.RESULT_OK, intent)
+                    finish()
+                }
+            })
     }
 }

@@ -25,8 +25,8 @@ class AuthenticationHelper(var context: Context) {
         val headerMap = mutableMapOf<String, String>()
         val user = getUser()
         return if (user != null) {
-            headerMap["Authorization"] = "Bearer " + user.token
-            //headerMap["content-type"] = "application/json"
+            headerMap["Authorization"] = "Bearer " + user.fcmToken
+            headerMap["content-type"] = "application/json"
             headerMap
         } else {
             null

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -28,12 +27,21 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
         LinearLayout llCool = v.findViewById(R.id.ll_bg_cool);
         LinearLayout llSummer = v.findViewById(R.id.ll_bg_summer);
         LinearLayout llLights = v.findViewById(R.id.ll_bg_lights);
+        LinearLayout llFlowers = v.findViewById(R.id.ll_flowers);
+        LinearLayout llFriends = v.findViewById(R.id.ll_friends);
+        LinearLayout llColours = v.findViewById(R.id.ll_colours);
 
         llCool.setOnClickListener(v1 -> listener.onItemClick(1));
 
         llSummer.setOnClickListener(v1 -> listener.onItemClick(2));
 
         llLights.setOnClickListener(v1 -> listener.onItemClick(3));
+
+        llFlowers.setOnClickListener(v1 -> listener.onItemClick(4));
+
+        llFriends.setOnClickListener(v1 -> listener.onItemClick(5));
+
+        llColours.setOnClickListener(v1 -> listener.onItemClick(6));
         return v;
     }
 

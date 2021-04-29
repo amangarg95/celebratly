@@ -14,9 +14,7 @@
             android:layout_height="0dp"
             android:background="@color/intro_slide_2"
             app:layout_constraintBottom_toTopOf="@+id/gd_bg_height"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_my_profile"
@@ -198,7 +196,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
-            android:fontFamily="@font/roboto_thin"
+            android:fontFamily="@font/roboto_medium"
             android:text="Preview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -225,7 +223,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/screen_margin_start_end_medium"
-            android:fontFamily="@font/roboto_thin"
+            android:fontFamily="@font/roboto_medium"
             android:gravity="center"
             android:text="Greeting once uploaded cannot be deleted/modified"
             app:layout_constraintEnd_toEndOf="parent"

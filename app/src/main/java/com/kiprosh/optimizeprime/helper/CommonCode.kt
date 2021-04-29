@@ -5,10 +5,15 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.util.Base64
 import android.view.View
+import androidx.appcompat.widget.AppCompatImageView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.kiprosh.optimizeprime.R
 import de.hdodenhof.circleimageview.CircleImageView
 import java.io.ByteArrayOutputStream
@@ -19,6 +24,39 @@ class CommonCode(val context: Context) {
         Glide.with(context).load(profileUrl)
             .apply(RequestOptions().placeholder(R.drawable.no_profile).error(R.drawable.no_profile))
             .into(civUserProfile)
+    }
+
+    fun loadImageFromUrl(
+        imageView: AppCompatImageView,
+        url: String?,
+        progressDialog: ProgressDialog
+    ) {
+        var httpsString = url?.replace("http", "https", true)
+        Glide.with(context).load(httpsString)
+            .apply(RequestOptions().error(R.drawable.ic_no_data))
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    progressDialog.hideProgress()
+                    return false
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: com.bumptech.glide.load.DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    progressDialog.hideProgress()
+                    return false
+                }
+            })
+            .into(imageView)
     }
 
     fun getScreenShot(view: View): Bitmap {

@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class User(
     @SerializedName("profile_url")
     val profileUrl: String,
+    @SerializedName("fcm_token")
+    val fcmToken: String,
     @SerializedName("token")
     val token: String,
     @SerializedName("dob")

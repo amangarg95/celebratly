@@ -16,7 +16,6 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         authenticationHelper = AuthenticationHelper(this)
         Handler().postDelayed({
-
             val spSignIn =
                 this.getSharedPreferences(authenticationHelper.keyName, Context.MODE_PRIVATE)
             redirectIntent =

@@ -7,10 +7,10 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyProfileBinding
 import com.kiprosh.optimizeprime.helper.*
+import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.FeedAdapter
@@ -67,9 +67,9 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
                     )
                     val feedHelper = FeedHelper()
                     recyclerDataArrayList = response.body()!!
-                    val eventList = feedHelper.sortList(recyclerDataArrayList)
-                    recyclerDataArrayList.clear()
-                    recyclerDataArrayList.addAll(eventList)
+//                    val eventList = feedHelper.sortList(recyclerDataArrayList)
+//                    recyclerDataArrayList.clear()
+//                    recyclerDataArrayList.addAll(eventList)
                     setAdapter(recyclerDataArrayList)
                 }
                 progressDialog.hideProgress()
