@@ -146,8 +146,6 @@ class FeedAdapter(
                 index = adapterPosition
                 executePendingBindings()
             }
-
-
         }
     }
 

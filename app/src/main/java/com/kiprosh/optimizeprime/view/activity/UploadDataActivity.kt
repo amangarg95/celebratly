@@ -74,8 +74,11 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
         })
 
         uploadDataActivityBinding.btnUploadGreeting.setOnClickListener {
-            callApi()
-
+            if (uploadDataActivityBinding.etGreeting.text.isNullOrEmpty()) {
+                Toast.makeText(this, "Please add a wish!", LENGTH_LONG).show()
+            } else {
+                callApi()
+            }
         }
     }
 
