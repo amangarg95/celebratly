@@ -8,10 +8,13 @@ interface APIInterface {
 
     @FormUrlEncoded
     @POST("/login.json")
-    fun getTokenNew(@Field("user[email]") email: String): Call<UserProfile>
+    fun getTokenNew(
+        @HeaderMap header: Map<String, String>,
+        @Field("user[email]") email: String
+    ): Call<UserProfile>
 
     @GET("/occurrences.json")
-    fun getOccurrences(): Call<ArrayList<OccurrencesResponse>>
+    fun getOccurrences(@HeaderMap header: Map<String, String>): Call<ArrayList<OccurrencesResponse>>
 
     @GET("/profile.json")
     fun getProfileWithOccurrences(@HeaderMap header: Map<String, String>): Call<ProfileAndOccurrencesResponse>

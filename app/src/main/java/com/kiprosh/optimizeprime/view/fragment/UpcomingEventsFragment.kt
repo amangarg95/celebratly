@@ -81,8 +81,7 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
             if (user != null) {
                 userName = user.fullName
             }
-//            intent.putExtra("ASSOCIATE_NAME", occurrencesResponse)
-            intent.putExtra("ASSOCIATE_NAME", "Associate Name")
+            intent.putExtra("ASSOCIATE_NAME", occurrencesResponse.actionText)
             intent.putExtra("USER_NAME", userName)
             startActivityForResult(intent, 0)
         } else {
@@ -95,55 +94,56 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
 
     private fun getOccurrences() {
         progressDialog.showProgress(fragmentManager)
-        apiInterface.getOccurrences().enqueue(object :
-            Callback<ArrayList<OccurrencesResponse>> {
-            override fun onResponse(
-                call: Call<ArrayList<OccurrencesResponse>>,
-                response: Response<ArrayList<OccurrencesResponse>>
-            ) {
-                entireList = response.body()!!
-                checkImageUploadedStatus()
-                val dateTimeUtil = DateTimeUtil()
-                entireList.forEach {
-                    if (DateTimeUtil().getDifferenceInDate(
-                            Calendar.getInstance().time,
-                            dateTimeUtil.getDateFromString(it.startAt)
-                        ).first in 0..8
-                    ) {
-                        listByWeek.add(it)
-                    }
-                    if (DateTimeUtil().getDifferenceInDate(
-                            Calendar.getInstance().time,
-                            dateTimeUtil.getDateFromString(it.startAt)
-                        ).first in 0..31
-                    ) {
-                        listByMonth.add(it)
-                    }
+        apiInterface.getOccurrences(AuthenticationHelper(this.context!!).getHeaderMap()!!)
+            .enqueue(object :
+                Callback<ArrayList<OccurrencesResponse>> {
+                override fun onResponse(
+                    call: Call<ArrayList<OccurrencesResponse>>,
+                    response: Response<ArrayList<OccurrencesResponse>>
+                ) {
+                    entireList = response.body()!!
+                    checkImageUploadedStatus()
+                    val dateTimeUtil = DateTimeUtil()
+                    entireList.forEach {
+                        if (DateTimeUtil().getDifferenceInDate(
+                                Calendar.getInstance().time,
+                                dateTimeUtil.getDateFromString(it.startAt)
+                            ).first in 0..8
+                        ) {
+                            listByWeek.add(it)
+                        }
+                        if (DateTimeUtil().getDifferenceInDate(
+                                Calendar.getInstance().time,
+                                dateTimeUtil.getDateFromString(it.startAt)
+                            ).first in 0..31
+                        ) {
+                            listByMonth.add(it)
+                        }
 
-                    if (DateTimeUtil().getDifferenceInDate(
-                            Calendar.getInstance().time,
-                            dateTimeUtil.getDateFromString(it.startAt)
-                        ).first in 0..365
-                    ) {
-                        listByYear.add(it)
+                        if (DateTimeUtil().getDifferenceInDate(
+                                Calendar.getInstance().time,
+                                dateTimeUtil.getDateFromString(it.startAt)
+                            ).first in 0..365
+                        ) {
+                            listByYear.add(it)
+                        }
                     }
+                    setAdapter(listByWeek)
+                    progressDialog.hideProgress()
                 }
-                setAdapter(listByWeek)
-                progressDialog.hideProgress()
-            }
 
-            override fun onFailure(
-                call: Call<ArrayList<OccurrencesResponse>>,
-                throwable: Throwable
-            ) {
-                progressDialog.hideProgress()
-            }
-        })
+                override fun onFailure(
+                    call: Call<ArrayList<OccurrencesResponse>>,
+                    throwable: Throwable
+                ) {
+                    progressDialog.hideProgress()
+                }
+            })
     }
 
     private fun setAdapter(recyclerDataArrayList: ArrayList<OccurrencesResponse>) {
         val mAdapter =
-            UpcomingEventsAdapter(recyclerDataArrayList, this)
+            UpcomingEventsAdapter(this.context!!, recyclerDataArrayList, this)
         fragmentUpcomingEventsBinding.rvUpcomingEvents.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(activity)
         fragmentUpcomingEventsBinding.rvUpcomingEvents.layoutManager = layoutManager

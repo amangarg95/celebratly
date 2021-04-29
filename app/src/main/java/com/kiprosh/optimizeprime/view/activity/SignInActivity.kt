@@ -98,7 +98,8 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun getAuthenticationToken(googleSignInAccount: GoogleSignInAccount) {
         progressBar.showProgress(supportFragmentManager)
-        apiInterface.getTokenNew(googleSignInAccount.email!!.toString())
+        val headerMap = AuthenticationHelper(this).getAndroidSecretKeyHeaderMap()
+        apiInterface.getTokenNew(headerMap!!, googleSignInAccount.email!!.toString())
             .enqueue(object : Callback<UserProfile> {
                 override fun onResponse(call: Call<UserProfile>, response: Response<UserProfile>) {
                     if (response.isSuccessful) {

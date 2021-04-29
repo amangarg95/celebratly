@@ -1,5 +1,6 @@
 package com.kiprosh.optimizeprime.view.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View.*
 import android.view.ViewGroup
@@ -7,10 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentUpcomingEventItemBinding
+import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.DateTimeUtil
 import com.kiprosh.optimizeprime.model.OccurrencesResponse
 
 class UpcomingEventsAdapter(
+    private val context: Context,
     private val values: List<OccurrencesResponse>, private val actionListener: ActionListener
 ) : RecyclerView.Adapter<UpcomingEventsAdapter.ViewHolder>() {
 
@@ -61,6 +64,7 @@ class UpcomingEventsAdapter(
         holder.binding.tvCardName.text = occurrencesResponse.title
         holder.binding.content.text = occurrencesResponse.caption
         holder.binding.tvDate.text = DateTimeUtil().changeDateFormat(occurrencesResponse.startAt)
+        CommonCode(context).loadUserProfileImage(holder.binding.ivUserProfile, occurrencesResponse.photoUrl)
     }
 
     override fun getItemCount(): Int = values.size
