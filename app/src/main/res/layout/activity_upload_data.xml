@@ -184,6 +184,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/screen_margin_start_end_medium"
             android:background="@drawable/bg_round"
+            android:imeOptions="actionDone"
             android:maxLength="130"
             android:maxLines="3"
             android:padding="@dimen/screen_margin_start_end_low"
