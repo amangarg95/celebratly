@@ -5,6 +5,11 @@
     <data>
 
         <variable
+            name="thumbnailUrl"
+            type="String" />
+
+
+        <variable
             name="videoUrl"
             type="String" />
 
@@ -167,7 +172,8 @@
                     app:rewind_increment="10000"
                     app:show_timeout="0"
                     app:thumbnail="@{thumbnail}"
-                    app:video_url="@{videoUrl}" />
+                    app:video_url="@{videoUrl}"
+                    app:thumbnail_url="@{thumbnailUrl}" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/thumbnail"
