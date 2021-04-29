@@ -18,6 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler().postDelayed({
             val spSignIn =
                 this.getSharedPreferences(authenticationHelper.keyName, Context.MODE_PRIVATE)
+
             redirectIntent =
                 if (!spSignIn.getBoolean(authenticationHelper.keyIsFirstSignIn, true)) {
                     Intent(

@@ -79,6 +79,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             if (task.isSuccessful) {
                 try {
+                    AuthenticationHelper(this).saveSignInStatus()
                     val account = task.getResult(ApiException::class.java)!!
                     getAuthenticationToken(account)
                 } catch (e: ApiException) {
@@ -187,5 +188,13 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = ContextCompat.getColor(this, R.color.pistachio_green)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val a = Intent(Intent.ACTION_MAIN)
+        a.addCategory(Intent.CATEGORY_HOME)
+        a.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(a)
     }
 }
