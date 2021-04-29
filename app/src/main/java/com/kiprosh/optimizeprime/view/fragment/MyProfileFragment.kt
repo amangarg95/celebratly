@@ -11,6 +11,7 @@ import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyProfileBinding
 import com.kiprosh.optimizeprime.helper.*
 import com.kiprosh.optimizeprime.model.OccurrencesResponse
+import com.kiprosh.optimizeprime.model.ProfileAndOccurrencesResponse
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.FeedAdapter
@@ -41,32 +42,25 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
         authenticationHelper = AuthenticationHelper(activity!!.applicationContext)
         binding.rvMyFeed.layoutManager = LinearLayoutManager(context)
         user = authenticationHelper.getUser()
-        getOccurrences()
+        getProfileWithOccurrences()
         updateStatusBarColour()
-        CommonCode(context!!).loadUserProfileImage(
-            binding.ivUserProfile,
-            user!!.profileUrl
-        )
         return binding.root
     }
 
-    private fun getOccurrences() {
+    private fun getProfileWithOccurrences() {
         progressDialog.showProgress(fragmentManager)
         var recyclerDataArrayList: ArrayList<OccurrencesResponse>
-        apiInterface.getOccurrences().enqueue(object :
-            Callback<ArrayList<OccurrencesResponse>> {
+        val headerMap = authenticationHelper.getHeaderMap()
+
+        apiInterface.getProfileWithOccurrences(headerMap!!).enqueue(object :
+            Callback<ProfileAndOccurrencesResponse> {
             override fun onResponse(
-                call: Call<ArrayList<OccurrencesResponse>>,
-                response: Response<ArrayList<OccurrencesResponse>>
+                call: Call<ProfileAndOccurrencesResponse>,
+                response: Response<ProfileAndOccurrencesResponse>
             ) {
                 if (response.isSuccessful) {
-                    recyclerDataArrayList = response.body()!!
-                    Log.d(
-                        "occurrence_test",
-                        "recyclerDataArrayList-->" + recyclerDataArrayList.toString()
-                    )
-                    val feedHelper = FeedHelper()
-                    recyclerDataArrayList = response.body()!!
+                    recyclerDataArrayList = response.body()?.listOfOccurrences!!
+
 //                    val eventList = feedHelper.sortList(recyclerDataArrayList)
 //                    recyclerDataArrayList.clear()
 //                    recyclerDataArrayList.addAll(eventList)
@@ -76,11 +70,10 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
             }
 
             override fun onFailure(
-                call: Call<ArrayList<OccurrencesResponse>>,
+                call: Call<ProfileAndOccurrencesResponse>,
                 throwable: Throwable
             ) {
                 progressDialog.hideProgress()
-                Log.d("occurrence_test", "throwable-->" + throwable.message)
 
             }
         })
