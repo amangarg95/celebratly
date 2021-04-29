@@ -75,11 +75,7 @@ class FeedAdapter(
                     updateCards(model, holder.binding)
                 }
                 holder.binding.ivShareText.visibility = View.VISIBLE
-                holder.binding.ivShareText.setOnClickListener {
-                    onShareClickListener.onShareClick(
-                        model.finalVideoUrl
-                    )
-                }
+                holder.binding.ivShareText.setOnClickListener { onShareClickListener.onShareClick("https://player.vimeo.com/external/481511608.hd.mp4?s=40bfbf85159679a2f69f1155f9ae4d6da357580b") }
             } else {
                 holder.binding.llPic.visibility = View.GONE
                 holder.binding.cvProfileInfo.visibility = View.GONE
@@ -137,8 +133,7 @@ class FeedAdapter(
             var videoPlayerUrl = model.finalVideoUrl
             Log.d("test_video_url","videoPlayerUrl-->"+videoPlayerUrl)
             if (videoPlayerUrl.isNullOrEmpty()) {
-                videoPlayerUrl =
-                    "http://res.cloudinary.com/hbwugi9ry/video/upload/v1/compiled_videos/r5fpqaftdyqp1qnkcd1gg67rmk8l.mp4"
+                videoPlayerUrl = ""
             }
 
             binding.apply {
@@ -148,6 +143,8 @@ class FeedAdapter(
                 index = adapterPosition
                 executePendingBindings()
             }
+
+
         }
     }
 
