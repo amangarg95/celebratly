@@ -70,11 +70,11 @@ class PlayerViewAdapter {
             requireAll = false
         )
         fun PlayerView.loadVideo(
-            url: String,
-            thumbnailUrl: String,
-            callback: PlayerStateCallback,
-            progressbar: ProgressBar,
-            thumbnail: AppCompatImageView,
+            url: String?,
+            thumbnailUrl: String?,
+            callback: PlayerStateCallback?,
+            progressbar: ProgressBar?,
+            thumbnail: AppCompatImageView?,
             item_index: Int? = null
         ) {
             if (url == null) return
@@ -120,7 +120,7 @@ class PlayerViewAdapter {
                     super.onPlayerStateChanged(playWhenReady, playbackState)
 
                     if (playbackState == Player.STATE_BUFFERING) {
-                        callback.onVideoBuffering(player)
+                        callback?.onVideoBuffering(player)
                         // Buffering..
                         // set progress bar visible here
                         // set thumbnail visible
@@ -133,13 +133,13 @@ class PlayerViewAdapter {
                         //progressbar.visibility = View.GONE
                         // set thumbnail gone
                         //thumbnail.visibility = View.GONE
-                        callback.onVideoDurationRetrieved(this@loadVideo.player!!.duration, player)
+                        callback?.onVideoDurationRetrieved(this@loadVideo.player!!.duration, player)
                     }
 
                     if (playbackState == Player.STATE_READY && player.playWhenReady) {
                         // [PlayerView] has started playing/resumed the video
                         this@loadVideo.iv_exo_player_thumbnail.visibility = GONE
-                        callback.onStartedPlaying(player)
+                        callback?.onStartedPlaying(player)
                     }
                 }
             })

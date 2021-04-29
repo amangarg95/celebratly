@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -51,40 +52,61 @@ class FeedAdapter(
         if (holder is VideoPlayerViewHolder) {
             val model = getItem(position)
             val genericViewHolder = holder
-
-            if (!isMyFeed) {
-                if (position == 0) {
-                    CommonCode(mContext).loadUserProfileImage(
-                        holder.binding.ivUserProfile,
-                        user!!.profileUrl
-                    )
-                    holder.binding.llPic.visibility = View.VISIBLE
-                    holder.binding.cvProfileInfo.visibility = View.VISIBLE
-                    holder.binding.tvMyFeed.visibility = View.VISIBLE
-                    if (user != null) {
-                        holder.binding.tvName.text = user.fullName
-                        holder.binding.tvEmail.text = user.email
-                        holder.binding.tvDob.text = dateTimeUtil.changeDateFormat(user.dob)
-                        holder.binding.tvDoj.text = dateTimeUtil.changeDateFormat(user.doj)
+            if (!modelList.isEmpty()) {
+                if (!isMyFeed) {
+                    if (position == 0) {
+                        CommonCode(mContext).loadUserProfileImage(
+                            holder.binding.ivUserProfile,
+                            user!!.profileUrl
+                        )
+                        holder.binding.llPic.visibility = View.VISIBLE
+                        holder.binding.cvProfileInfo.visibility = View.VISIBLE
+                        holder.binding.tvMyFeed.visibility = View.VISIBLE
+                        if (user != null) {
+                            holder.binding.tvName.text = user.fullName
+                            holder.binding.tvEmail.text = user.email
+                            holder.binding.tvDob.text = dateTimeUtil.changeDateFormat(user.dob)
+                            holder.binding.tvDoj.text = dateTimeUtil.changeDateFormat(user.doj)
+                        }
+                        updateCards(model, holder.binding)
+                    } else {
+                        holder.binding.llPic.visibility = View.GONE
+                        holder.binding.cvProfileInfo.visibility = View.GONE
+                        holder.binding.tvMyFeed.visibility = View.GONE
+                        updateCards(model, holder.binding)
                     }
-                    updateCards(model, holder.binding)
+                    holder.binding.ivShareText.visibility = View.VISIBLE
+                    holder.binding.ivShareText.setOnClickListener { onShareClickListener.onShareClick("https://player.vimeo.com/external/481511608.hd.mp4?s=40bfbf85159679a2f69f1155f9ae4d6da357580b") }
                 } else {
                     holder.binding.llPic.visibility = View.GONE
                     holder.binding.cvProfileInfo.visibility = View.GONE
                     holder.binding.tvMyFeed.visibility = View.GONE
+                    holder.binding.ivShareText.visibility = View.GONE
                     updateCards(model, holder.binding)
                 }
-                holder.binding.ivShareText.visibility = View.VISIBLE
-                holder.binding.ivShareText.setOnClickListener { onShareClickListener.onShareClick("https://player.vimeo.com/external/481511608.hd.mp4?s=40bfbf85159679a2f69f1155f9ae4d6da357580b") }
-            } else {
-                holder.binding.llPic.visibility = View.GONE
-                holder.binding.cvProfileInfo.visibility = View.GONE
-                holder.binding.tvMyFeed.visibility = View.GONE
-                holder.binding.ivShareText.visibility = View.GONE
-                updateCards(model, holder.binding)
+                // send data to view holder
+                genericViewHolder.onBind(model, holder)
+            } else{
+                if (!isMyFeed) {
+                    if (position == 0) {
+                        CommonCode(mContext).loadUserProfileImage(
+                            holder.binding.ivUserProfile,
+                            user!!.profileUrl
+                        )
+                        holder.binding.llPic.visibility = View.VISIBLE
+                        holder.binding.cvProfileInfo.visibility = View.VISIBLE
+                        holder.binding.tvMyFeed.visibility = View.VISIBLE
+                        if (user != null) {
+                            holder.binding.tvName.text = user.fullName
+                            holder.binding.tvEmail.text = user.email
+                            holder.binding.tvDob.text = dateTimeUtil.changeDateFormat(user.dob)
+                            holder.binding.tvDoj.text = dateTimeUtil.changeDateFormat(user.doj)
+                        }
+                        holder.binding.cvPlayer.visibility = GONE
+                        holder.binding.tvMyFeed.text = "---------  Your memories will appear here  ---------"
+                    }
+                }
             }
-            // send data to view holder
-            genericViewHolder.onBind(model, holder)
         }
     }
 
@@ -95,11 +117,20 @@ class FeedAdapter(
     }
 
     override fun getItemCount(): Int {
-        return modelList.size
+        return if (modelList.isEmpty()) {
+            1
+        } else{
+            modelList.size
+        }
     }
 
     private fun getItem(position: Int): OccurrencesResponse {
-        return modelList[position]
+        return if (modelList.isEmpty()) {
+            OccurrencesResponse(true, "","","",1,"","","",1,"","",
+                mutableListOf(),"","","","",0L)
+        } else{
+            modelList[position]
+        }
     }
 
     fun setOnItemClickListener(mItemClickListener: OnItemClickListener?) {

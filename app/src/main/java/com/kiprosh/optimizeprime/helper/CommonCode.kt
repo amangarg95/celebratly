@@ -88,7 +88,7 @@ class CommonCode(val context: Context) {
         return Base64.encodeToString(byteArray, Base64.DEFAULT)
     }
 
-    fun loadImageWithUrl(profileUrl: String, drawableId: Int, imageView: AppCompatImageView) {
+    fun loadImageWithUrl(profileUrl: String?, drawableId: Int, imageView: AppCompatImageView) {
         if (drawableId == 0) {
             Glide.with(context).load(profileUrl)
                 .into(imageView)

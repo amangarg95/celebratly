@@ -137,6 +137,7 @@
             android:text="-----------  My Memories  -----------" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_player"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/screen_margin_start_end_medium"
