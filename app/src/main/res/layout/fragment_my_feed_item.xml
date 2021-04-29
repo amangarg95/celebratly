@@ -132,16 +132,18 @@
 
                 <com.google.android.exoplayer2.ui.PlayerView
                     android:id="@+id/exo_player_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:layout_gravity="center"
                     android:visibility="visible"
                     app:controller_layout_id="@layout/home_player_control"
                     app:fastforward_increment="10000"
                     app:hide_on_touch="false"
                     app:item_index="@{index}"
+                    app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="1"
                     app:on_state_change="@{callback}"
                     app:progressbar="@{progressBar}"
                     app:resize_mode="fill"
@@ -153,15 +155,15 @@
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/thumbnail"
                     android:layout_width="0dp"
-                    android:layout_height="200dp"
+                    android:layout_height="0dp"
                     android:adjustViewBounds="true"
                     android:background="#fff"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/bg_friends"
                     android:visibility="gone"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@id/exo_player_view"
+                    app:layout_constraintEnd_toEndOf="@id/exo_player_view"
+                    app:layout_constraintStart_toStartOf="@id/exo_player_view"
+                    app:layout_constraintTop_toTopOf="@id/exo_player_view" />
 
                 <ProgressBar
                     android:id="@+id/progressBar"
