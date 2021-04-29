@@ -1,6 +1,7 @@
 package com.kiprosh.optimizeprime.view.fragment
 
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
@@ -159,7 +160,9 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        initUi()
+        if (resultCode == Activity.RESULT_OK) {
+            initUi()
+        }
     }
 
     fun checkImageUploadedStatus() {
