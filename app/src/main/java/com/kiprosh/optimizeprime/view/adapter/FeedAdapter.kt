@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.exoplayer2.Player
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyFeedItemBinding
+import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.DateTimeUtil
 import com.kiprosh.optimizeprime.helper.PlayerStateCallback
 import com.kiprosh.optimizeprime.model.OccurrencesResponse
@@ -53,6 +54,11 @@ class FeedAdapter(
 
             if (!isMyFeed) {
                 if (position == 0) {
+                    CommonCode(mContext).loadUserProfileImage(
+                        holder.binding.ivUserProfile,
+                        user!!.profileUrl
+                    )
+                    holder.binding.llPic.visibility = View.VISIBLE
                     holder.binding.cvProfileInfo.visibility = View.VISIBLE
                     holder.binding.tvMyFeed.visibility = View.VISIBLE
                     if (user != null) {
@@ -63,6 +69,7 @@ class FeedAdapter(
                     }
                     updateCards(model, holder.binding)
                 } else {
+                    holder.binding.llPic.visibility = View.GONE
                     holder.binding.cvProfileInfo.visibility = View.GONE
                     holder.binding.tvMyFeed.visibility = View.GONE
                     updateCards(model, holder.binding)
@@ -70,6 +77,7 @@ class FeedAdapter(
                 holder.binding.ivShareText.visibility = View.VISIBLE
                 holder.binding.ivShareText.setOnClickListener { onShareClickListener.onShareClick("https://player.vimeo.com/external/481511608.hd.mp4?s=40bfbf85159679a2f69f1155f9ae4d6da357580b") }
             } else {
+                holder.binding.llPic.visibility = View.GONE
                 holder.binding.cvProfileInfo.visibility = View.GONE
                 holder.binding.tvMyFeed.visibility = View.GONE
                 holder.binding.ivShareText.visibility = View.GONE
@@ -125,7 +133,7 @@ class FeedAdapter(
             var videoPlayerUrl = model.finalVideoUrl
             if (videoPlayerUrl.isNullOrEmpty()) {
                 videoPlayerUrl =
-                    "https://player.vimeo.com/external/481511608.hd.mp4?s=40bfbf85159679a2f69f1155f9ae4d6da357580b"
+                    "https://user-images.githubusercontent.com/10561168/116468087-0fde9580-a88e-11eb-8057-caedb4e35160.mp4"
             }
 
             binding.apply {
