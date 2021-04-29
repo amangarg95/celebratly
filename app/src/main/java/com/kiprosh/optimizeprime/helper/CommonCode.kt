@@ -87,4 +87,15 @@ class CommonCode(val context: Context) {
         val byteArray = byteArrayOutputStream.toByteArray()
         return Base64.encodeToString(byteArray, Base64.DEFAULT)
     }
+
+    fun loadImageWithUrl(profileUrl: String, drawableId: Int, imageView: AppCompatImageView) {
+        if (drawableId == 0) {
+            Glide.with(context).load(profileUrl)
+                .into(imageView)
+        } else {
+            Glide.with(context).load(profileUrl)
+                .apply(RequestOptions().placeholder(drawableId).error(drawableId))
+                .into(imageView)
+        }
+    }
 }

@@ -2,16 +2,22 @@ package com.kiprosh.optimizeprime.view.adapter
 
 import android.content.Context
 import android.net.Uri
-import android.view.View
+import android.view.View.GONE
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
-import com.google.android.exoplayer2.*
+import com.google.android.exoplayer2.ExoPlaybackException
+import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
+import com.google.android.exoplayer2.source.TrackGroupArray
+import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.google.android.exoplayer2.ui.PlayerView
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
+import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.PlayerStateCallback
+import kotlinx.android.synthetic.main.home_player_control.view.*
 
 // extension function for show toast
 fun Context.toast(text: String) {
@@ -60,11 +66,12 @@ class PlayerViewAdapter {
         * */
         @JvmStatic
         @BindingAdapter(
-            value = ["video_url", "on_state_change", "progressbar", "thumbnail", "item_index"],
+            value = ["video_url", "thumbnail_url", "on_state_change", "progressbar", "thumbnail", "item_index"],
             requireAll = false
         )
         fun PlayerView.loadVideo(
             url: String,
+            thumbnailUrl: String,
             callback: PlayerStateCallback,
             progressbar: ProgressBar,
             thumbnail: AppCompatImageView,
@@ -72,6 +79,7 @@ class PlayerViewAdapter {
         ) {
             if (url == null) return
             val player = SimpleExoPlayer.Builder(context).build()
+            CommonCode(context).loadImageWithUrl(thumbnailUrl, 0, this@loadVideo.iv_exo_player_thumbnail)
 
             player.playWhenReady = false
             player.repeatMode = Player.REPEAT_MODE_ALL
@@ -96,6 +104,12 @@ class PlayerViewAdapter {
                 playersMap[item_index] = player
 
             this.player!!.addListener(object : Player.EventListener {
+                override fun onTracksChanged(
+                    trackGroups: TrackGroupArray,
+                    trackSelections: TrackSelectionArray
+                ) {
+                    super.onTracksChanged(trackGroups, trackSelections)
+                }
 
                 override fun onPlayerError(error: ExoPlaybackException) {
                     super.onPlayerError(error)
@@ -124,6 +138,7 @@ class PlayerViewAdapter {
 
                     if (playbackState == Player.STATE_READY && player.playWhenReady) {
                         // [PlayerView] has started playing/resumed the video
+                        this@loadVideo.iv_exo_player_thumbnail.visibility = GONE
                         callback.onStartedPlaying(player)
                     }
                 }

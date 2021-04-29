@@ -135,12 +135,14 @@ class FeedAdapter(
                 )
             }
             var videoPlayerUrl = model.finalVideoUrl
+            Log.d("test_video_url","videoPlayerUrl-->"+videoPlayerUrl)
             if (videoPlayerUrl.isNullOrEmpty()) {
                 videoPlayerUrl =
-                    "https://user-images.githubusercontent.com/10561168/116468087-0fde9580-a88e-11eb-8057-caedb4e35160.mp4"
+                    "http://res.cloudinary.com/hbwugi9ry/video/upload/v1/compiled_videos/r5fpqaftdyqp1qnkcd1gg67rmk8l.mp4"
             }
 
             binding.apply {
+                thumbnailUrl = videoPlayerUrl.replace(".mp4", ".jpg")
                 videoUrl = videoPlayerUrl
                 callback = this@FeedAdapter
                 index = adapterPosition
@@ -159,19 +161,14 @@ class FeedAdapter(
     }
 
     override fun onVideoDurationRetrieved(duration: Long, player: Player) {
-        Log.d("playvideo", "onVideoDurationRetrieved")
     }
 
     override fun onVideoBuffering(player: Player) {
-        Log.d("playvideo", "onVideoBuffering")
     }
 
     override fun onStartedPlaying(player: Player) {
-        Log.d("playvideo", "staaaart" + player.contentDuration)
-
     }
 
     override fun onFinishedPlaying(player: Player) {
-        Log.d("playvideo", "onFinishedPlaying")
     }
 }
