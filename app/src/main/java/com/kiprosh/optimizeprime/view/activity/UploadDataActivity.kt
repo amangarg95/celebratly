@@ -146,15 +146,10 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
     }
 
     private fun uploadData(encodedString: String) {
-//        var headerMap = AuthenticationHelper(this).getHeaderMap()
-        var headerMap = mutableMapOf<String, String>()
-        if (headerMap.isNullOrEmpty()) {
-            headerMap["Authorization"] =
-                "Bearer " + "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MjYsImV4cCI6MTYyNDcwOTkyMH0.EXggM21bXPnfdT0olp0mbRo0VossAysyssu8ITT6Vsk"
-        }
-        var encodedStringReq = EncodedStringReq()
+        val headerMap = AuthenticationHelper(this).getHeaderMap()
+        val encodedStringReq = EncodedStringReq()
         encodedStringReq.email = encodedString
-        apiInterface.uploadData(headerMap, occurrenceId.toString(), encodedStringReq)
+        apiInterface.uploadData(headerMap!!, occurrenceId.toString(), encodedStringReq)
             .enqueue(object :
                 Callback<UploadDataResponse> {
                 override fun onResponse(
