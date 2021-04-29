@@ -49,17 +49,7 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
             initiateLogOut()
         }
 
-        user = User(
-            id = 26,
-            email = "kavita@kiprosh.com",
-            fullName = "Kavita Patil",
-            dob = "1994-12-19",
-            doj = "2018-09-18",
-            profileUrl = "https://lh3.googleusercontent.com/a-/AOh14Gi24WNKELOZbdPyNS3NhOTsW_omeoblxRqvFkiH=s96-c",
-            fcmToken = "eYtGLP0fSguaa0gvF6Jlt4:APA91bGdgFxknfzn94vFEmUmg3kCWwJLxaXIkyw9BW73NAy3KI7Dvr2g0nOPXCajFyf6YkZEE0ibGFZno_jQIvCXk4ZSSlVPDm2dYaQmqzacay7hxAYqzaC9mlPYQwNasVqVxn57zL2W",
-            token = "eYtGLP0fSguaa0gvF6Jlt4:APA91bGdgFxknfzn94vFEmUmg3kCWwJLxaXIkyw9BW73NAy3KI7Dvr2g0nOPXCajFyf6YkZEE0ibGFZno_jQIvCXk4ZSSlVPDm2dYaQmqzacay7hxAYqzaC9mlPYQwNasVqVxn57zL2W"
-        )
-//        user = authenticationHelper.getUser()
+        user = authenticationHelper.getUser()
         getOccurrences()
         updateStatusBarColour()
         CommonCode(context!!).loadUserProfileImage(
