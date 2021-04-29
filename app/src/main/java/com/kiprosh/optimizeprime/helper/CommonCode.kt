@@ -22,7 +22,7 @@ class CommonCode(val context: Context) {
 
     fun loadUserProfileImage(civUserProfile: CircleImageView, profileUrl: String?) {
         Glide.with(context).load(profileUrl)
-            .apply(RequestOptions().placeholder(R.drawable.no_profile).error(R.drawable.no_profile))
+            .apply(RequestOptions().placeholder(R.drawable.bg_friends).error(R.drawable.bg_friends))
             .into(civUserProfile)
     }
 

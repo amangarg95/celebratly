@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentFeedBinding
+import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.FeedHelper
 import com.kiprosh.optimizeprime.helper.ProgressDialog
 import com.kiprosh.optimizeprime.helper.RecyclerViewScrollListener
@@ -47,7 +48,7 @@ class FeedFragment : Fragment(), FeedAdapter.OnShareClickListener {
     private fun getOccurrences() {
         progressDialog.showProgress(fragmentManager)
         var recyclerDataArrayList: ArrayList<OccurrencesResponse>
-        apiInterface.getOccurrences().enqueue(object :
+        apiInterface.getOccurrences(AuthenticationHelper(this.context!!).getHeaderMap()!!).enqueue(object :
             Callback<ArrayList<OccurrencesResponse>> {
             override fun onResponse(
                 call: Call<ArrayList<OccurrencesResponse>>,

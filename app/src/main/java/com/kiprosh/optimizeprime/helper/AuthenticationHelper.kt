@@ -33,6 +33,12 @@ class AuthenticationHelper(var context: Context) {
         }
     }
 
+    fun getAndroidSecretKeyHeaderMap(): Map<String, String>? {
+        val headerMap = mutableMapOf<String, String>()
+        headerMap["Android-Secret"] = "RCGQCvLyVrnLYBQCaSg8D5hx"
+        return headerMap
+    }
+
     fun getUser(): User? {
         val spUser = context.getSharedPreferences(keyName, Context.MODE_PRIVATE)
         val userString = spUser.getString(keyUser, null)

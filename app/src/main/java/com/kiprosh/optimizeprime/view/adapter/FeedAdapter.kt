@@ -133,7 +133,7 @@ class FeedAdapter(
         return if (modelList.isEmpty()) {
             OccurrencesResponse(
                 true, "", "", "", 1, "", "", "", 1, "", "",
-                mutableListOf(), "", "", "", "", 0L
+                mutableListOf(), "", "", "", "", 0L, "", ""
             )
         } else {
             modelList[position]
