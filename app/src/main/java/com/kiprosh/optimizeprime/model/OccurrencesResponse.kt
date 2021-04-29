@@ -1,6 +1,7 @@
 package com.kiprosh.optimizeprime.model
 
 import com.google.gson.annotations.SerializedName
+import java.sql.Timestamp
 
 data class OccurrencesResponse(
     @SerializedName("allow_upload")
@@ -32,5 +33,7 @@ data class OccurrencesResponse(
     @SerializedName("url")
     var url: String,
     @SerializedName("image_url")
-    var imageUrl: String = ""
+    var imageUrl: String = "",
+    @SerializedName("timestamp")
+    var timestamp: Long
 )

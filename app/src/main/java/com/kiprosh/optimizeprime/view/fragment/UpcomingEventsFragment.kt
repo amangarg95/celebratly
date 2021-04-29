@@ -81,6 +81,8 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
             if (user != null) {
                 userName = user.fullName
             }
+//            intent.putExtra("ASSOCIATE_NAME", occurrencesResponse)
+            intent.putExtra("ASSOCIATE_NAME", "Associate Name")
             intent.putExtra("USER_NAME", userName)
             startActivityForResult(intent, 0)
         } else {

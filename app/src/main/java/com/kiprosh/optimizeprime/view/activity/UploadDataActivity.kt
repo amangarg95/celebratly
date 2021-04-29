@@ -36,11 +36,13 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
     private lateinit var apiInterface: APIInterface
     private lateinit var authenticationHelper: AuthenticationHelper
     private var occurrenceId = 0
+    private var nameOfAssociate = ""
     private var userName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         occurrenceId = intent.getIntExtra("OCCURRENCE_ID", 0)
+        nameOfAssociate = intent.getStringExtra("ASSOCIATE_NAME").toString()
         userName = intent.getStringExtra("USER_NAME").toString()
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(APIInterface::class.java)
         authenticationHelper = AuthenticationHelper(applicationContext)
@@ -56,9 +58,10 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
         uploadDataActivityBinding.civCustomBackground.setOnClickListener {
             BottomSheetDialog(this).show(supportFragmentManager, " ModalBottomSheet")
         }
+        uploadDataActivityBinding.tvPreviewText.text = "Text Preview Here"
+        uploadDataActivityBinding.etGreeting.hint = "Click here to add wishes for $nameOfAssociate"
         uploadDataActivityBinding.etGreeting.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                //Do nothing
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {

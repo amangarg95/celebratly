@@ -24,7 +24,7 @@
             android:background="@color/intro_slide_2"
             android:fontFamily="@font/roboto_medium"
             android:padding="16dp"
-            android:text="Send Greeting"
+            android:text="Send Wishes"
             android:textColor="@color/white"
             android:textSize="28dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,6 @@
                     android:gravity="center"
                     android:maxLength="130"
                     android:padding="@dimen/screen_padding_all_side_medium"
-                    android:text="Add your greetings..."
                     android:textColor="@color/white"
                     android:textSize="24dp"
                     app:layout_constraintBottom_toBottomOf="@id/iv_preview"
@@ -173,7 +172,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/screen_margin_top_bottom_low"
                     android:gravity="center"
-                    android:text="Custom \nBackground" />
+                    android:text="Default \nTemplates" />
             </LinearLayout>
         </LinearLayout>
 
@@ -184,7 +183,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/screen_margin_start_end_medium"
             android:background="@drawable/bg_round"
-            android:hint="Click here to add greeting..."
             android:maxLength="130"
             android:maxLines="3"
             android:padding="@dimen/screen_margin_start_end_low"
@@ -211,7 +209,7 @@
             android:background="@drawable/bg_round"
             android:fontFamily="@font/roboto_medium"
             android:padding="8dp"
-            android:text="Send Greeting"
+            android:text="Send Wishes"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -225,7 +223,7 @@
             android:layout_margin="@dimen/screen_margin_start_end_medium"
             android:fontFamily="@font/roboto_medium"
             android:gravity="center"
-            android:text="Greeting once uploaded cannot be deleted/modified"
+            android:text="Wishes once uploaded cannot be deleted/modified"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_upload_greeting" />

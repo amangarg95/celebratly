@@ -56,9 +56,12 @@ class FeedFragment : Fragment(), FeedAdapter.OnShareClickListener {
                 if (response.isSuccessful) {
                     val feedHelper = FeedHelper()
                     recyclerDataArrayList = response.body()!!
-//                    val eventList = feedHelper.sortList(recyclerDataArrayList)
-//                    recyclerDataArrayList.clear()
-//                    recyclerDataArrayList.addAll(eventList)
+                    recyclerDataArrayList = recyclerDataArrayList.filter {
+                        !it.finalVideoUrl.isNullOrEmpty()
+                    } as ArrayList<OccurrencesResponse>
+                    val eventList = feedHelper.sortList(recyclerDataArrayList)
+                    recyclerDataArrayList.clear()
+                    recyclerDataArrayList.addAll(eventList)
                     myFeedFragmentBinding.rvMyFeed.layoutManager = LinearLayoutManager(context)
                     setAdapter(recyclerDataArrayList)
                 }
