@@ -34,6 +34,8 @@ data class OccurrencesResponse(
     var url: String,
     @SerializedName("image_url")
     var imageUrl: String = "",
+    @SerializedName("upload_time_distance_in_words")
+    var uploadTimeDistanceInWords: String,
     @SerializedName("timestamp")
     var timestamp: Long
 )

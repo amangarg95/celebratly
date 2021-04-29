@@ -8,6 +8,7 @@ import com.github.appintro.AppIntro2
 import com.github.appintro.AppIntroFragment
 import com.github.appintro.AppIntroPageTransformerType
 import com.kiprosh.optimizeprime.R
+import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 
 class IntroActivity : AppIntro2() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,16 +53,17 @@ class IntroActivity : AppIntro2() {
             selectedIndicatorColor = resources.getColor(R.color.bottom_bar_pistachio_green),
             unselectedIndicatorColor = resources.getColor(R.color.yellow)
         )
-
         setImmersiveMode()
     }
 
     public override fun onSkipPressed(currentFragment: Fragment?) {
         super.onSkipPressed(currentFragment)
+        AuthenticationHelper(applicationContext).saveSignInStatus(1)
         openSignInActivity()
     }
 
     public override fun onDonePressed(currentFragment: Fragment?) {
+        AuthenticationHelper(applicationContext).saveSignInStatus(1)
         super.onDonePressed(currentFragment)
         openSignInActivity()
     }

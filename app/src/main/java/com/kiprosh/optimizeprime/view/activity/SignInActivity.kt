@@ -79,8 +79,8 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             if (task.isSuccessful) {
                 try {
-                    AuthenticationHelper(this).saveSignInStatus()
                     val account = task.getResult(ApiException::class.java)!!
+                    AuthenticationHelper(applicationContext).saveSignInStatus(2)
                     getAuthenticationToken(account)
                 } catch (e: ApiException) {
                     Toast.makeText(applicationContext, R.string.text_api_error, Toast.LENGTH_SHORT)

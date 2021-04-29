@@ -1,8 +1,6 @@
 package com.kiprosh.optimizeprime.view.fragment
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -12,7 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentMyProfileBinding
-import com.kiprosh.optimizeprime.helper.*
+import com.kiprosh.optimizeprime.helper.AuthenticationHelper
+import com.kiprosh.optimizeprime.helper.CommonCode
+import com.kiprosh.optimizeprime.helper.ProgressDialog
+import com.kiprosh.optimizeprime.helper.RecyclerViewScrollListener
 import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.model.ProfileAndOccurrencesResponse
 import com.kiprosh.optimizeprime.model.User
@@ -99,8 +100,6 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
         val mAdapter =
             FeedAdapter(requireActivity(), user, recyclerDataArrayList, false, this)
         binding.rvMyFeed.setHasFixedSize(true)
-
-        // use a linear layout manager
         val layoutManager = LinearLayoutManager(activity)
         binding.rvMyFeed.layoutManager = layoutManager
         binding.rvMyFeed.adapter = mAdapter
@@ -130,11 +129,7 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
     }
 
     private fun initiateLogOut() {
-        val preferences: SharedPreferences =
-            this.context!!.getSharedPreferences("Information", Context.MODE_PRIVATE)
-        val editor = preferences.edit()
-        editor.clear()
-        editor.apply()
+        AuthenticationHelper(this.context!!).saveSignInStatus(1)
         val intent = Intent(this.activity, SignInActivity::class.java)
         startActivity(intent)
     }

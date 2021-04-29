@@ -20,16 +20,25 @@ class SplashScreenActivity : AppCompatActivity() {
                 this.getSharedPreferences(authenticationHelper.keyName, Context.MODE_PRIVATE)
 
             redirectIntent =
-                if (!spSignIn.getBoolean(authenticationHelper.keyIsFirstSignIn, true)) {
-                    Intent(
-                        this@SplashScreenActivity,
-                        SignInActivity::class.java
-                    )
-                } else {
-                    Intent(
-                        this@SplashScreenActivity,
-                        IntroActivity::class.java
-                    )
+                when {
+                    spSignIn.getInt(authenticationHelper.keyIsFirstSignIn, 0) == 1 -> {
+                        Intent(
+                            this@SplashScreenActivity,
+                            SignInActivity::class.java
+                        )
+                    }
+                    spSignIn.getInt(authenticationHelper.keyIsFirstSignIn, 0) == 2 -> {
+                        Intent(
+                            this@SplashScreenActivity,
+                            MainActivity::class.java
+                        )
+                    }
+                    else -> {
+                        Intent(
+                            this@SplashScreenActivity,
+                            IntroActivity::class.java
+                        )
+                    }
                 }
             startActivity(redirectIntent)
             finish()

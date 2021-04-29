@@ -28,7 +28,7 @@ import kotlin.collections.ArrayList
 
 class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener {
     private lateinit var fragmentUpcomingEventsBinding: FragmentUpcomingEventsBinding
-    lateinit var apiInterface: APIInterface
+    private lateinit var apiInterface: APIInterface
     lateinit var progressDialog: ProgressDialog
     var listByWeek = ArrayList<OccurrencesResponse>()
     var listByMonth = ArrayList<OccurrencesResponse>()
@@ -77,7 +77,7 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
             val intent = Intent(this.context, UploadDataActivity::class.java)
             intent.putExtra("OCCURRENCE_ID", occurrencesResponse.id)
             var user = AuthenticationHelper(context!!).getUser()
-            var userName = "Park Jimin"
+            var userName = ""
             if (user != null) {
                 userName = user.fullName
             }
@@ -165,11 +165,7 @@ class UpcomingEventsFragment : Fragment(), UpcomingEventsAdapter.ActionListener 
     fun checkImageUploadedStatus() {
         for (occurrence in entireList) {
             occurrence.statusUploads.forEach {
-//                if (it.user.token == AuthenticationHelper(this.context!!).getUser()!!.token) {
-//                    occurrence.imageUrl = it.imageUrl
-//                }
-
-                if (it.user.email == "kavita@kiprosh.com") {
+                if (it.user.email == AuthenticationHelper(this.context!!).getUser()!!.email) {
                     occurrence.imageUrl = it.imageUrl
                 }
             }

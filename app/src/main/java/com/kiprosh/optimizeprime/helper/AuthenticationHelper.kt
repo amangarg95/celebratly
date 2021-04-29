@@ -9,7 +9,7 @@ class AuthenticationHelper(var context: Context) {
 
     val keyName = "Information"
     val keyUser = "User"
-    val keyIsFirstSignIn = "FirstSignIn"
+    val keyIsFirstSignIn = "SignInStatus"
 
     fun saveUserProfile(userProfile: UserProfile?) {
         if (userProfile != null) {
@@ -42,10 +42,10 @@ class AuthenticationHelper(var context: Context) {
         return null
     }
 
-    fun saveSignInStatus() {
+    fun saveSignInStatus(status: Int) {
         val spUser = context.getSharedPreferences(keyName, Context.MODE_PRIVATE)
         val editor = spUser.edit()
-        editor.putBoolean(keyIsFirstSignIn, false)
+        editor.putInt(keyIsFirstSignIn, status)
         editor.apply()
     }
 }

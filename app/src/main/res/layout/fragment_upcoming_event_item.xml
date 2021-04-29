@@ -124,8 +124,7 @@
                         style="@style/TextViewSmallMuted"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/screen_margin_start_end_low"
-                        android:text="5 hours remaining to wish" />
+                        android:layout_marginStart="@dimen/screen_margin_start_end_low" />
                 </LinearLayout>
 
                 <androidx.appcompat.widget.AppCompatTextView

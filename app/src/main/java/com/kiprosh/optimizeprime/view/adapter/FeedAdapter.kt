@@ -75,7 +75,11 @@ class FeedAdapter(
                     updateCards(model, holder.binding)
                 }
                 holder.binding.ivShareText.visibility = View.VISIBLE
-                holder.binding.ivShareText.setOnClickListener { onShareClickListener.onShareClick("https://player.vimeo.com/external/481511608.hd.mp4?s=40bfbf85159679a2f69f1155f9ae4d6da357580b") }
+                holder.binding.ivShareText.setOnClickListener {
+                    onShareClickListener.onShareClick(
+                        model.finalVideoUrl
+                    )
+                }
             } else {
                 holder.binding.llPic.visibility = View.GONE
                 holder.binding.cvProfileInfo.visibility = View.GONE
