@@ -186,11 +186,11 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_share_text"
-                    android:layout_width="@dimen/size_image_small"
-                    android:layout_height="@dimen/size_image_small"
+                    android:layout_width="@dimen/size_image_medium"
+                    android:layout_height="@dimen/size_image_medium"
                     android:layout_margin="@dimen/screen_margin_top_bottom_low"
                     android:src="@drawable/ic_share"
-                    app:layout_constraintBottom_toBottomOf="@+id/content"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/content" />
 

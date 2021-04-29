@@ -8,7 +8,6 @@ import com.github.appintro.AppIntro2
 import com.github.appintro.AppIntroFragment
 import com.github.appintro.AppIntroPageTransformerType
 import com.kiprosh.optimizeprime.R
-import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 
 class IntroActivity : AppIntro2() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +38,10 @@ class IntroActivity : AppIntro2() {
             AppIntroFragment.newInstance(
                 description = "Make sure you never celebrate\nyour special day, alone",
                 descriptionColor = resources.getColor(R.color.text_danger),
-                backgroundColor = ContextCompat.getColor(applicationContext, R.color.red_with_white),
+                backgroundColor = ContextCompat.getColor(
+                    applicationContext,
+                    R.color.red_with_white
+                ),
                 imageDrawable = R.drawable.ic_2
             )
         )
@@ -56,13 +58,11 @@ class IntroActivity : AppIntro2() {
 
     public override fun onSkipPressed(currentFragment: Fragment?) {
         super.onSkipPressed(currentFragment)
-        AuthenticationHelper(this).saveSignInStatus()
         openSignInActivity()
     }
 
     public override fun onDonePressed(currentFragment: Fragment?) {
         super.onDonePressed(currentFragment)
-        AuthenticationHelper(this).saveSignInStatus()
         openSignInActivity()
     }
 

@@ -54,7 +54,7 @@ class UpcomingEventsAdapter(
         if (!occurrencesResponse.imageUrl.isNullOrEmpty()) {
             holder.binding.ivLock.setImageResource(R.drawable.ic_check)
             holder.binding.tvAction.visibility = VISIBLE
-            holder.binding.tvAction.text = "Click on the card to preview your wishes!"
+            holder.binding.tvAction.text = "Tap on the card to preview your wishes!"
             holder.binding.llMain.setOnClickListener {
                 actionListener.onItemClick(
                     occurrencesResponse,
@@ -63,7 +63,7 @@ class UpcomingEventsAdapter(
             }
         } else {
             holder.binding.tvAction.visibility = VISIBLE
-            holder.binding.tvAction.text = "Click on the card to upload your wishes!"
+            holder.binding.tvAction.text = "Tap on the card to upload your wishes!"
             holder.binding.llMain.setOnClickListener {
                 actionListener.onItemClick(
                     occurrencesResponse,

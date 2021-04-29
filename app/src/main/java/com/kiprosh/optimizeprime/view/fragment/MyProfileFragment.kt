@@ -1,5 +1,8 @@
 package com.kiprosh.optimizeprime.view.fragment
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -13,6 +16,7 @@ import com.kiprosh.optimizeprime.helper.*
 import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.services.APIInterface
+import com.kiprosh.optimizeprime.view.activity.SignInActivity
 import com.kiprosh.optimizeprime.view.adapter.FeedAdapter
 import com.kiprosh.optimizeprime.view.adapter.PlayerViewAdapter
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
@@ -20,6 +24,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
+
 
 class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
     private lateinit var binding: FragmentMyProfileBinding
@@ -40,7 +45,21 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
         progressDialog = ProgressDialog()
         authenticationHelper = AuthenticationHelper(activity!!.applicationContext)
         binding.rvMyFeed.layoutManager = LinearLayoutManager(context)
-        user = authenticationHelper.getUser()
+        binding.tvLogOut.setOnClickListener {
+            initiateLogOut()
+        }
+
+        user = User(
+            id = 26,
+            email = "kavita@kiprosh.com",
+            fullName = "Kavita Patil",
+            dob = "1994-12-19",
+            doj = "2018-09-18",
+            profileUrl = "https://lh3.googleusercontent.com/a-/AOh14Gi24WNKELOZbdPyNS3NhOTsW_omeoblxRqvFkiH=s96-c",
+            fcmToken = "eYtGLP0fSguaa0gvF6Jlt4:APA91bGdgFxknfzn94vFEmUmg3kCWwJLxaXIkyw9BW73NAy3KI7Dvr2g0nOPXCajFyf6YkZEE0ibGFZno_jQIvCXk4ZSSlVPDm2dYaQmqzacay7hxAYqzaC9mlPYQwNasVqVxn57zL2W",
+            token = "eYtGLP0fSguaa0gvF6Jlt4:APA91bGdgFxknfzn94vFEmUmg3kCWwJLxaXIkyw9BW73NAy3KI7Dvr2g0nOPXCajFyf6YkZEE0ibGFZno_jQIvCXk4ZSSlVPDm2dYaQmqzacay7hxAYqzaC9mlPYQwNasVqVxn57zL2W"
+        )
+//        user = authenticationHelper.getUser()
         getOccurrences()
         updateStatusBarColour()
         CommonCode(context!!).loadUserProfileImage(
@@ -125,5 +144,15 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
 
     override fun onShareClick(link: String) {
         CommonCode(context!!).shareTextWithAnotherApp(context!!, link)
+    }
+
+    private fun initiateLogOut() {
+        val preferences: SharedPreferences =
+            this.context!!.getSharedPreferences("Information", Context.MODE_PRIVATE)
+        val editor = preferences.edit()
+        editor.clear()
+        editor.apply()
+        val intent = Intent(this.activity, SignInActivity::class.java)
+        startActivity(intent)
     }
 }

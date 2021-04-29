@@ -20,11 +20,11 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.ktx.messaging
 import com.kiprosh.optimizeprime.R
-import com.kiprosh.optimizeprime.model.UserProfile
 import com.kiprosh.optimizeprime.databinding.ActivityLoginBinding
 import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.ProgressDialog
 import com.kiprosh.optimizeprime.model.User
+import com.kiprosh.optimizeprime.model.UserProfile
 import com.kiprosh.optimizeprime.services.APIInterface
 import com.kiprosh.optimizeprime.view.adapter.RetrofitClientInstance
 import retrofit2.Call
@@ -79,6 +79,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             if (task.isSuccessful) {
                 try {
+                    AuthenticationHelper(this).saveSignInStatus()
                     val account = task.getResult(ApiException::class.java)!!
                     getAuthenticationToken(account)
                 } catch (e: ApiException) {
@@ -189,5 +190,13 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = ContextCompat.getColor(this, R.color.pistachio_green)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val a = Intent(Intent.ACTION_MAIN)
+        a.addCategory(Intent.CATEGORY_HOME)
+        a.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(a)
     }
 }
