@@ -21,16 +21,15 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@drawable/logo_celebratly"
         android:supportsRtl="true"
-    android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.OptimizePrimeAndroidApp">
-
+        android:theme="@style/Theme.OptimizePrimeAndroidApp"
+        android:usesCleartextTraffic="true">
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_appintro_arrow" />
+            android:resource="@drawable/ic_stat_celebration" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/text_warning" />
+            android:resource="@color/yellow" />
 
         <activity
             android:name=".view.activity.PreviewActivity"

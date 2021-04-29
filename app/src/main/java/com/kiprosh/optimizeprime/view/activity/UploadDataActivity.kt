@@ -59,7 +59,15 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
             BottomSheetDialog(this).show(supportFragmentManager, " ModalBottomSheet")
         }
         uploadDataActivityBinding.tvPreviewText.text = "Text Preview Here"
-        uploadDataActivityBinding.etGreeting.hint = "Click here to add wishes for $nameOfAssociate"
+
+        if (nameOfAssociate.isNullOrEmpty()) {
+            uploadDataActivityBinding.etGreeting.hint = "Click here to add wishes..."
+        } else {
+            uploadDataActivityBinding.etGreeting.hint =
+                "Click here to add wishes for $nameOfAssociate"
+        }
+
+
         uploadDataActivityBinding.etGreeting.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
