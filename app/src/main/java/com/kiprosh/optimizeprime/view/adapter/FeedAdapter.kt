@@ -70,23 +70,27 @@ class FeedAdapter(
                         }
                         updateCards(model, holder.binding)
                     } else {
-                        holder.binding.llPic.visibility = View.GONE
-                        holder.binding.cvProfileInfo.visibility = View.GONE
-                        holder.binding.tvMyFeed.visibility = View.GONE
+                        holder.binding.llPic.visibility = GONE
+                        holder.binding.cvProfileInfo.visibility = GONE
+                        holder.binding.tvMyFeed.visibility = GONE
                         updateCards(model, holder.binding)
                     }
                     holder.binding.ivShareText.visibility = View.VISIBLE
-                    holder.binding.ivShareText.setOnClickListener { onShareClickListener.onShareClick("https://player.vimeo.com/external/481511608.hd.mp4?s=40bfbf85159679a2f69f1155f9ae4d6da357580b") }
+                    holder.binding.ivShareText.setOnClickListener {
+                        onShareClickListener.onShareClick(
+                            model.finalVideoUrl
+                        )
+                    }
                 } else {
-                    holder.binding.llPic.visibility = View.GONE
-                    holder.binding.cvProfileInfo.visibility = View.GONE
-                    holder.binding.tvMyFeed.visibility = View.GONE
-                    holder.binding.ivShareText.visibility = View.GONE
+                    holder.binding.llPic.visibility = GONE
+                    holder.binding.cvProfileInfo.visibility = GONE
+                    holder.binding.tvMyFeed.visibility = GONE
+                    holder.binding.ivShareText.visibility = GONE
                     updateCards(model, holder.binding)
                 }
                 // send data to view holder
                 genericViewHolder.onBind(model, holder)
-            } else{
+            } else {
                 if (!isMyFeed) {
                     if (position == 0) {
                         CommonCode(mContext).loadUserProfileImage(
@@ -103,7 +107,8 @@ class FeedAdapter(
                             holder.binding.tvDoj.text = dateTimeUtil.changeDateFormat(user.doj)
                         }
                         holder.binding.cvPlayer.visibility = GONE
-                        holder.binding.tvMyFeed.text = "---------  Your memories will appear here  ---------"
+                        holder.binding.tvMyFeed.text =
+                            "---------  Your memories will appear here  ---------"
                     }
                 }
             }
@@ -119,16 +124,18 @@ class FeedAdapter(
     override fun getItemCount(): Int {
         return if (modelList.isEmpty()) {
             1
-        } else{
+        } else {
             modelList.size
         }
     }
 
     private fun getItem(position: Int): OccurrencesResponse {
         return if (modelList.isEmpty()) {
-            OccurrencesResponse(true, "","","",1,"","","",1,"","",
-                mutableListOf(),"","","","",0L)
-        } else{
+            OccurrencesResponse(
+                true, "", "", "", 1, "", "", "", 1, "", "",
+                mutableListOf(), "", "", "", "", 0L
+            )
+        } else {
             modelList[position]
         }
     }
@@ -162,7 +169,7 @@ class FeedAdapter(
                 )
             }
             var videoPlayerUrl = model.finalVideoUrl
-            Log.d("test_video_url","videoPlayerUrl-->"+videoPlayerUrl)
+            Log.d("test_video_url", "videoPlayerUrl-->" + videoPlayerUrl)
             if (videoPlayerUrl.isNullOrEmpty()) {
                 videoPlayerUrl = ""
             }
