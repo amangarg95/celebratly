@@ -60,10 +60,11 @@ class UploadDataActivity : AppCompatActivity(), BottomSheetDialog.onItemClickLis
         }
         uploadDataActivityBinding.tvPreviewText.text = "Text Preview Here"
 
-        if(nameOfAssociate.isNullOrEmpty()){
+        if (nameOfAssociate.isNullOrEmpty()) {
             uploadDataActivityBinding.etGreeting.hint = "Click here to add wishes..."
-        }else{
-            uploadDataActivityBinding.etGreeting.hint = "Click here to add wishes for $nameOfAssociate"
+        } else {
+            uploadDataActivityBinding.etGreeting.hint =
+                "Click here to add wishes for $nameOfAssociate"
         }
 
 

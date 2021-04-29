@@ -19,11 +19,10 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
         val intent = Intent(this, MainActivity::class.java)
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_ANIMATION)
         intent.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT)
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
         val builder: NotificationCompat.Builder = NotificationCompat.Builder(this, defaultChannel)
-            .setSmallIcon(R.drawable.ic_appintro_arrow)
+            .setSmallIcon(R.drawable.ic_stat_celebration)
             .setContentTitle(message.notification!!.title)
             .setContentText(message.notification!!.body).setAutoCancel(true)
             .setContentIntent(pendingIntent)

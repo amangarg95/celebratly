@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.kiprosh.optimizeprime.R
 import com.kiprosh.optimizeprime.databinding.FragmentUpcomingEventItemBinding
+import com.kiprosh.optimizeprime.helper.AuthenticationHelper
 import com.kiprosh.optimizeprime.helper.CommonCode
 import com.kiprosh.optimizeprime.helper.DateTimeUtil
 import com.kiprosh.optimizeprime.model.OccurrencesResponse
@@ -60,11 +61,19 @@ class UpcomingEventsAdapter(
             holder.binding.llSchedule.visibility = INVISIBLE
         }
 
-
+        if (AuthenticationHelper(context).getUser()!!.fullName.trimIndent() == occurrencesResponse.actionText) {
+            holder.binding.llMain.isClickable = false
+            holder.binding.tvAction.visibility = GONE
+            holder.binding.ivLock.setImageResource(R.drawable.ic_lock)
+            holder.binding.llSchedule.visibility = INVISIBLE
+        }
         holder.binding.tvCardName.text = occurrencesResponse.title
         holder.binding.content.text = occurrencesResponse.caption
         holder.binding.tvDate.text = DateTimeUtil().changeDateFormat(occurrencesResponse.startAt)
-        CommonCode(context).loadUserProfileImage(holder.binding.ivUserProfile, occurrencesResponse.photoUrl)
+        CommonCode(context).loadUserProfileImage(
+            holder.binding.ivUserProfile,
+            occurrencesResponse.photoUrl
+        )
     }
 
     override fun getItemCount(): Int = values.size
