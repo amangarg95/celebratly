@@ -1,7 +1,6 @@
 package com.kiprosh.optimizeprime.services
 
 import com.kiprosh.optimizeprime.model.*
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -23,11 +22,10 @@ interface APIInterface {
     ): Call<UploadDataResponse>
 
 
-    @FormUrlEncoded
     @PUT("/profile.json")
     fun updateProfile(
         @HeaderMap header: Map<String, String>,
-        @Field("profile_url") profileUrl: String,
-        @Field("fcm_token") fcmToken: String
+        @Query("profile_url") profileUrl: String,
+        @Query("fcm_token") fcmToken: String
     ): Call<User>
 }

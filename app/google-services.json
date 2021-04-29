@@ -1,20 +1,28 @@
 {
   "project_info": {
-    "project_number": "647031865202",
-    "project_id": "optimize-prime-kiprosh",
-    "storage_bucket": "optimize-prime-kiprosh.appspot.com"
+    "project_number": "599087277559",
+    "project_id": "celebratly-5dbbc",
+    "storage_bucket": "celebratly-5dbbc.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:647031865202:android:863363262d6ee9e650e7eb",
+        "mobilesdk_app_id": "1:599087277559:android:1baaa78e7360b4764c3af2",
         "android_client_info": {
           "package_name": "com.kiprosh.optimizeprime"
         }
       },
       "oauth_client": [
         {
-          "client_id": "647031865202-ng5pulb0mfi1cmtkf3qiaaifvt40d5dr.apps.googleusercontent.com",
+          "client_id": "599087277559-jf7oe559qdrbe2d1rugsr3a4akikatji.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kiprosh.optimizeprime",
+            "certificate_hash": "6000ffdc1b7c185a934023fecb4b271852b59e64"
+          }
+        },
+        {
+          "client_id": "599087277559-s3r99o050vl0ui4aoh6b16hgm7m54ich.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.kiprosh.optimizeprime",
@@ -22,20 +30,20 @@
           }
         },
         {
-          "client_id": "647031865202-i5j5m6cf950pb8kn2n2t6dedqi0hta8f.apps.googleusercontent.com",
+          "client_id": "599087277559-ahq7vo277e7r39d91qu4b97l3evp22b6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCFfwqxE7ZuLzXE8V0LC8Cb6qBXSpoIYSQ"
+          "current_key": "AIzaSyBsg9p4-rr9Je42wvd01V8LssPItywsHG4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "647031865202-i5j5m6cf950pb8kn2n2t6dedqi0hta8f.apps.googleusercontent.com",
+              "client_id": "599087277559-ahq7vo277e7r39d91qu4b97l3evp22b6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
