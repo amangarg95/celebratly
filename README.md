@@ -1,5 +1,7 @@
 # Celebratly - Belated is outdated
 
+---
+
 Celebratly makes sure you never celebrate your special day, alone. Whether it is your birthday or your workiversary, your mornings will be flooded with blessings & greetings from your colleagues. And not only that, you can be a part of someone else’s celebrations too! With an easy-to-use interface, simple & clean design, Celebratly makes sure you don’t miss out on these simple opportunities to change your life positively.
 
 ## List of Features:
