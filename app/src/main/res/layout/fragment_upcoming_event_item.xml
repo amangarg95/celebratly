@@ -97,8 +97,7 @@
                         style="@style/TextViewBodyTextMuted"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/screen_margin_start_end_low"
-                        android:text="March 02, 2021" />
+                        android:layout_marginStart="@dimen/screen_margin_start_end_low" />
                 </LinearLayout>
 
                 <LinearLayout

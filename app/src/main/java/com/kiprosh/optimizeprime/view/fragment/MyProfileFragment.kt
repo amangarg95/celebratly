@@ -18,6 +18,7 @@ import com.kiprosh.optimizeprime.model.OccurrencesResponse
 import com.kiprosh.optimizeprime.model.ProfileAndOccurrencesResponse
 import com.kiprosh.optimizeprime.model.User
 import com.kiprosh.optimizeprime.services.APIInterface
+import com.kiprosh.optimizeprime.view.activity.AboutCelebratlyActivity
 import com.kiprosh.optimizeprime.view.activity.SignInActivity
 import com.kiprosh.optimizeprime.view.adapter.FeedAdapter
 import com.kiprosh.optimizeprime.view.adapter.PlayerViewAdapter
@@ -28,7 +29,7 @@ import retrofit2.Response
 import java.util.*
 
 
-class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
+class MyProfileFragment : Fragment(), FeedAdapter.OnClickListener {
     private lateinit var binding: FragmentMyProfileBinding
     lateinit var progressDialog: ProgressDialog
     lateinit var apiInterface: APIInterface
@@ -50,7 +51,6 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
         binding.tvLogOut.setOnClickListener {
             initiateLogOut()
         }
-
         user = authenticationHelper.getUser()
         getProfileWithOccurrences()
         updateStatusBarColour()
@@ -114,7 +114,7 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
         binding.rvMyFeed.addOnScrollListener(scrollListener)
         mAdapter.setOnItemClickListener(object : FeedAdapter.OnItemClickListener {
             override fun onItemClick(view: View?, position: Int, model: OccurrencesResponse?) {
-
+                // Do nothing
             }
         })
     }
@@ -126,6 +126,11 @@ class MyProfileFragment : Fragment(), FeedAdapter.OnShareClickListener {
 
     override fun onShareClick(link: String) {
         CommonCode(context!!).shareTextWithAnotherApp(context!!, link)
+    }
+
+    override fun onAboutCelebratlyClick() {
+        val intent = Intent(this.activity, AboutCelebratlyActivity::class.java)
+        startActivity(intent)
     }
 
     private fun initiateLogOut() {

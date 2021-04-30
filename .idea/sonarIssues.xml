@@ -3,6 +3,31 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="$PROJECT_DIR$/../AppIntro/appintro/src/main/java/com/github/appintro/AppIntro2.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../AppIntro/example/src/main/java/com/github/appintro/example/ui/default/DefaultIntro2.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../BubbleTabBar/app/src/main/res/layout/fragment_nav_controller.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../BubbleTabBar/app/src/main/res/menu/list.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../BubbleTabBar/app/src/main/res/values/styles.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/README.md">
           <value>
             <set />
@@ -283,6 +308,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/activity/AboutCelebratlyActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/kiprosh/optimizeprime/view/activity/IntroActivity.kt">
           <value>
             <set />
@@ -394,6 +424,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/intro_fragment_layout_1.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_about_celebratly.xml">
           <value>
             <set />
           </value>
@@ -524,31 +559,6 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/build.gradle">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Desktop/AppIntro/appintro/src/main/java/com/github/appintro/AppIntro2.kt">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Desktop/AppIntro/example/src/main/java/com/github/appintro/example/ui/default/DefaultIntro2.kt">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Desktop/BubbleTabBar/app/src/main/res/layout/fragment_nav_controller.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Desktop/BubbleTabBar/app/src/main/res/menu/list.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$USER_HOME$/Desktop/BubbleTabBar/app/src/main/res/values/styles.xml">
           <value>
             <set />
           </value>

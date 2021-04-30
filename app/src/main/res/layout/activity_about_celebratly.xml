@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".view.activity.AboutCelebratlyActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/lavender"
+            app:layout_constraintBottom_toTopOf="@+id/gd_bg_height"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_about_celebratly"
+            style="@style/TextViewLargeBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lavender"
+            android:fontFamily="@font/roboto_medium"
+            android:padding="16dp"
+            android:text="About Celebratly"
+            android:textColor="@color/white"
+            android:textSize="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_about_celebratly"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="30dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gd_h_1"
+            app:layout_constraintWidth_percent="0.9">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/screen_margin_top_bottom_medium"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/civ"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/logo_celebratly"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.4" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/our_story"
+                        style="@style/TextViewHeaderOneMuted"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/screen_margin_top_bottom_medium"
+                        android:text="Our Story"
+                        android:textColor="@color/lavender"
+                        app:layout_constraintTop_toBottomOf="@+id/civ" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_story"
+                        style="@style/TextViewBodyText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/screen_margin_top_bottom_medium"
+                        android:text="Hola! \nCelebratly is a brainchild of 6 individuals, who like to call themselves Optimize Prime - Optimize, Transform and Roll out. We are a perfect amalgamation of mobile developers, server side developers and QA as the backbone of the group.\nThe motivation behind developing Celebratly was simple: No more belated wishes."
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toBottomOf="@+id/our_story" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_thanks"
+                        style="@style/TextViewHeaderOneMuted"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/screen_margin_top_bottom_medium"
+                        android:layout_marginTop="@dimen/screen_margin_top_bottom_high"
+                        android:layout_marginEnd="@dimen/screen_margin_top_bottom_medium"
+                        android:layout_marginBottom="@dimen/screen_margin_top_bottom_medium"
+                        android:text="A word of thanks"
+                        android:textColor="@color/lavender"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_story" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_thanks_detail"
+                        style="@style/TextViewBodyText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/screen_margin_top_bottom_medium"
+                        android:text="The world is a better place because there is always someone out there helping others. Someone is always trying to make this world a better place to live. Whether it’s through their actions or comments, these folks deserve our thanks. We would like to thank everyone who supported us throughout this beautiful journey. Here are some credits:\n\n1. www.google.com\n\n2. www.github.com\n\n3. www.slack.com\n\n4. www.soundcloud.com\n\n5. www.chosic.com\n\n6. www.flaticon.com\n\n7. www.freepik.com"
+                        android:textColor="@color/black"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_thanks" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_h_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_h_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_bg_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".45" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

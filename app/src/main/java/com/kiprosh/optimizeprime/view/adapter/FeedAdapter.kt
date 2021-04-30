@@ -24,8 +24,9 @@ class FeedAdapter(
     private val user: User?,
     private var modelList: ArrayList<OccurrencesResponse>,
     private var isMyFeed: Boolean,
-    private val onShareClickListener: OnShareClickListener
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), PlayerStateCallback {
+    private val onClickListener: OnClickListener,
+
+    ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), PlayerStateCallback {
     private val dateTimeUtil = DateTimeUtil()
 
     private var mItemClickListener: OnItemClickListener? =
@@ -47,6 +48,7 @@ class FeedAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+
 
         //Here you can fill your row view
         if (holder is VideoPlayerViewHolder) {
@@ -77,7 +79,7 @@ class FeedAdapter(
                     }
                     holder.binding.ivShareText.visibility = View.VISIBLE
                     holder.binding.ivShareText.setOnClickListener {
-                        onShareClickListener.onShareClick(
+                        onClickListener.onShareClick(
                             model.finalVideoUrl
                         )
                     }
@@ -109,6 +111,8 @@ class FeedAdapter(
                         holder.binding.cvPlayer.visibility = GONE
                         holder.binding.tvMyFeed.text =
                             "---------  Your memories will appear here  ---------"
+
+                        holder.binding.tvAboutCelebratly.setOnClickListener { onClickListener.onAboutCelebratlyClick() }
                     }
                 }
             }
@@ -152,8 +156,9 @@ class FeedAdapter(
         )
     }
 
-    interface OnShareClickListener {
+    interface OnClickListener {
         fun onShareClick(link: String)
+        fun onAboutCelebratlyClick()
     }
 
     inner class VideoPlayerViewHolder(val binding: FragmentMyFeedItemBinding) :

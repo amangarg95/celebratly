@@ -25,7 +25,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class FeedFragment : Fragment(), FeedAdapter.OnShareClickListener {
+class FeedFragment : Fragment(), FeedAdapter.OnClickListener {
     private lateinit var myFeedFragmentBinding: FragmentFeedBinding
     lateinit var apiInterface: APIInterface
     lateinit var progressDialog: ProgressDialog
@@ -122,6 +122,10 @@ class FeedFragment : Fragment(), FeedAdapter.OnShareClickListener {
     }
 
     override fun onShareClick(link: String) {
+        //Do Nothing
+    }
+
+    override fun onAboutCelebratlyClick() {
         //Do Nothing
     }
 }
