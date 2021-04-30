@@ -9,18 +9,12 @@
         android:background="@color/pistachio_green"
         tools:context=".view.activity.LoginActivity">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_my_feed"
-            style="@style/TextViewLargeBold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="Sign In"
-            android:textColor="@color/white"
-            android:textSize="28dp"
-            app:layout_constraintBottom_toTopOf="@id/google_button"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_sign"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_sign_in_bg"
+            app:layout_constraintBottom_toTopOf="@id/iv_no_data"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,10 +23,10 @@
             android:id="@+id/google_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:layout_constraintBottom_toTopOf="@id/iv_no_data"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_no_data"

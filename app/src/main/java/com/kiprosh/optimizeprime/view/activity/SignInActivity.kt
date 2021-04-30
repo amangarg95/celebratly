@@ -41,7 +41,6 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var authenticationHelper: AuthenticationHelper
     private lateinit var progressBar: ProgressDialog
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
@@ -150,11 +149,6 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                 ) {
                     if (response.isSuccessful) {
                         progressBar.hideProgress()
-                        Toast.makeText(
-                            applicationContext,
-                            "Authenticate Successfully",
-                            Toast.LENGTH_SHORT
-                        ).show()
                         openMainActivity()
                     } else {
                         progressBar.hideProgress()
@@ -193,9 +187,9 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val a = Intent(Intent.ACTION_MAIN)
-        a.addCategory(Intent.CATEGORY_HOME)
-        a.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(a)
+        val intent = Intent(Intent.ACTION_MAIN)
+        intent.addCategory(Intent.CATEGORY_HOME)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(intent)
     }
 }
